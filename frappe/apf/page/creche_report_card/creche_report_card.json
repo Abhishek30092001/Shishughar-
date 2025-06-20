@@ -1,0 +1,59 @@
+{
+ "content": null,
+ "creation": "2024-12-21 20:21:01.002486",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 60,
+ "modified": "2025-05-20 13:12:43.167851",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "creche_report_card",
+ "owner": "Administrator",
+ "page_name": "creche_report_card",
+ "roles": [
+  {
+   "role": "Full Admin"
+  },
+  {
+   "role": "Foundation Central Team"
+  },
+  {
+   "role": "APF State Admin"
+  },
+  {
+   "role": "APF State"
+  },
+  {
+   "role": "APF District"
+  },
+  {
+   "role": "APF Block"
+  },
+  {
+   "role": "APPI Administrator"
+  },
+  {
+   "role": "Partner Administrator"
+  },
+  {
+   "role": "M&E Manager"
+  },
+  {
+   "role": "Program Manager"
+  },
+  {
+   "role": "Accounts and Logistics Manager"
+  },
+  {
+   "role": "Capacity and Building Manager"
+  },
+  {
+   "role": "Cluster Coordinator"
+  }
+ ],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "Creche Report Card"
+}

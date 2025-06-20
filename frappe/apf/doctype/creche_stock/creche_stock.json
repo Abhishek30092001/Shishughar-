@@ -1,0 +1,179 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-10-25 15:45:31.293579",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "stock_geography_tab",
+  "partner_id",
+  "state_id",
+  "district_id",
+  "block_id",
+  "gp_id",
+  "village_id",
+  "creche_id",
+  "year",
+  "month",
+  "details_section",
+  "stock_list",
+  "hidden_tab",
+  "sguid",
+  "appcreated_by",
+  "appcreated_on",
+  "app_updated_by",
+  "app_updated_on"
+ ],
+ "fields": [
+  {
+   "fieldname": "stock_geography_tab",
+   "fieldtype": "Tab Break",
+   "label": "Stock Geography"
+  },
+  {
+   "fieldname": "partner_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Partner",
+   "options": "Partner",
+   "reqd": 1
+  },
+  {
+   "fieldname": "state_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "State",
+   "options": "State",
+   "reqd": 1
+  },
+  {
+   "fieldname": "district_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "District",
+   "options": "District",
+   "reqd": 1
+  },
+  {
+   "fieldname": "block_id",
+   "fieldtype": "Link",
+   "label": "Block",
+   "options": "Block",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gp_id",
+   "fieldtype": "Link",
+   "label": "Gram Panchayat",
+   "options": "Gram Panchayat",
+   "reqd": 1
+  },
+  {
+   "fieldname": "village_id",
+   "fieldtype": "Link",
+   "label": "Village",
+   "options": "Village",
+   "reqd": 1
+  },
+  {
+   "fieldname": "creche_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Creche",
+   "options": "Creche",
+   "reqd": 1
+  },
+  {
+   "fieldname": "year",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Year",
+   "options": "Year"
+  },
+  {
+   "fieldname": "month",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Month",
+   "options": "Months"
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Tab Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "stock_list",
+   "fieldtype": "Table",
+   "label": "Stock",
+   "options": "Stock Child table"
+  },
+  {
+   "fieldname": "hidden_tab",
+   "fieldtype": "Tab Break",
+   "hidden": 1,
+   "label": "Hidden"
+  },
+  {
+   "fieldname": "sguid",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "SGUID"
+  },
+  {
+   "fieldname": "appcreated_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "App created by"
+  },
+  {
+   "fieldname": "appcreated_on",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "App created on"
+  },
+  {
+   "fieldname": "app_updated_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "App updated by"
+  },
+  {
+   "fieldname": "app_updated_on",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "App updated on"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-10-25 16:20:54.554245",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "Creche Stock",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

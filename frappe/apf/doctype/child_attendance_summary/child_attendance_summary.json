@@ -1,0 +1,258 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2025-04-08 12:51:56.234904",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "year",
+  "partner_id",
+  "state_id",
+  "district_id",
+  "block_id",
+  "gp_id",
+  "creche_id",
+  "childenrolledguid",
+  "childattenguid",
+  "child_profile_id",
+  "hhcguid",
+  "hhguid",
+  "attendance",
+  "attend_slot",
+  "eligible_days",
+  "present_days",
+  "absent_days",
+  "name_of_child",
+  "child_id",
+  "date_of_exit",
+  "date_of_enrollment",
+  "partner_name",
+  "state_name",
+  "district_name",
+  "block_name",
+  "gp_name",
+  "creche_name",
+  "gender_id",
+  "age_at_enrollment_in_months",
+  "c_idx",
+  "supervisor_id",
+  "supervisor_name",
+  "phase",
+  "creche_status_id",
+  "creche_opening_date",
+  "creche_closing_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "year",
+   "fieldtype": "Data",
+   "label": "Year"
+  },
+  {
+   "fieldname": "partner_id",
+   "fieldtype": "Link",
+   "label": "Partner ID",
+   "options": "Partner"
+  },
+  {
+   "fieldname": "state_id",
+   "fieldtype": "Link",
+   "label": "State ID",
+   "options": "State"
+  },
+  {
+   "fieldname": "district_id",
+   "fieldtype": "Link",
+   "label": "District ID",
+   "options": "District"
+  },
+  {
+   "fieldname": "block_id",
+   "fieldtype": "Link",
+   "label": "Block ID",
+   "options": "Block"
+  },
+  {
+   "fieldname": "gp_id",
+   "fieldtype": "Link",
+   "label": "Gram Panchayat ID",
+   "options": "Gram Panchayat"
+  },
+  {
+   "fieldname": "creche_id",
+   "fieldtype": "Link",
+   "label": "Creche ID",
+   "options": "Creche"
+  },
+  {
+   "fieldname": "childenrolledguid",
+   "fieldtype": "Data",
+   "label": "Children Enrollroll GUID"
+  },
+  {
+   "fieldname": "childattenguid",
+   "fieldtype": "Data",
+   "label": "ChildAttenGUID"
+  },
+  {
+   "fieldname": "child_profile_id",
+   "fieldtype": "Data",
+   "label": "Child Profile ID"
+  },
+  {
+   "fieldname": "hhcguid",
+   "fieldtype": "Data",
+   "label": "HHCGUID"
+  },
+  {
+   "fieldname": "hhguid",
+   "fieldtype": "Data",
+   "label": "HHGUID"
+  },
+  {
+   "fieldname": "attendance",
+   "fieldtype": "Long Text",
+   "label": "Attendance"
+  },
+  {
+   "fieldname": "attend_slot",
+   "fieldtype": "Data",
+   "label": "Attend Slot"
+  },
+  {
+   "fieldname": "eligible_days",
+   "fieldtype": "Data",
+   "label": "Eligible Days"
+  },
+  {
+   "fieldname": "present_days",
+   "fieldtype": "Data",
+   "label": "Present Days"
+  },
+  {
+   "fieldname": "absent_days",
+   "fieldtype": "Data",
+   "label": "Absent Days"
+  },
+  {
+   "fieldname": "name_of_child",
+   "fieldtype": "Data",
+   "label": "Child Name"
+  },
+  {
+   "fieldname": "date_of_exit",
+   "fieldtype": "Data",
+   "label": "Date of Exit"
+  },
+  {
+   "fieldname": "date_of_enrollment",
+   "fieldtype": "Data",
+   "label": "Date of Enrollment"
+  },
+  {
+   "fieldname": "partner_name",
+   "fieldtype": "Data",
+   "label": "Partner Name"
+  },
+  {
+   "fieldname": "state_name",
+   "fieldtype": "Data",
+   "label": "State Name"
+  },
+  {
+   "fieldname": "district_name",
+   "fieldtype": "Data",
+   "label": "District Name"
+  },
+  {
+   "fieldname": "block_name",
+   "fieldtype": "Data",
+   "label": "Block Name"
+  },
+  {
+   "fieldname": "gp_name",
+   "fieldtype": "Data",
+   "label": "Gp Name"
+  },
+  {
+   "fieldname": "creche_name",
+   "fieldtype": "Data",
+   "label": "Creche Name"
+  },
+  {
+   "fieldname": "gender_id",
+   "fieldtype": "Data",
+   "label": "Gender"
+  },
+  {
+   "fieldname": "age_at_enrollment_in_months",
+   "fieldtype": "Data",
+   "label": "Age at Enrollment (in months)"
+  },
+  {
+   "fieldname": "c_idx",
+   "fieldtype": "Data",
+   "label": "Creche ID"
+  },
+  {
+   "fieldname": "supervisor_id",
+   "fieldtype": "Data",
+   "label": "Supervisor"
+  },
+  {
+   "fieldname": "supervisor_name",
+   "fieldtype": "Data",
+   "label": "Supervisor"
+  },
+  {
+   "fieldname": "phase",
+   "fieldtype": "Data",
+   "label": "Phases"
+  },
+  {
+   "fieldname": "creche_status_id",
+   "fieldtype": "Data",
+   "label": "Creche Status"
+  },
+  {
+   "fieldname": "creche_opening_date",
+   "fieldtype": "Data",
+   "label": "Creche Opening Date"
+  },
+  {
+   "fieldname": "creche_closing_date",
+   "fieldtype": "Data",
+   "label": "Creche Closing date"
+  },
+  {
+   "fieldname": "child_id",
+   "fieldtype": "Data",
+   "label": "Child ID"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-04-18 15:32:03.537074",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "Child Attendance Summary",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

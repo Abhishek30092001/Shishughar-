@@ -1,0 +1,23 @@
+{
+ "content": null,
+ "creation": "2025-02-27 18:28:29.034273",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2025-03-01 11:03:45.461170",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "report-card",
+ "owner": "Administrator",
+ "page_name": "report-card",
+ "roles": [
+  {
+   "role": "All"
+  }
+ ],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "Report Card"
+}

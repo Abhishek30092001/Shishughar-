@@ -1,0 +1,246 @@
+{
+ "actions": [],
+ "allow_copy": 1,
+ "autoname": "autoincrement",
+ "creation": "2024-02-19 10:17:44.378824",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "details_tab",
+  "partner_id",
+  "state_id",
+  "district_id",
+  "block_id",
+  "gp_id",
+  "village_id",
+  "column_break_clal",
+  "creche_id",
+  "creche_name",
+  "supervisor_id",
+  "creche_openning_time",
+  "creche_closing_time",
+  "weekly_holiday_id",
+  "is_active",
+  "caregiver_details",
+  "creche_caregiver_table",
+  "hidden_fields",
+  "app_created_by",
+  "app_created_on",
+  "app_updated_by",
+  "app_updated_on",
+  "deleted_on",
+  "deleted_by",
+  "column_break_dlro",
+  "latitude",
+  "longitude"
+ ],
+ "fields": [
+  {
+   "fieldname": "details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "partner_id",
+   "fieldtype": "Link",
+   "label": "Partner",
+   "options": "Partner",
+   "reqd": 1
+  },
+  {
+   "fieldname": "state_id",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "State",
+   "options": "State",
+   "reqd": 1
+  },
+  {
+   "depends_on": "state_id",
+   "fieldname": "district_id",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "District",
+   "options": "District",
+   "reqd": 1
+  },
+  {
+   "depends_on": "district_id",
+   "fieldname": "block_id",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Block",
+   "options": "Block",
+   "reqd": 1
+  },
+  {
+   "depends_on": "block_id",
+   "fieldname": "gp_id",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Gram Panchayat",
+   "options": "Gram Panchayat",
+   "reqd": 1
+  },
+  {
+   "depends_on": "gp_id",
+   "fieldname": "village_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Village",
+   "options": "Village",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_clal",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "creche_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Creche ID"
+  },
+  {
+   "fieldname": "creche_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Creche Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "supervisor_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Supervisor",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "creche_openning_time",
+   "fieldtype": "Time",
+   "label": "Creche Openning Time"
+  },
+  {
+   "fieldname": "creche_closing_time",
+   "fieldtype": "Time",
+   "label": "Creche Closing Time"
+  },
+  {
+   "fieldname": "weekly_holiday_id",
+   "fieldtype": "Link",
+   "label": "Weekly Holiday",
+   "options": "Days Of Week"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "caregiver_details",
+   "fieldtype": "Tab Break",
+   "label": "Caregiver Details"
+  },
+  {
+   "allow_bulk_edit": 1,
+   "fieldname": "creche_caregiver_table",
+   "fieldtype": "Table",
+   "label": "Creche Caregiver Table",
+   "options": "Creche Caregiver"
+  },
+  {
+   "fieldname": "hidden_fields",
+   "fieldtype": "Tab Break",
+   "hidden": 1,
+   "label": "Hidden Fields"
+  },
+  {
+   "fieldname": "app_created_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Created By"
+  },
+  {
+   "fieldname": "app_created_on",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "Created On"
+  },
+  {
+   "fieldname": "app_updated_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Updated By"
+  },
+  {
+   "fieldname": "app_updated_on",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "Updated On"
+  },
+  {
+   "fieldname": "deleted_on",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "Deleted On"
+  },
+  {
+   "fieldname": "deleted_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Deleted By"
+  },
+  {
+   "fieldname": "column_break_dlro",
+   "fieldtype": "Column Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "latitude",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Latitude"
+  },
+  {
+   "fieldname": "longitude",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Longitude"
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "is_appi": 1,
+ "links": [],
+ "modified": "2024-12-06 11:37:25.679244",
+ "modified_by": "Administrator",
+ "module": "Core",
+ "name": "Creche",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "creche_name"
+}

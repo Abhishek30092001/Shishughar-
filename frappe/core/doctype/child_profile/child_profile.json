@@ -1,0 +1,413 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-02-28 13:06:48.350090",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "child_details_tab",
+  "creche_id",
+  "partner",
+  "hh_child_id",
+  "child_name",
+  "image_field",
+  "child_dob",
+  "gender_id",
+  "date_of_enrollment",
+  "age_at_enrollment_in_months",
+  "currently_brestfeeding",
+  "does_child_have_any_disability",
+  "does_child_have_any_longterm_illness_more_than_6_months",
+  "if_yes",
+  "any_other_specify_illness",
+  "how_many_siblings_does_the_child_have",
+  "family_information_tab",
+  "name_of_primary_caregiver",
+  "relationship_with_child",
+  "birth_order_of_the_child",
+  "mobile",
+  "socioeconomic_background_tab",
+  "family_lives_in",
+  "type_of_house",
+  "source_of_drinking_water_in_the_household",
+  "do_they_migrate_for_work",
+  "land_available_for_cultivation",
+  "education_level_of_parentscaregiver",
+  "tab_5_tab",
+  "entitlement_received_by_the_family_at_present",
+  "entitlement_received_id",
+  "entitlement_any_other",
+  "is_the_child_enrolled_for_take_home_ration",
+  "hidden_fields_tab",
+  "created_by",
+  "created_on",
+  "appcreated_by",
+  "appcreated_on",
+  "app_updated_on",
+  "app_updated_by",
+  "updated_by",
+  "updated_on",
+  "is_active",
+  "is_exited",
+  "childenrollguid",
+  "chhguid",
+  "child_id",
+  "status",
+  "remarks",
+  "verification_date",
+  "date_of_exit"
+ ],
+ "fields": [
+  {
+   "fieldname": "child_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Child Details"
+  },
+  {
+   "fieldname": "creche_id",
+   "fieldtype": "Link",
+   "label": "Creche Name",
+   "options": "Creche",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "creche_id.partner_id",
+   "fieldname": "partner",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Partner",
+   "options": "Partner"
+  },
+  {
+   "default": "0",
+   "fieldname": "hh_child_id",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Child ID",
+   "length": 80
+  },
+  {
+   "fieldname": "child_name",
+   "fieldtype": "Data",
+   "label": "Child Name",
+   "length": 128,
+   "reqd": 1
+  },
+  {
+   "fieldname": "image_field",
+   "fieldtype": "Attach",
+   "label": "Image field"
+  },
+  {
+   "fieldname": "child_dob",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of Birth",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gender_id",
+   "fieldtype": "Link",
+   "label": "Gender",
+   "options": "Gender",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_of_enrollment",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of Enrollment",
+   "reqd": 1
+  },
+  {
+   "fieldname": "age_at_enrollment_in_months",
+   "fieldtype": "Int",
+   "label": "Age at enrollment (in months)",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "currently_brestfeeding",
+   "fieldtype": "Check",
+   "label": "Currently breastfeeding?",
+   "options": "Option"
+  },
+  {
+   "default": "0",
+   "fieldname": "does_child_have_any_disability",
+   "fieldtype": "Check",
+   "label": "Child have any disability?",
+   "options": "Option"
+  },
+  {
+   "default": "0",
+   "fieldname": "does_child_have_any_longterm_illness_more_than_6_months",
+   "fieldtype": "Check",
+   "label": "Child have any longterm illness (more than 6 months)?",
+   "options": "Option"
+  },
+  {
+   "fieldname": "if_yes",
+   "fieldtype": "Link",
+   "label": "If Yes",
+   "options": "Longterm Illness"
+  },
+  {
+   "fieldname": "any_other_specify_illness",
+   "fieldtype": "Data",
+   "label": "Any other (specify)"
+  },
+  {
+   "fieldname": "how_many_siblings_does_the_child_have",
+   "fieldtype": "Int",
+   "label": "How many siblings does the child have?",
+   "length": 5
+  },
+  {
+   "fieldname": "family_information_tab",
+   "fieldtype": "Tab Break",
+   "label": "Family Info"
+  },
+  {
+   "fieldname": "name_of_primary_caregiver",
+   "fieldtype": "Data",
+   "label": "Name of Primary Caregiver"
+  },
+  {
+   "fieldname": "relationship_with_child",
+   "fieldtype": "Link",
+   "label": "Relation with the child",
+   "options": "Relation"
+  },
+  {
+   "fieldname": "birth_order_of_the_child",
+   "fieldtype": "Int",
+   "label": "Birth order of the child",
+   "length": 2,
+   "reqd": 1
+  },
+  {
+   "fieldname": "mobile",
+   "fieldtype": "Data",
+   "label": "Mobile",
+   "length": 10
+  },
+  {
+   "fieldname": "socioeconomic_background_tab",
+   "fieldtype": "Tab Break",
+   "label": "Socioeconomic"
+  },
+  {
+   "fieldname": "family_lives_in",
+   "fieldtype": "Link",
+   "label": "Family lives in",
+   "options": "Lives in"
+  },
+  {
+   "fieldname": "type_of_house",
+   "fieldtype": "Link",
+   "label": "Type of house",
+   "options": "House Type"
+  },
+  {
+   "fieldname": "source_of_drinking_water_in_the_household",
+   "fieldtype": "Link",
+   "label": "Source of drinking water in the household",
+   "options": "Source of Water"
+  },
+  {
+   "default": "0",
+   "fieldname": "do_they_migrate_for_work",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Do they migrate for work?",
+   "options": "Option"
+  },
+  {
+   "default": "0",
+   "fieldname": "land_available_for_cultivation",
+   "fieldtype": "Check",
+   "label": "Land available for cultivation?",
+   "options": "Option"
+  },
+  {
+   "fieldname": "education_level_of_parentscaregiver",
+   "fieldtype": "Link",
+   "label": "Education level of parents/caregiver",
+   "options": "Education Level",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tab_5_tab",
+   "fieldtype": "Tab Break",
+   "label": "Entitlement"
+  },
+  {
+   "fieldname": "entitlement_received_by_the_family_at_present",
+   "fieldtype": "Table MultiSelect",
+   "ismultiselect": 1,
+   "label": "Entitlement received by the family at present",
+   "multiselectlink": "Entitlement",
+   "options": "Entitlement child table"
+  },
+  {
+   "fieldname": "entitlement_received_id",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Entitlement received ID"
+  },
+  {
+   "fieldname": "entitlement_any_other",
+   "fieldtype": "Data",
+   "label": "Entitlement Any Other"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_the_child_enrolled_for_take_home_ration",
+   "fieldtype": "Check",
+   "label": "Is the child enrolled for Take Home Ration",
+   "options": "Option"
+  },
+  {
+   "fieldname": "hidden_fields_tab",
+   "fieldtype": "Tab Break",
+   "hidden": 1,
+   "label": "Hidden Fields"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Created By"
+  },
+  {
+   "fieldname": "created_on",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "Created On"
+  },
+  {
+   "fieldname": "appcreated_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "appcreated_by"
+  },
+  {
+   "fieldname": "appcreated_on",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "appcreated_on"
+  },
+  {
+   "fieldname": "app_updated_on",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "app_updated_on"
+  },
+  {
+   "fieldname": "app_updated_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "app_updated_by"
+  },
+  {
+   "fieldname": "updated_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Updated By"
+  },
+  {
+   "fieldname": "updated_on",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "Updated On"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Is Active"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_exited",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Is Exited"
+  },
+  {
+   "fieldname": "childenrollguid",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "ChildEnrollGUID",
+   "unique": 1
+  },
+  {
+   "fieldname": "chhguid",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "CHHGUID"
+  },
+  {
+   "fieldname": "child_id",
+   "fieldtype": "Data",
+   "label": "Child ID"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Status",
+   "options": "CC Verification status"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "verification_date",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "Verification Date"
+  },
+  {
+   "fieldname": "date_of_exit",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "Date of Exit"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_appi": 1,
+ "links": [],
+ "modified": "2024-07-05 10:52:18.299934",
+ "modified_by": "Administrator",
+ "module": "Core",
+ "name": "Child Profile",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "child_name"
+}

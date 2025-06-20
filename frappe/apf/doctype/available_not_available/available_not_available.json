@@ -1,0 +1,60 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-06-04 10:40:04.080209",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "available_not_available",
+  "is_active",
+  "seq_id"
+ ],
+ "fields": [
+  {
+   "fieldname": "available_not_available",
+   "fieldtype": "Data",
+   "label": "Available / Not Available"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "seq_id",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Seq.ID"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-06-04 10:42:40.271525",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "Available Not Available",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "available_not_available"
+}

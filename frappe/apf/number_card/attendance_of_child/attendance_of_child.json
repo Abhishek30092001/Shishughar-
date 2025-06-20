@@ -1,0 +1,23 @@
+{
+ "creation": "2024-05-22 11:50:11.981061",
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "dynamic_filters_json": "{}",
+ "filters_json": "{}",
+ "function": "Count",
+ "idx": 0,
+ "is_public": 1,
+ "is_standard": 1,
+ "label": "Attendance of Child",
+ "modified": "2024-05-22 11:50:29.229149",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "Attendance of Child",
+ "owner": "Administrator",
+ "report_field": "children_present",
+ "report_function": "Sum",
+ "report_name": "Child Attendance Report",
+ "show_percentage_stats": 1,
+ "stats_time_interval": "Daily",
+ "type": "Report"
+}

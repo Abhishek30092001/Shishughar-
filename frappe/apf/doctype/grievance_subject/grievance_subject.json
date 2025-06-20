@@ -1,0 +1,66 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-05-15 16:46:30.215886",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "grievance_subject",
+  "is_active",
+  "seq_id",
+  "tagged_role"
+ ],
+ "fields": [
+  {
+   "fieldname": "grievance_subject",
+   "fieldtype": "Data",
+   "label": "Add grievance subject"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "seq_id",
+   "fieldtype": "Int",
+   "label": "Seq.ID"
+  },
+  {
+   "fieldname": "tagged_role",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Tagged Role",
+   "options": "Role"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-07-03 11:25:26.670272",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "Grievance Subject",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "grievance_subject"
+}

@@ -1,0 +1,94 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-10-24 16:44:07.850267",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "partner_id",
+  "stock_type",
+  "items",
+  "item_required_per_child_per_months",
+  "is_active",
+  "seq_id",
+  "partner_stock_od",
+  "partner_stock_hi"
+ ],
+ "fields": [
+  {
+   "fieldname": "partner_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Partner",
+   "options": "Partner"
+  },
+  {
+   "fieldname": "stock_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Master Item Type",
+   "options": "Master Stock"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Data",
+   "label": "Item"
+  },
+  {
+   "fieldname": "item_required_per_child_per_months",
+   "fieldtype": "Float",
+   "label": "Quantity required per child per month",
+   "precision": "2"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "seq_id",
+   "fieldtype": "Int",
+   "label": "Seq.ID"
+  },
+  {
+   "fieldname": "partner_stock_od",
+   "fieldtype": "Data",
+   "label": "Item OD"
+  },
+  {
+   "fieldname": "partner_stock_hi",
+   "fieldtype": "Data",
+   "label": "Item HI"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-10-24 16:47:33.983395",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "Partner Stock",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "items"
+}

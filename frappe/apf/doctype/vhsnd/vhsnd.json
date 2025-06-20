@@ -1,0 +1,69 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-11-12 09:43:13.479288",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "add_vhsnd",
+  "is_active",
+  "seq_id",
+  "vhsnd_hi",
+  "vhsnd_od"
+ ],
+ "fields": [
+  {
+   "fieldname": "add_vhsnd",
+   "fieldtype": "Data",
+   "label": "Add VHSND"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "seq_id",
+   "fieldtype": "Int",
+   "label": "Seq.ID"
+  },
+  {
+   "fieldname": "vhsnd_hi",
+   "fieldtype": "Data",
+   "label": "VHSND HI"
+  },
+  {
+   "fieldname": "vhsnd_od",
+   "fieldtype": "Data",
+   "label": "VHSND OD"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-11-12 09:43:13.479288",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "VHSND",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "add_vhsnd"
+}

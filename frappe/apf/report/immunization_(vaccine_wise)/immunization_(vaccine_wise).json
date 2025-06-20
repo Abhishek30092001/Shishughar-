@@ -1,0 +1,39 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2024-07-25 10:55:02.547917",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "SHISHU GHAR",
+ "letterhead": null,
+ "modified": "2024-07-25 10:55:02.547917",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "Immunization (Vaccine wise)",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Child Immunization",
+ "report_name": "Immunization (Vaccine wise)",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Creche Supervisor"
+  },
+  {
+   "role": "APPI Administrator"
+  },
+  {
+   "role": "Partner Administrator"
+  },
+  {
+   "role": "All"
+  }
+ ]
+}

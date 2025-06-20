@@ -1,0 +1,234 @@
+import frappe
+from frappe.utils import nowdate
+import calendar
+from datetime import date
+
+def execute(filters=None):
+    columns = get_columns()
+    data = get_summary_data(filters)
+    return columns, data
+
+def get_columns():
+    return [
+        {"label": "Partner", "fieldname": "Partner", "fieldtype": "Data", "width": 120},
+        {"label": "State", "fieldname": "State", "fieldtype": "Data", "width": 120},
+        {"label": "District", "fieldname": "District", "fieldtype": "Data", "width": 120},
+        {"label": "Block", "fieldname": "Block", "fieldtype": "Data", "width": 120},
+        {"label": "GP", "fieldname": "GP", "fieldtype": "Data", "width": 120},
+        {"label": "Village", "fieldname": "Village", "fieldtype": "Data", "width": 120},
+        {"label": "Creche", "fieldname": "Creche", "fieldtype": "Data", "width": 120},
+        {"label": "Creche ID", "fieldname": "CrecheID", "fieldtype": "Data", "width": 120},
+        {"label": "Current eligible children", "fieldname": "Current_eligible_children", "fieldtype": "Int", "width": 200},
+        {"label": "Cumulative enrollment", "fieldname": "Cumulative_enrollment", "fieldtype": "Int", "width": 200},
+        {"label": "Current children enrolled", "fieldname": "Current_children_enrolled", "fieldtype": "Int", "width": 250},
+        {"label": "No. of days creche attendance submitted", "fieldname": "No_of_days_creche_attendance_submitted", "fieldtype": "Int", "width": 300},
+        {"label": "No. of days creche opened", "fieldname": "No_of_days_creche_opened", "fieldtype": "Int", "width": 300},
+        # {"label": "No. of children attended creche", "fieldname": "No_of_children_attented", "fieldtype": "Int", "width": 300},
+        {"label": "Avg. attendance per day", "fieldname": "Avg_attendance_per_day", "fieldtype": "Int", "width": 300},
+        {"label": "Max attendance in a day", "fieldname": "Max_attendance_in_a_day", "fieldtype": "Int", "width": 300},
+        {"label": "Cumulative exit children", "fieldname": "Cumulative_exit_children", "fieldtype": "Int", "width": 300},
+        {"label": "Current exit children", "fieldname": "Current_exit_children", "fieldtype": "Int", "width": 300},
+        {"label": "Anthro data submitted", "fieldname": "Anthro_data_submitted", "fieldtype": "Int", "width": 300},
+        {"label": "Underweight children", "fieldname": "Underweight_children", "fieldtype": "Int", "width": 300},
+        {"label": "Severly underweight children", "fieldname": "Severly_underweight_children", "fieldtype": "Int", "width": 300},
+        {"label": "MAM children", "fieldname": "MAM_children", "fieldtype": "Int", "width": 300},
+        {"label": "SAM children", "fieldname": "SAM_children", "fieldtype": "Int", "width": 300},
+        {"label": "Stunted children", "fieldname": "Stunted_children", "fieldtype": "Int", "width": 300},
+        {"label": "Severly stunted children", "fieldname": "Severly_stunted_children", "fieldtype": "Int", "width": 300},
+        {"label": "Growth falter 1", "fieldname": "GF1", "fieldtype": "Int", "width": 300},
+        {"label": "Growth falter 2", "fieldname": "GF2", "fieldtype": "Int", "width": 300},
+    ]
+
+@frappe.whitelist()
+def get_summary_data(filters=None):
+    current_user_partner = frappe.db.get_value("User", frappe.session.user, "partner")
+
+    month = int(filters.get("month") if filters and filters.get("month") else nowdate().split('-')[1])
+    year = int(filters.get("year") if filters and filters.get("year") else nowdate().split('-')[0])
+
+    start_date = date(year, month, 1)
+    last_day = calendar.monthrange(year, month)[1]
+    end_date = date(year, month, last_day)
+
+    if month == 1:
+        lmonth = 12
+        plmonth = 11
+        lyear = year - 1
+        pyear = year - 1
+    elif month == 2:
+        lmonth = 1
+        plmonth = 12
+        lyear = year
+        pyear = year - 1
+    else:
+        lmonth = month - 1
+        plmonth = month - 2
+        lyear = year
+        pyear = year
+
+    params = {
+        "start_date": start_date,
+        "end_date": end_date,
+        "partner": filters.get("partner") if filters and filters.get("partner") else current_user_partner,
+        "state": filters.get("state"),
+        "district": filters.get("district"),
+        "block": filters.get("block"),
+        "gp": filters.get("gp"),
+        "creche": filters.get("creche"),
+        "month": month,
+        "year": year,
+        "lyear": lyear,
+        "lmonth": lmonth,
+        "plmonth": plmonth,
+        "pyear": pyear
+    }
+
+    sql_query = """
+        SELECT p.partner_name AS Partner,
+            s.state_name AS State,
+            d.district_name AS District,
+            b.block_name AS Block,
+            g.gp_name AS GP,
+            v.village_name AS Village,
+            c.creche_name AS Creche,
+            c.creche_id AS CrecheID,
+            IFNULL(celc.cur_eligible_children,0) AS 'Current_eligible_children',
+            IFNULL(cec.cumm_enrolled_children,0) AS 'Cumulative_enrollment',
+            IFNULL(crelc.current_enrolled_children,0) AS 'Current_children_enrolled',
+            IFNULL(nodats.carep_days,0) AS 'No_of_days_creche_attendance_submitted',
+            IFNULL(nodco.co_days,0) AS 'No_of_days_creche_opened',
+            CASE WHEN nodco.co_days IS NULL THEN 0 ELSE CEIL(nocp.cc_prs/nodco.co_days) END AS 'Avg_attendance_per_day',
+            IFNULL(mcpd.mc,0) AS 'Max_attendance_in_a_day',
+            IFNULL(cce.cmec,0) AS 'Cumulative_exit_children',
+            IFNULL(cexc.cec,0) AS 'Current_exit_children',
+            IFNULL(cand.cgmd,0) AS 'Anthro_data_submitted',
+            IFNULL(uwc.muw,0) AS 'Underweight_children',
+            IFNULL(suwc.suw,0) AS 'Severly_underweight_children',
+            IFNULL(mamc.mam,0) AS 'MAM_children',
+            IFNULL(samc.sam,0) AS 'SAM_children',
+            IFNULL(stc.msc,0) AS 'Stunted_children',
+            IFNULL(sstc.ssc,0) AS 'Severly_stunted_children',
+            IFNULL(gf1c.gf1,0) AS 'GF1',
+            IFNULL(gf2c.gf2,0) AS 'GF2'
+
+        FROM tabCreche AS c
+        JOIN tabState AS s ON c.state_id = s.name
+        JOIN tabDistrict AS d ON c.district_id = d.name
+        JOIN tabBlock AS b ON c.block_id = b.name
+        JOIN `tabGram Panchayat` AS g ON c.gp_id = g.name
+        JOIN tabVillage AS v ON c.village_id = v.name
+        JOIN tabPartner AS p ON c.partner_id = p.name
+        JOIN (SELECT COUNT(*) AS CN FROM tabCreche tc WHERE tc.is_active = 1) AS noc
+        LEFT JOIN (SELECT creche_id, COUNT(hhc.name) AS cur_eligible_children FROM `tabHousehold Child Form` AS hhc 
+            JOIN `tabHousehold Form` AS hf ON hf.name = hhc.parent
+            WHERE hhc.is_dob_available = 1 AND TIMESTAMPDIFF(MONTH, hhc.child_dob, %(end_date)s) BETWEEN 6 AND 36 GROUP BY creche_id) AS celc
+            ON c.name = celc.creche_id
+        LEFT JOIN (SELECT creche_id, COUNT(*) AS cumm_enrolled_children  FROM `tabChild Enrollment and Exit`
+            WHERE is_active = 1  AND date_of_enrollment <= %(end_date)s GROUP BY creche_id) AS cec
+            ON c.name = cec.creche_id
+        LEFT JOIN (SELECT creche_id, COUNT(*) AS current_enrolled_children FROM `tabChild Enrollment and Exit`
+            WHERE is_active = 1  AND date_of_enrollment <= %(end_date)s and (date_of_exit IS null or date_of_exit >=  %(start_date)s) GROUP BY creche_id) AS crelc
+            ON c.name = crelc.creche_id
+        LEFT JOIN (SELECT creche_id, COUNT(ca.name) AS carep_days FROM `tabChild Attendance` AS ca
+            WHERE YEAR(date_of_attendance) =%(year)s and MONTH(date_of_attendance) =%(month)s GROUP BY creche_id) AS nodats
+            ON c.name = nodats.creche_id
+        LEFT JOIN (SELECT creche_id, COUNT(ca.name) AS co_days FROM `tabChild Attendance` AS ca 
+            WHERE ca.is_shishu_ghar_is_closed_for_the_day = 0 AND YEAR(date_of_attendance) =%(year)s and MONTH(date_of_attendance) =%(month)s GROUP BY creche_id) AS nodco
+            ON c.name = nodco.creche_id
+        LEFT JOIN (SELECT  creche_id, COUNT(cal.name) AS cc_prs
+            FROM `tabChild Attendance List` AS cal
+            JOIN `tabChild Attendance` AS ca ON ca.name = cal.parent
+            WHERE cal.attendance = 1 AND ca.is_shishu_ghar_is_closed_for_the_day = 0 
+            AND YEAR(ca.date_of_attendance) =%(year)s and MONTH(ca.date_of_attendance) =%(month)s GROUP BY creche_id) AS nocp
+            ON c.name = nocp.creche_id
+        LEFT JOIN (SELECT creche_id, MAX(cc_prs) AS mc FROM (
+            SELECT  creche_id, ca.date_of_attendance, COUNT(cal.name) AS cc_prs
+            FROM `tabChild Attendance List` AS cal
+            JOIN `tabChild Attendance` AS ca ON ca.name = cal.parent
+            WHERE cal.attendance = 1 AND ca.is_shishu_ghar_is_closed_for_the_day = 0 
+            AND YEAR(ca.date_of_attendance) =%(year)s and MONTH(ca.date_of_attendance) =%(month)s GROUP BY creche_id, ca.date_of_attendance) AS aa GROUP by creche_id) AS mcpd
+            ON c.name = mcpd.creche_id
+        LEFT JOIN (SELECT creche_id, COUNT(*) AS cmec FROM `tabChild Enrollment and Exit`
+            WHERE is_active = 1 AND is_exited = 1  AND date_of_exit <= %(end_date)s GROUP by creche_id) AS cce
+            ON c.name = cce.creche_id 
+        LEFT JOIN (SELECT creche_id, COUNT(*) AS cec FROM `tabChild Enrollment and Exit`
+            WHERE is_active = 1  AND YEAR(date_of_exit) =%(year)s and MONTH(date_of_exit) =%(month)s GROUP by creche_id) AS cexc
+            ON c.name = cexc.creche_id 
+        
+        LEFT JOIN (SELECT creche_id, COUNT(cgm.name) AS cgmd FROM  `tabChild Growth Monitoring` AS cgm 
+            WHERE YEAR(cgm.measurement_date) =%(year)s and MONTH(cgm.measurement_date) = %(month)s GROUP by creche_id) AS cand
+            ON c.name = cand.creche_id
+
+        LEFT JOIN (SELECT creche_id, COUNT(ad.name) AS muw FROM `tabAnthropromatic Data` as ad JOIN `tabChild Growth Monitoring` AS cgm on cgm.name = ad.parent 
+            WHERE YEAR(cgm.measurement_date) = %(year)s and MONTH(cgm.measurement_date) =%(month)s 
+            and ad.do_you_have_height_weight = 1  and ad.weight_for_age = 2 GROUP by creche_id) AS uwc
+            ON c.name = uwc.creche_id
+
+       LEFT JOIN (SELECT creche_id, COUNT(ad.name) AS suw FROM `tabAnthropromatic Data` as ad 
+            JOIN `tabChild Growth Monitoring` AS cgm on cgm.name = ad.parent 
+            WHERE YEAR(cgm.measurement_date) = %(year)s and MONTH(cgm.measurement_date) =%(month)s and ad.do_you_have_height_weight = 1  
+            and ad.weight_for_age = 1 GROUP by creche_id) AS suwc
+            ON c.name = suwc.creche_id
+
+    LEFT JOIN (SELECT creche_id, COUNT(ad.name) AS mam FROM `tabAnthropromatic Data` as ad 
+    JOIN `tabChild Growth Monitoring` AS cgm on cgm.name = ad.parent 
+    WHERE YEAR(cgm.measurement_date) = %(year)s and MONTH(cgm.measurement_date) =%(month)s 
+    and ad.do_you_have_height_weight = 1  and ad.weight_for_height = 2 GROUP by creche_id) AS mamc
+    ON c.name = mamc.creche_id
+
+LEFT JOIN (SELECT creche_id, COUNT(ad.name) AS sam FROM `tabAnthropromatic Data` as ad 
+JOIN `tabChild Growth Monitoring` AS cgm on cgm.name = ad.parent 
+WHERE YEAR(cgm.measurement_date) = %(year)s and MONTH(cgm.measurement_date) =%(month)s 
+and ad.do_you_have_height_weight = 1  and ad.weight_for_height = 1 GROUP by creche_id) AS samc
+ ON c.name = samc.creche_id
+
+LEFT JOIN (SELECT  creche_id, COUNT(ad.name) AS msc FROM `tabAnthropromatic Data` as ad 
+JOIN `tabChild Growth Monitoring` AS cgm on cgm.name = ad.parent 
+WHERE YEAR(cgm.measurement_date) = %(year)s and MONTH(cgm.measurement_date) =%(month)s 
+and ad.do_you_have_height_weight = 1  and ad.height_for_age = 2 GROUP by creche_id) AS stc
+ ON c.name = stc.creche_id
+
+LEFT JOIN (SELECT creche_id, COUNT(ad.name) AS ssc FROM `tabAnthropromatic Data` as ad 
+JOIN `tabChild Growth Monitoring` AS cgm on cgm.name = ad.parent 
+WHERE YEAR(cgm.measurement_date) = %(year)s and MONTH(cgm.measurement_date) =%(month)s 
+and ad.do_you_have_height_weight = 1  and ad.height_for_age = 1 GROUP by creche_id) AS sstc
+ ON c.name = sstc.creche_id
+
+LEFT JOIN (SELECT creche_id, COUNT(ad.name) AS gf1  FROM `tabAnthropromatic Data` AS ad
+  JOIN `tabChild Growth Monitoring` AS cgm ON cgm.name = ad.parent
+    WHERE ad.do_you_have_height_weight = 1 AND YEAR(ad.measurement_taken_date) = %(year)s AND MONTH(ad.measurement_taken_date) = %(month)s
+        AND EXISTS (
+            SELECT 1
+            FROM `tabAnthropromatic Data` AS ad_same
+            WHERE ad_same.childenrollguid = ad.childenrollguid AND ad_same.do_you_have_height_weight = 1 
+            AND YEAR(ad_same.measurement_taken_date) = %(lyear)s AND MONTH(ad_same.measurement_taken_date) = %(lmonth)s
+            AND ad.weight <= ad_same.weight) GROUP by creche_id) AS gf1c
+             ON c.name = gf1c.creche_id
+LEFT JOIN (SELECT creche_id, COUNT(ad.name) AS gf2
+    FROM `tabAnthropromatic Data` AS ad
+    LEFT JOIN
+        `tabChild Growth Monitoring` AS cgm ON cgm.name = ad.parent
+    WHERE ad.do_you_have_height_weight = 1 AND YEAR(ad.measurement_taken_date) = %(year)s AND MONTH(ad.measurement_taken_date) = %(month)s
+        AND EXISTS (
+            SELECT 1
+            FROM `tabAnthropromatic Data` AS ad_same
+            WHERE ad_same.childenrollguid = ad.childenrollguid AND ad_same.do_you_have_height_weight = 1 
+            AND YEAR(ad_same.measurement_taken_date) = %(lyear)s AND MONTH(ad_same.measurement_taken_date) = %(lmonth)s
+            AND ad.weight <= ad_same.weight)
+       	 AND EXISTS (
+            SELECT 1
+            FROM `tabAnthropromatic Data` AS ad_same
+            WHERE ad_same.childenrollguid = ad.childenrollguid AND ad_same.do_you_have_height_weight = 1 
+            AND YEAR(ad_same.measurement_taken_date) = %(pyear)s AND MONTH(ad_same.measurement_taken_date) = %(plmonth)s
+            AND ad.weight <= ad_same.weight) GROUP by creche_id) AS gf2c
+             ON c.name = gf2c.creche_id
+		
+    WHERE (%(partner)s IS NULL OR p.name = %(partner)s) and (%(state)s IS NULL OR s.name = %(state)s) and (%(district)s IS NULL OR d.name = %(district)s) and (%(block)s IS NULL OR b.name = %(block)s)
+        and (%(gp)s IS NULL OR g.name = %(gp)s) and (%(creche)s IS NULL OR c.name = %(creche)s)
+    ORDER BY p.partner_name, s.state_name, d.district_name, b.block_name, g.gp_name, v.village_name, c.creche_name
+        """
+
+
+
+    data = frappe.db.sql(sql_query, params, as_dict=True)
+    return data

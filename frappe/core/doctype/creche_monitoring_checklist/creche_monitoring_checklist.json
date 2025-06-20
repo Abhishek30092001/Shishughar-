@@ -1,0 +1,975 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-05-18 10:14:11.382287",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "creche_info",
+  "partner_id",
+  "state_id",
+  "district_id",
+  "block_id",
+  "gp_id",
+  "village_id",
+  "creche_id",
+  "infrastructure",
+  "creche_section",
+  "entry_time",
+  "exit_time",
+  "date_of_visit",
+  "children_present_in_creche",
+  "mention_action_taken",
+  "food",
+  "hygiene",
+  "referral",
+  "source_of_electricity",
+  "bulb_in_creche",
+  "fan_in_creche",
+  "window_in_creche",
+  "creche_recieve_light",
+  "status_of_fencing",
+  "any_other",
+  "outdoor_area_to_play",
+  "child_friendly_wall_paintings",
+  "kitchen_gardner_setup",
+  "seprated_space_for_store",
+  "reading_available_in_creche",
+  "adequate_for_enrolled_children",
+  "kitchen_section",
+  "kitchen_saprated",
+  "water_connection_kitchen",
+  "source_of_watersupply",
+  "unavailable_water_connection",
+  "method_water_purification",
+  "water_purification_other",
+  "water_purified_service",
+  "toilet_section",
+  "toilet_facility",
+  "toilet_not_available",
+  "water_connection_toilet",
+  "addtional_info",
+  "assets_section",
+  "smokeless_chulha",
+  "steel_box",
+  "first_aid",
+  "steel_drum",
+  "ladle_drinking_water",
+  "utensils_cooking",
+  "measuring_cup",
+  "plastic_buckets",
+  "plastic_mug",
+  "soap_case",
+  "handwashing_soap",
+  "nail_cutter",
+  "containers",
+  "dustbin",
+  "broom_dustpan",
+  "toys",
+  "mosquito_net",
+  "durries",
+  "clock",
+  "dishwashing_soap",
+  "hand_washing_station",
+  "additional_remarks",
+  "register_section",
+  "creche_register",
+  "listing_book",
+  "child_cards",
+  "receipt_book",
+  "chart_poster",
+  "know_area",
+  "entitlement_chart",
+  "food_menu",
+  "childhood_activity",
+  "redressal_contact",
+  "creche_name_displayed",
+  "cms_uptodate",
+  "additional_infp",
+  "cleanliness_section",
+  "creche_premises",
+  "floors_clean",
+  "trash_disposed",
+  "food_store",
+  "leftover_discarded",
+  "dishes_washed",
+  "children_using_toilet",
+  "if_noreason",
+  "cleanliness_additional_info",
+  "caregivers_hygiene_section",
+  "nail_cut_clean",
+  "observation_during_cooking",
+  "observation_during_feeding",
+  "ask_practice",
+  "caregiver_additional_info",
+  "children_hygiene_section",
+  "faeces_cleaned",
+  "faeces_disposed",
+  "nails_cleaned",
+  "hand_with_soap",
+  "use_of_toilet",
+  "child_additional_info",
+  "feeding_tab",
+  "mealplan_manual",
+  "caregiver_getting_involved",
+  "receive_day_egg",
+  "egg_in_menu",
+  "lemon_drop",
+  "nutrition_care",
+  "feedin_additional_info",
+  "ecd_activities_section",
+  "toys_are_available",
+  "any_new_toy_made_in_the_current_months",
+  "ecd_activities_happened",
+  "ecd_additional_info",
+  "anthropometric_tab",
+  "weighing_scale",
+  "stadiometer",
+  "infantometer",
+  "anthro_additional_info",
+  "anganwadi_section",
+  "growth_monitoring",
+  "thr",
+  "immunization",
+  "iron_folic_acid",
+  "vitamin_a",
+  "deworming",
+  "caregiver_vhnd",
+  "anganwadi_additional_info",
+  "hidden_tab",
+  "supervisor_id",
+  "appcreated_by",
+  "cmguid",
+  "appcreated_on",
+  "app_updated_by",
+  "app_updated_on"
+ ],
+ "fields": [
+  {
+   "fieldname": "creche_info",
+   "fieldtype": "Tab Break",
+   "label": "Creche Info"
+  },
+  {
+   "fieldname": "partner_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Partner",
+   "options": "Partner",
+   "reqd": 1
+  },
+  {
+   "fieldname": "state_id",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State",
+   "reqd": 1
+  },
+  {
+   "fieldname": "district_id",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District",
+   "reqd": 1
+  },
+  {
+   "fieldname": "block_id",
+   "fieldtype": "Link",
+   "label": "Block",
+   "options": "Block",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gp_id",
+   "fieldtype": "Link",
+   "label": "Gram Panchayat",
+   "options": "Gram Panchayat",
+   "reqd": 1
+  },
+  {
+   "fieldname": "village_id",
+   "fieldtype": "Link",
+   "label": "Village",
+   "options": "Village",
+   "reqd": 1
+  },
+  {
+   "fieldname": "creche_id",
+   "fieldtype": "Link",
+   "label": "Creche",
+   "options": "Creche",
+   "reqd": 1
+  },
+  {
+   "fieldname": "infrastructure",
+   "fieldtype": "Tab Break",
+   "label": "Infrastructure"
+  },
+  {
+   "fieldname": "creche_section",
+   "fieldtype": "Section Break",
+   "label": "Creche"
+  },
+  {
+   "fieldname": "entry_time",
+   "fieldtype": "Time",
+   "label": "Entry Time"
+  },
+  {
+   "fieldname": "exit_time",
+   "fieldtype": "Time",
+   "label": "Exit Time"
+  },
+  {
+   "fieldname": "date_of_visit",
+   "fieldtype": "Date",
+   "label": "Date of Visit",
+   "reqd": 1
+  },
+  {
+   "fieldname": "children_present_in_creche",
+   "fieldtype": "Int",
+   "label": "No. of children present in the creche at the time of visit",
+   "length": 4
+  },
+  {
+   "default": "0",
+   "fieldname": "mention_action_taken",
+   "fieldtype": "Check",
+   "label": "If Yes,then mention the action taken"
+  },
+  {
+   "fieldname": "food",
+   "fieldtype": "Data",
+   "label": "Food",
+   "length": 256
+  },
+  {
+   "fieldname": "hygiene",
+   "fieldtype": "Data",
+   "label": "Hygiene",
+   "length": 256
+  },
+  {
+   "fieldname": "referral",
+   "fieldtype": "Data",
+   "label": "Referral",
+   "length": 256
+  },
+  {
+   "fieldname": "source_of_electricity",
+   "fieldtype": "Link",
+   "label": "Source of electricity in creche",
+   "options": "Source of Electricity"
+  },
+  {
+   "fieldname": "bulb_in_creche",
+   "fieldtype": "Link",
+   "label": "Tube light/bulb in the creche",
+   "options": "Fan in Creche"
+  },
+  {
+   "fieldname": "fan_in_creche",
+   "fieldtype": "Link",
+   "label": "Fan in creche",
+   "options": "Fan in Creche"
+  },
+  {
+   "default": "0",
+   "fieldname": "window_in_creche",
+   "fieldtype": "Check",
+   "label": "Is there at least one window in the creche?"
+  },
+  {
+   "default": "0",
+   "fieldname": "creche_recieve_light",
+   "fieldtype": "Check",
+   "label": "Does the creche recieve natural light?"
+  },
+  {
+   "fieldname": "status_of_fencing",
+   "fieldtype": "Link",
+   "label": "Status of Fencing at the creche?",
+   "options": "Fencing at creche"
+  },
+  {
+   "fieldname": "any_other",
+   "fieldtype": "Data",
+   "label": "Any Other",
+   "length": 256
+  },
+  {
+   "default": "0",
+   "fieldname": "outdoor_area_to_play",
+   "fieldtype": "Check",
+   "label": "Is the outdoor area even enough for the children to play,run safely?"
+  },
+  {
+   "default": "0",
+   "fieldname": "child_friendly_wall_paintings",
+   "fieldtype": "Check",
+   "label": "Does the creche have appropriate child friendly wall paintings?"
+  },
+  {
+   "default": "0",
+   "fieldname": "kitchen_gardner_setup",
+   "fieldtype": "Check",
+   "label": "Has the kitchen gardner been setup?"
+  },
+  {
+   "default": "0",
+   "fieldname": "seprated_space_for_store",
+   "fieldtype": "Check",
+   "label": "Is there a seprated store/space for store?"
+  },
+  {
+   "default": "0",
+   "fieldname": "reading_available_in_creche",
+   "fieldtype": "Check",
+   "label": "Is there a reading available sleeping corner inside the creche "
+  },
+  {
+   "default": "0",
+   "fieldname": "adequate_for_enrolled_children",
+   "fieldtype": "Check",
+   "label": "Is the creche space adequate for all enrolled children?(Observation)"
+  },
+  {
+   "fieldname": "kitchen_section",
+   "fieldtype": "Section Break",
+   "label": "Kitchen"
+  },
+  {
+   "default": "0",
+   "fieldname": "kitchen_saprated",
+   "fieldtype": "Check",
+   "label": "Is kitchen saprated from dining and resting place on children?"
+  },
+  {
+   "fieldname": "water_connection_kitchen",
+   "fieldtype": "Link",
+   "label": "Status of water connection in kitchen",
+   "options": "Fan in Creche"
+  },
+  {
+   "fieldname": "source_of_watersupply",
+   "fieldtype": "Data",
+   "label": "If available the source of water supply"
+  },
+  {
+   "fieldname": "unavailable_water_connection",
+   "fieldtype": "Data",
+   "label": "If the water connection is unavailable,how the daily requirement is fullfilled?"
+  },
+  {
+   "fieldname": "method_water_purification",
+   "fieldtype": "Link",
+   "label": "The method used for water purification at creche?",
+   "options": "Water purification"
+  },
+  {
+   "fieldname": "water_purification_other",
+   "fieldtype": "Data",
+   "label": "any other"
+  },
+  {
+   "default": "0",
+   "fieldname": "water_purified_service",
+   "fieldtype": "Check",
+   "label": "If a water purified is used,has it been service in last 3 months?"
+  },
+  {
+   "fieldname": "toilet_section",
+   "fieldtype": "Section Break",
+   "label": "Toilet"
+  },
+  {
+   "fieldname": "toilet_facility",
+   "fieldtype": "Link",
+   "label": "Status of toilet facility at creche",
+   "options": "Status of toilet facility"
+  },
+  {
+   "fieldname": "toilet_not_available",
+   "fieldtype": "Data",
+   "label": "If toilet is not available at creche then,where do children go for defection?"
+  },
+  {
+   "default": "0",
+   "fieldname": "water_connection_toilet",
+   "fieldtype": "Check",
+   "label": "Status of water connection in the toilet"
+  },
+  {
+   "fieldname": "addtional_info",
+   "fieldtype": "Data",
+   "label": "Any Additional information"
+  },
+  {
+   "fieldname": "assets_section",
+   "fieldtype": "Tab Break",
+   "label": "Assets and consumables"
+  },
+  {
+   "fieldname": "smokeless_chulha",
+   "fieldtype": "Link",
+   "label": "Smokeless Chulha",
+   "options": "Fan in Creche"
+  },
+  {
+   "fieldname": "steel_box",
+   "fieldtype": "Link",
+   "label": "Steel Box",
+   "options": "Fan in Creche"
+  },
+  {
+   "fieldname": "first_aid",
+   "fieldtype": "Link",
+   "label": "First Aid kit",
+   "options": "Assets first aid kit"
+  },
+  {
+   "fieldname": "steel_drum",
+   "fieldtype": "Link",
+   "label": "Steel Drum with cover",
+   "options": "Assets"
+  },
+  {
+   "fieldname": "ladle_drinking_water",
+   "fieldtype": "Link",
+   "label": "Ladle to fetch drinking water",
+   "options": "Assets"
+  },
+  {
+   "fieldname": "utensils_cooking",
+   "fieldtype": "Link",
+   "label": "Utensils used for cooking and feeding",
+   "options": "Assets"
+  },
+  {
+   "fieldname": "measuring_cup",
+   "fieldtype": "Link",
+   "label": "Measuring cup for oil",
+   "options": "Assets"
+  },
+  {
+   "fieldname": "plastic_buckets",
+   "fieldtype": "Link",
+   "label": "Plastic buckets",
+   "options": "Assets"
+  },
+  {
+   "fieldname": "plastic_mug",
+   "fieldtype": "Link",
+   "label": "Plastic mug",
+   "options": "Assets"
+  },
+  {
+   "fieldname": "soap_case",
+   "fieldtype": "Link",
+   "label": "Soap case",
+   "options": "Assets"
+  },
+  {
+   "fieldname": "handwashing_soap",
+   "fieldtype": "Link",
+   "label": "Handwashing Soap",
+   "options": "Assets"
+  },
+  {
+   "fieldname": "nail_cutter",
+   "fieldtype": "Link",
+   "label": "Nail cutter",
+   "options": "Assets"
+  },
+  {
+   "fieldname": "containers",
+   "fieldtype": "Link",
+   "label": "Containers",
+   "options": "Assets"
+  },
+  {
+   "fieldname": "dustbin",
+   "fieldtype": "Link",
+   "label": "Dustbin",
+   "options": "Assets"
+  },
+  {
+   "fieldname": "broom_dustpan",
+   "fieldtype": "Link",
+   "label": "Broom and Dustpan",
+   "options": "Assets"
+  },
+  {
+   "fieldname": "toys",
+   "fieldtype": "Link",
+   "label": "Toys",
+   "options": "Assets"
+  },
+  {
+   "fieldname": "mosquito_net",
+   "fieldtype": "Link",
+   "label": "Mosquito net",
+   "options": "Assets"
+  },
+  {
+   "fieldname": "durries",
+   "fieldtype": "Link",
+   "label": "Durries",
+   "options": "Assets"
+  },
+  {
+   "fieldname": "clock",
+   "fieldtype": "Link",
+   "label": "Clock",
+   "options": "Assets"
+  },
+  {
+   "fieldname": "dishwashing_soap",
+   "fieldtype": "Link",
+   "label": "Dishwashing soap/bottel",
+   "options": "Assets"
+  },
+  {
+   "fieldname": "hand_washing_station",
+   "fieldtype": "Link",
+   "label": "Hand washing station",
+   "options": "Assets"
+  },
+  {
+   "fieldname": "additional_remarks",
+   "fieldtype": "Data",
+   "label": "Any additional information/remarks"
+  },
+  {
+   "fieldname": "register_section",
+   "fieldtype": "Tab Break",
+   "label": "Registers and posters"
+  },
+  {
+   "fieldname": "creche_register",
+   "fieldtype": "Link",
+   "label": "Creche Register",
+   "options": "Register"
+  },
+  {
+   "fieldname": "listing_book",
+   "fieldtype": "Link",
+   "label": "Line Listing Book",
+   "options": "Register"
+  },
+  {
+   "fieldname": "child_cards",
+   "fieldtype": "Link",
+   "label": "All Child cards",
+   "options": "Register"
+  },
+  {
+   "fieldname": "receipt_book",
+   "fieldtype": "Link",
+   "label": "Indent and Receipt Book",
+   "options": "Register"
+  },
+  {
+   "fieldname": "chart_poster",
+   "fieldtype": "Link",
+   "label": "Community Growth Chart-Poster",
+   "options": "Register"
+  },
+  {
+   "fieldname": "know_area",
+   "fieldtype": "Link",
+   "label": "Know your area - Poster",
+   "options": "Register"
+  },
+  {
+   "fieldname": "entitlement_chart",
+   "fieldtype": "Link",
+   "label": "Entitlement chart - Poster",
+   "options": "Assets"
+  },
+  {
+   "fieldname": "food_menu",
+   "fieldtype": "Link",
+   "label": "Food Menu",
+   "options": "Assets"
+  },
+  {
+   "fieldname": "childhood_activity",
+   "fieldtype": "Link",
+   "label": "Early Childhood Activity - Poster",
+   "options": "Assets"
+  },
+  {
+   "fieldname": "redressal_contact",
+   "fieldtype": "Link",
+   "label": "Grievance redressal contact",
+   "options": "Assets"
+  },
+  {
+   "fieldname": "creche_name_displayed",
+   "fieldtype": "Link",
+   "label": "The Creche name displayed outside the creche",
+   "options": "Assets"
+  },
+  {
+   "fieldname": "cms_uptodate",
+   "fieldtype": "Link",
+   "label": "Is the Creche management System (CMS) app upto date with data (by Supervison)",
+   "options": "Register cms"
+  },
+  {
+   "fieldname": "additional_infp",
+   "fieldtype": "Data",
+   "label": "Additional Information"
+  },
+  {
+   "fieldname": "cleanliness_section",
+   "fieldtype": "Tab Break",
+   "label": "Cleanliness"
+  },
+  {
+   "default": "0",
+   "fieldname": "creche_premises",
+   "fieldtype": "Check",
+   "label": "Is the creche premises clean?"
+  },
+  {
+   "default": "0",
+   "fieldname": "floors_clean",
+   "fieldtype": "Check",
+   "label": "Are the floors clean?"
+  },
+  {
+   "default": "0",
+   "fieldname": "trash_disposed",
+   "fieldtype": "Check",
+   "label": "Is trash disposed-off properly?"
+  },
+  {
+   "default": "0",
+   "fieldname": "food_store",
+   "fieldtype": "Check",
+   "label": "Are the food and ingredients kept covered and properly stored?"
+  },
+  {
+   "default": "0",
+   "fieldname": "leftover_discarded",
+   "fieldtype": "Check",
+   "label": "Are the leftovers discarded on the same day?"
+  },
+  {
+   "fieldname": "dishes_washed",
+   "fieldtype": "Link",
+   "label": "Are the dishes washed after each meal?",
+   "options": "Cleanliness"
+  },
+  {
+   "default": "0",
+   "fieldname": "children_using_toilet",
+   "fieldtype": "Check",
+   "label": "Are the children in the creche using the toilet?"
+  },
+  {
+   "fieldname": "if_noreason",
+   "fieldtype": "Data",
+   "label": "If No,reason"
+  },
+  {
+   "fieldname": "cleanliness_additional_info",
+   "fieldtype": "Data",
+   "label": "Any Additional information"
+  },
+  {
+   "fieldname": "caregivers_hygiene_section",
+   "fieldtype": "Tab Break",
+   "label": "Caregivers' Hygiene"
+  },
+  {
+   "default": "0",
+   "fieldname": "nail_cut_clean",
+   "fieldtype": "Check",
+   "label": "Weather the nails of the creche caregiver cut and kept clean?"
+  },
+  {
+   "default": "0",
+   "fieldname": "observation_during_cooking",
+   "fieldtype": "Check",
+   "label": "Observation during cooking and feeding:Do creche caregivers wash their hands with soap before cooking the food?"
+  },
+  {
+   "fieldname": "observation_during_feeding",
+   "fieldtype": "Link",
+   "label": "Observation during cooking and feeding:Do creche caregivers wash their hands before feeding the children?",
+   "options": "Caregivers Hygiene"
+  },
+  {
+   "default": "0",
+   "fieldname": "ask_practice",
+   "fieldtype": "Check",
+   "label": "Do creche caregivers wash their hands with soap after the toilet?(Ask about the practice)"
+  },
+  {
+   "fieldname": "caregiver_additional_info",
+   "fieldtype": "Data",
+   "label": "Any Additional Information"
+  },
+  {
+   "fieldname": "children_hygiene_section",
+   "fieldtype": "Tab Break",
+   "label": "Children's Hygiene"
+  },
+  {
+   "fieldname": "faeces_cleaned",
+   "fieldtype": "Link",
+   "label": "Are the faeces cleaned?",
+   "options": "Hygiene YesNo"
+  },
+  {
+   "fieldname": "faeces_disposed",
+   "fieldtype": "Link",
+   "label": "Are the faeces properly disposed of (in the case of non-availability of toilet)",
+   "options": "Childrens Hygiene"
+  },
+  {
+   "fieldname": "nails_cleaned",
+   "fieldtype": "Link",
+   "label": "Are the children's nails cut and cleaned?",
+   "options": "Hygiene YesNo"
+  },
+  {
+   "fieldname": "hand_with_soap",
+   "fieldtype": "Link",
+   "label": "Observation during feeding:Do creche caregivers wash children's hands with soap before feeding?",
+   "options": "Hygiene YesNo"
+  },
+  {
+   "fieldname": "use_of_toilet",
+   "fieldtype": "Link",
+   "label": "Observation after use of toilet:Do creche caregivers wash children's hands with soap after using the toilets?(Ask about the practice)",
+   "options": "Hygiene YesNo"
+  },
+  {
+   "fieldname": "child_additional_info",
+   "fieldtype": "Data",
+   "label": "Any additional information"
+  },
+  {
+   "fieldname": "feeding_tab",
+   "fieldtype": "Tab Break",
+   "label": "Feeding"
+  },
+  {
+   "fieldname": "mealplan_manual",
+   "fieldtype": "Link",
+   "label": "Does the menu in the creche follow the meal plan as given in the creche manual?",
+   "options": "Hygiene YesNo"
+  },
+  {
+   "fieldname": "caregiver_getting_involved",
+   "fieldtype": "Link",
+   "label": "Are the creche caregivers getting involled in feeding the smaller children?",
+   "options": "Hygiene YesNo"
+  },
+  {
+   "default": "0",
+   "fieldname": "receive_day_egg",
+   "fieldtype": "Check",
+   "label": "Did the children receive 3 days egg per week atleast"
+  },
+  {
+   "fieldname": "egg_in_menu",
+   "fieldtype": "Link",
+   "label": "On the day of visit did you observe children eating full egg(if that in the menu)",
+   "options": "Hygiene YesNo"
+  },
+  {
+   "fieldname": "lemon_drop",
+   "fieldtype": "Link",
+   "label": "Did the children get lemon drops?",
+   "options": "Hygiene YesNo"
+  },
+  {
+   "fieldname": "nutrition_care",
+   "fieldtype": "Link",
+   "label": "Did any child get Special nutrition Care (SNC)",
+   "options": "Hygiene YesNo"
+  },
+  {
+   "fieldname": "feedin_additional_info",
+   "fieldtype": "Data",
+   "label": "Any additional information"
+  },
+  {
+   "fieldname": "ecd_activities_section",
+   "fieldtype": "Tab Break",
+   "label": "ECD Activities"
+  },
+  {
+   "fieldname": "toys_are_available",
+   "fieldtype": "Link",
+   "label": "Toys are available",
+   "options": "Anthropromatric equipment"
+  },
+  {
+   "default": "0",
+   "fieldname": "any_new_toy_made_in_the_current_months",
+   "fieldtype": "Check",
+   "label": "Any new toy made in the current months"
+  },
+  {
+   "fieldname": "ecd_activities_happened",
+   "fieldtype": "Link",
+   "label": "Is ECD activities happened on the day of visit",
+   "options": "Hygiene YesNo"
+  },
+  {
+   "fieldname": "ecd_additional_info",
+   "fieldtype": "Data",
+   "label": "Any Additional information"
+  },
+  {
+   "fieldname": "anthropometric_tab",
+   "fieldtype": "Tab Break",
+   "label": "Anthropometric Equipment"
+  },
+  {
+   "fieldname": "weighing_scale",
+   "fieldtype": "Link",
+   "label": "Weighing scale",
+   "options": "Anthropromatric equipment"
+  },
+  {
+   "fieldname": "stadiometer",
+   "fieldtype": "Link",
+   "label": "Stadiometer",
+   "options": "Anthropromatric equipment"
+  },
+  {
+   "fieldname": "infantometer",
+   "fieldtype": "Link",
+   "label": "Infantometer",
+   "options": "Anthropromatric equipment"
+  },
+  {
+   "fieldname": "anthro_additional_info",
+   "fieldtype": "Data",
+   "label": "Any Additional Information"
+  },
+  {
+   "fieldname": "anganwadi_section",
+   "fieldtype": "Tab Break",
+   "label": "Anganwadi and Health Services"
+  },
+  {
+   "fieldname": "growth_monitoring",
+   "fieldtype": "Link",
+   "label": "Growth Monitoring",
+   "options": "Anganwadi yesno"
+  },
+  {
+   "fieldname": "thr",
+   "fieldtype": "Link",
+   "label": "THR",
+   "options": "Anganwadi yesno"
+  },
+  {
+   "fieldname": "immunization",
+   "fieldtype": "Link",
+   "label": "Immunization",
+   "options": "Anganwadi immunisation"
+  },
+  {
+   "fieldname": "iron_folic_acid",
+   "fieldtype": "Link",
+   "label": "Iron Folic Acid",
+   "options": "YesNo"
+  },
+  {
+   "fieldname": "vitamin_a",
+   "fieldtype": "Link",
+   "label": "Vitamin A",
+   "options": "Anganwadi Vitamin"
+  },
+  {
+   "fieldname": "deworming",
+   "fieldtype": "Link",
+   "label": "Deworming",
+   "options": "Anganwadi deworming"
+  },
+  {
+   "fieldname": "caregiver_vhnd",
+   "fieldtype": "Link",
+   "label": "Did the creche caregiver attend the last VHND?",
+   "options": "Anganwadi yesno"
+  },
+  {
+   "fieldname": "anganwadi_additional_info",
+   "fieldtype": "Data",
+   "label": "Any additional information"
+  },
+  {
+   "fieldname": "hidden_tab",
+   "fieldtype": "Tab Break",
+   "label": "Hidden "
+  },
+  {
+   "fieldname": "supervisor_id",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Supervisor"
+  },
+  {
+   "fieldname": "appcreated_by",
+   "fieldtype": "Data",
+   "label": "App created by"
+  },
+  {
+   "fieldname": "cmguid",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "cmguid"
+  },
+  {
+   "fieldname": "appcreated_on",
+   "fieldtype": "Datetime",
+   "label": "App created on"
+  },
+  {
+   "fieldname": "app_updated_by",
+   "fieldtype": "Data",
+   "label": "App updated by"
+  },
+  {
+   "fieldname": "app_updated_on",
+   "fieldtype": "Datetime",
+   "label": "App updated on"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_appi": 1,
+ "links": [],
+ "modified": "2024-07-03 20:14:42.838517",
+ "modified_by": "Administrator",
+ "module": "Core",
+ "name": "Creche Monitoring Checklist",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,151 @@
+frappe.query_reports["Daily Creche Attendance Activity"] = {
+    filters: [
+        {
+            fieldname: "year",
+            label: __("Year"),
+            fieldtype: "Select",
+            options: [
+                "2024",
+                "2025"
+            ],
+            default: frappe.datetime.get_today().split('-')[0], 
+        },
+        {
+            fieldname: "month",
+            label: __("Month"),
+            fieldtype: "Select",
+            options: [
+                { "value": "01", "label": "January" },
+                { "value": "02", "label": "February" },
+                { "value": "03", "label": "March" },
+                { "value": "04", "label": "April" },
+                { "value": "05", "label": "May" },
+                { "value": "06", "label": "June" },
+                { "value": "07", "label": "July" },
+                { "value": "08", "label": "August" },
+                { "value": "09", "label": "September" },
+                { "value": "10", "label": "October" },
+                { "value": "11", "label": "November" },
+                { "value": "12", "label": "December" }
+            ],
+            default: frappe.datetime.get_today().split('-')[1], 
+        },
+        {
+            fieldname: "partner",
+            label: __("Partner"),
+            fieldtype: "Link",
+            options: "Partner"
+        },
+		{
+			"fieldname": "state",
+			"label": __("State"),
+			"fieldtype": "Link",
+			"options": "State",
+			"get_query": function () {
+				return {
+					filters: {
+						"is_active": 1
+					}
+				};
+			},
+			"on_change": function () {
+				frappe.query_report.refresh();
+			}
+		},
+        {
+            fieldname: "district",
+            label: __("District"),
+            fieldtype: "Link",
+            options: "District",
+        },
+        {
+            fieldname: "block",
+            label: __("Block"),
+            fieldtype: "Link",
+            options: "Block",
+        },
+        {
+            fieldname: "gp",
+            label: __("Gram Panchayat"),
+            fieldtype: "Link",
+            options: "Gram Panchayat",
+        },
+        {
+            fieldname: "creche",
+            label: __("Creche"),
+            fieldtype: "Link",
+            options: "Creche",
+            reqd: 0,
+            get_query: function () {
+                const partner = frappe.query_report.get_filter_value("partner");
+                if (partner) {
+                    return {
+                        filters: {
+                            partner_id: partner
+                        }
+                    };
+                } else {
+                    return {};
+                }
+            },
+        },
+        {
+            fieldname: "supervisor_id",
+            label: __("Supervisor"),
+            fieldtype: "Link",
+            options: "User",
+            get_query: function () {
+                let creche = frappe.query_report.get_filter_value("creche");
+                return creche ? { filters: { creche: creche } } : {};
+            },
+        },
+		{
+			"fieldname": "phases",
+			"label": __("Phase"),
+			"fieldtype": "MultiSelect",
+			"options": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+			"reqd": 0,
+			"default": ""
+		},
+        {
+            "fieldname": "creche_status_id",
+            "label": __("Creche Status"),
+            "fieldtype": "Select",
+            "options": [
+                { "value": "", "label": __("") },
+                { "value": "1", "label": __("Planned") },
+                { "value": "2", "label": __("Plan dropped") },
+                { "value": "3", "label": __("Active/Operational") },
+                { "value": "4", "label": __("Closed") },
+            ],
+            "default": "3",
+        },
+        {
+            fieldname: "date_range",
+            label: __("Creche Opening Date"),
+            fieldtype: "DateRange",
+            default: "",
+            on_change: function () {
+                frappe.query_report.refresh();
+            },
+        }
+    ],
+
+    formatter: function(value, row, column, data, default_formatter) {
+        if (value === null || value === undefined) {
+            return "";
+        }
+
+        value = default_formatter(value, row, column, data);
+
+        if (value === "Not Submitted") {
+            return `<b style='color:#ff6456;'>${value}</b>`;
+        }
+
+        if (data.creche_name && data.creche_name.includes("Total")) {
+            return `<b style='color:black;'>${value}</b>`;
+        }
+
+        return value;
+    }
+};

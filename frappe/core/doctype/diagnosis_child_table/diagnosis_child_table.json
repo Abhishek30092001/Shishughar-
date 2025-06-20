@@ -1,0 +1,33 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-05-31 17:57:44.826815",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "diagnosis_select"
+ ],
+ "fields": [
+  {
+   "fieldname": "diagnosis_select",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Diagnosis child table",
+   "options": "Diagnosis"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-07-03 20:14:52.977076",
+ "modified_by": "Administrator",
+ "module": "Core",
+ "name": "Diagnosis child table",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

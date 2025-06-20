@@ -1,0 +1,313 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-09 17:24:17.876104",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "measurement_equipment",
+  "child_id",
+  "do_you_have_height_weight",
+  "measurement_taken_date",
+  "measurement_reason",
+  "height",
+  "weight",
+  "age_months",
+  "weight_for_age",
+  "weight_for_height",
+  "height_for_age",
+  "weight_for_age_zscore",
+  "weight_for_height_zscore",
+  "height_for_age_zscore",
+  "any_medical_major_illness",
+  "illness_other",
+  "awc",
+  "thr",
+  "vhsnd",
+  "cgmguid",
+  "chhguid",
+  "childenrollguid",
+  "section_break_qvcq",
+  "re_measurement_equipment",
+  "re_do_you_have_height_weight",
+  "re_measurement_taken_date",
+  "re_measurement_reason",
+  "re_height",
+  "re_weight",
+  "re_age_months",
+  "re_weight_for_age",
+  "re_weight_for_height",
+  "re_height_for_age",
+  "re_weight_for_age_zscore",
+  "re_weight_for_height_zscore",
+  "re_height_for_age_zscore",
+  "dob_when_measurement_taken",
+  "flag",
+  "s_flag"
+ ],
+ "fields": [
+  {
+   "fieldname": "child_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Child",
+   "options": "Child Enrollment and Exit"
+  },
+  {
+   "fieldname": "height",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Height (in cm)",
+   "precision": "1"
+  },
+  {
+   "fieldname": "weight",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Weight in (kg)",
+   "precision": "1"
+  },
+  {
+   "fieldname": "age_months",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Age in Days",
+   "length": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "weight_for_age",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Weight for age",
+   "precision": "2"
+  },
+  {
+   "fieldname": "weight_for_height",
+   "fieldtype": "Float",
+   "label": "Weight for Height",
+   "precision": "2"
+  },
+  {
+   "fieldname": "height_for_age",
+   "fieldtype": "Float",
+   "label": "Height for Age",
+   "precision": "2"
+  },
+  {
+   "fieldname": "illness_other",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Any Other Illness",
+   "read_only": 1
+  },
+  {
+   "fieldname": "chhguid",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "CHHGUID"
+  },
+  {
+   "fieldname": "cgmguid",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "CGMGUID"
+  },
+  {
+   "fieldname": "childenrollguid",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "ChildEnrollGUID"
+  },
+  {
+   "fieldname": "measurement_equipment",
+   "fieldtype": "Link",
+   "label": "Measurement Equipment?",
+   "options": "Measurement Equipment"
+  },
+  {
+   "default": "0",
+   "fieldname": "do_you_have_height_weight",
+   "fieldtype": "Check",
+   "label": "Measurement taken",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "any_medical_major_illness",
+   "fieldtype": "Check",
+   "label": "Any Medical Complication/Major illness",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "awc",
+   "fieldtype": "Check",
+   "label": "Child weighed in AWC",
+   "read_only": 1
+  },
+  {
+   "fieldname": "vhsnd",
+   "fieldtype": "Link",
+   "label": "VHSND",
+   "options": "VHSND",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "thr",
+   "fieldtype": "Check",
+   "label": "THR Received (last month)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "measurement_reason",
+   "fieldtype": "Link",
+   "label": "Reason",
+   "options": "Measurement Taken",
+   "read_only": 1
+  },
+  {
+   "fieldname": "measurement_taken_date",
+   "fieldtype": "Date",
+   "label": "Measurement Taken Date"
+  },
+  {
+   "fieldname": "section_break_qvcq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "re_measurement_equipment",
+   "fieldtype": "Link",
+   "label": "Measurement Equipment?",
+   "options": "Measurement Equipment",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "re_do_you_have_height_weight",
+   "fieldtype": "Check",
+   "label": "Measurement taken",
+   "read_only": 1
+  },
+  {
+   "fieldname": "re_measurement_taken_date",
+   "fieldtype": "Date",
+   "label": "Measurement Taken Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "re_measurement_reason",
+   "fieldtype": "Link",
+   "label": "Reason",
+   "options": "Measurement Taken",
+   "read_only": 1
+  },
+  {
+   "fieldname": "re_height",
+   "fieldtype": "Float",
+   "label": "Height (in cm)",
+   "precision": "1",
+   "read_only": 1
+  },
+  {
+   "fieldname": "re_weight",
+   "fieldtype": "Float",
+   "label": "Weight in (kg)",
+   "precision": "1",
+   "read_only": 1
+  },
+  {
+   "fieldname": "re_age_months",
+   "fieldtype": "Int",
+   "label": "Age in Days",
+   "length": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "re_weight_for_age",
+   "fieldtype": "Float",
+   "label": "Weight for age",
+   "precision": "1",
+   "read_only": 1
+  },
+  {
+   "fieldname": "re_weight_for_height",
+   "fieldtype": "Float",
+   "label": "Weight for Height",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "re_height_for_age",
+   "fieldtype": "Float",
+   "label": "Height for Age",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "weight_for_age_zscore",
+   "fieldtype": "Data",
+   "label": "Weight for age Zscore"
+  },
+  {
+   "fieldname": "weight_for_height_zscore",
+   "fieldtype": "Data",
+   "label": "Weight for height Zscore"
+  },
+  {
+   "fieldname": "height_for_age_zscore",
+   "fieldtype": "Data",
+   "label": "Height for age Zscore"
+  },
+  {
+   "fieldname": "re_weight_for_age_zscore",
+   "fieldtype": "Data",
+   "label": "Weight for age zscore"
+  },
+  {
+   "fieldname": "re_weight_for_height_zscore",
+   "fieldtype": "Data",
+   "label": "Weight for height zscore"
+  },
+  {
+   "fieldname": "re_height_for_age_zscore",
+   "fieldtype": "Data",
+   "label": "Height for age zscore"
+  },
+  {
+   "fieldname": "dob_when_measurement_taken",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "DOB When Measurement Taken"
+  },
+  {
+   "default": "0",
+   "fieldname": "flag",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Flag"
+  },
+  {
+   "default": "1",
+   "fieldname": "s_flag",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Source Flag"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-05-31 10:27:41.772627",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "Anthropromatic Data",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

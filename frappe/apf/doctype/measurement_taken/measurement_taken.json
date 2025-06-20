@@ -1,0 +1,69 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-12-06 11:52:42.343894",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "measurement_taken",
+  "is_active",
+  "seq_id",
+  "measurement_taken_hi",
+  "measurement_taken_od"
+ ],
+ "fields": [
+  {
+   "fieldname": "measurement_taken",
+   "fieldtype": "Data",
+   "label": "Measurement  Taken"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "seq_id",
+   "fieldtype": "Int",
+   "label": "Seq.ID"
+  },
+  {
+   "fieldname": "measurement_taken_hi",
+   "fieldtype": "Data",
+   "label": "Measurement Taken HI"
+  },
+  {
+   "fieldname": "measurement_taken_od",
+   "fieldtype": "Data",
+   "label": "Measurement Taken OD"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-12-06 11:52:42.343894",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "Measurement Taken",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "measurement_taken"
+}

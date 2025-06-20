@@ -1,0 +1,125 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-12-04 19:25:27.183981",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "geography_tab",
+  "partner_id",
+  "state_id",
+  "district_id",
+  "block_id",
+  "gp_id",
+  "village_id",
+  "details_tab",
+  "creche_id",
+  "date_of_meeting",
+  "creche_caregiver_participated",
+  "topic_discussed",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "partner_id",
+   "fieldtype": "Link",
+   "label": "Partner",
+   "options": "Partner"
+  },
+  {
+   "fieldname": "state_id",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State"
+  },
+  {
+   "fieldname": "district_id",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District"
+  },
+  {
+   "fieldname": "block_id",
+   "fieldtype": "Link",
+   "label": "Block",
+   "options": "Block"
+  },
+  {
+   "fieldname": "gp_id",
+   "fieldtype": "Link",
+   "label": "Gram Panchayat",
+   "options": "Gram Panchayat"
+  },
+  {
+   "fieldname": "village_id",
+   "fieldtype": "Link",
+   "label": "village",
+   "options": "Village"
+  },
+  {
+   "fieldname": "geography_tab",
+   "fieldtype": "Tab Break",
+   "label": "Geography"
+  },
+  {
+   "fieldname": "details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "creche_id",
+   "fieldtype": "Link",
+   "label": "Creche",
+   "options": "Creche"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date_of_meeting",
+   "fieldtype": "Date",
+   "label": "Date of Meeting"
+  },
+  {
+   "fieldname": "creche_caregiver_participated",
+   "fieldtype": "Table MultiSelect",
+   "ismultiselect": 1,
+   "label": "Creche Caregiver Participated ",
+   "multiselectlink": "Training Participants child table",
+   "options": "Training Participants child table"
+  },
+  {
+   "fieldname": "topic_discussed",
+   "fieldtype": "Small Text",
+   "label": "Topic Discussed"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-12-04 19:33:55.121191",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "Review Meetings",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,50 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-05-13 12:57:37.384306",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "add_reasons",
+  "is_active"
+ ],
+ "fields": [
+  {
+   "fieldname": "add_reasons",
+   "fieldtype": "Data",
+   "label": "Add Reasons"
+  },
+  {
+   "fieldname": "is_active",
+   "fieldtype": "Attach",
+   "label": "Is Active"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-05-13 12:58:38.221825",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "Reason for child exit",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "add_reasons"
+}

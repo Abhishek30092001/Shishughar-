@@ -1,0 +1,169 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-09-05 16:51:41.998625",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "issue_on_web__mobile",
+  "user_login_mobile_no",
+  "partner",
+  "state",
+  "block",
+  "creche_id",
+  "priority",
+  "description",
+  "attachment",
+  "status",
+  "date",
+  "issue_cause_category",
+  "assign_to",
+  "backend_issue_category",
+  "ticket_created_on"
+ ],
+ "fields": [
+  {
+   "fieldname": "issue_on_web__mobile",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Issue On Web / Mobile ",
+   "options": "Web\nMobile",
+   "reqd": 1
+  },
+  {
+   "fieldname": "user_login_mobile_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "User Login Mobile No.",
+   "length": 10,
+   "reqd": 1
+  },
+  {
+   "default": "Low",
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Priority",
+   "options": "High\nMedium\nLow"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "attachment",
+   "fieldtype": "Attach",
+   "label": "Attachment"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "New\nWith Backend Team\nNeed More Info\nResolved\nClosed\nCancelled\nDuplicate\nFeature\u00a0Request"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Resolved Date"
+  },
+  {
+   "fieldname": "issue_cause_category",
+   "fieldtype": "Select",
+   "label": "Issue Category ",
+   "options": "User issue category\nUnable to Sync\nData not visible\nData Synced but not visible on web\nReport related issues\nMaster\u00a0data\u00a0missing\nApp Bug\nWeb Bug\nApp\u00a0development"
+  },
+  {
+   "fieldname": "backend_issue_category",
+   "fieldtype": "Select",
+   "label": "Backend Issue Category",
+   "options": "API\nBug In Web\nBug in Mobile\nData Issue"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "assign_to",
+   "fieldtype": "Select",
+   "label": "Assign to",
+   "options": "N/A\nSatish\nAbhishek"
+  },
+  {
+   "default": "Today",
+   "fieldname": "ticket_created_on",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Ticket Created On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "creche_id",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Creche",
+   "options": "Creche"
+  },
+  {
+   "fieldname": "partner",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Partner",
+   "options": "Partner"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "State",
+   "options": "State"
+  },
+  {
+   "fieldname": "block",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Block",
+   "options": "Block"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-05-31 11:05:29.337120",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "Ticket Support",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

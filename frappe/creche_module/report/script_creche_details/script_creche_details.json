@@ -1,0 +1,65 @@
+{
+ "add_total_row": 0,
+ "columns": [
+  {
+   "fieldname": "partner_name",
+   "fieldtype": "Data",
+   "label": "Partner Name",
+   "width": 0
+  },
+  {
+   "fieldname": "state_name",
+   "fieldtype": "Data",
+   "label": "State Name",
+   "width": 0
+  }
+ ],
+ "creation": "2024-03-30 08:01:16.169425",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "SHISHU GHAR",
+ "letterhead": null,
+ "modified": "2024-03-30 08:23:23.124968",
+ "modified_by": "Administrator",
+ "module": "Creche Module",
+ "name": "Script Creche Details",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\r\n    P.partner_name AS \"Partner Name:Link/Partner:200\",\r\n    supervisor.first_name AS \"Supervisor\",\r\n    state.state_name AS 'State',\r\n    district.district_name AS \"District\",\r\n    block.block_name AS \"Block\",\r\n    gp.gp_name AS \"GP\",\r\n    village.village_name AS \"Village\",\r\n    creche.creche_id AS \"Creche ID\",\r\n    creche.creche_name AS \"Creche Name\",\r\n    creche.creche_openning_time AS \"Creche Opening Time\",\r\n    creche.creche_closing_time AS \"Creche Closing Time\",\r\n    weekly_holiday.day_name AS \"Weekly Holiday\",\r\n    CASE\r\n        WHEN creche.is_active = 1 THEN 'YES'\r\n        ELSE 'NO'\r\n    END AS \"Is Active ?\",\r\n    cc.caregiver_code AS \"Caregiver Code\",\r\n    cc.caregiver_name AS \"Caregiver Name\",\r\n    cc.mobile_no AS \"Mobile Number\",\r\n    CASE\r\n        WHEN cc.is_active = 1 THEN 'YES'\r\n        ELSE 'NO'\r\n    END AS \"Is Caregiver Active?\",\r\n    cc.date_of_joinning AS \"Date Of Joining\",\r\n    cc.date_of_leaving AS \"Date Of Leaving\"\r\nFROM `tabCreche` AS creche\r\nJOIN `tabCreche Caregiver` AS cc ON creche.name = cc.parent\r\nJOIN `tabPartner` AS P ON P.name = creche.partner_id\r\nJOIN `tabState` AS state ON state.name = creche.state_id\r\nJOIN `tabDistrict` AS district ON district.name = creche.district_id\r\nJOIN `tabBlock` AS block ON block.name = creche.block_id\r\nJOIN `tabGram Panchayat` AS gp ON gp.name = creche.gp_id\r\nJOIN `tabVillage` AS village ON village.name = creche.village_id\r\nJOIN `tabUser` AS supervisor ON supervisor.name = creche.supervisor_id\r\nJOIN `tabDays Of Week` AS weekly_holiday ON weekly_holiday.name = creche.weekly_holiday_id\r\nWHERE IFNULL(%(partner)s, '') = '' OR creche.partner_id = %(partner)s\r\nORDER BY creche.name, P.partner_name, state.name ASC\r\n",
+ "ref_doctype": "Creche",
+ "report_name": "Script Creche Details",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "APPI Administrator"
+  },
+  {
+   "role": "Partner Administrator"
+  },
+  {
+   "role": "Cluster Coordinator"
+  },
+  {
+   "role": "Creche Supervisor"
+  },
+  {
+   "role": "CRP"
+  },
+  {
+   "role": "APF State"
+  },
+  {
+   "role": "APF District"
+  },
+  {
+   "role": "APF Block"
+  }
+ ]
+}

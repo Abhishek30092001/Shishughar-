@@ -1,0 +1,170 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-04-24 14:04:07.925983",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "partner_id",
+  "state_id",
+  "district_id",
+  "block_id",
+  "gp_id",
+  "village_id",
+  "measurement_date",
+  "creche_id",
+  "anthropromatic_tab",
+  "anthropromatic_details",
+  "view",
+  "hidden_tab",
+  "updated_by",
+  "updated_on",
+  "created_by",
+  "created_on",
+  "is_active",
+  "cgmguid"
+ ],
+ "fields": [
+  {
+   "fieldname": "partner_id",
+   "fieldtype": "Link",
+   "label": "Partner",
+   "options": "Partner",
+   "reqd": 1
+  },
+  {
+   "fieldname": "state_id",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State",
+   "reqd": 1
+  },
+  {
+   "fieldname": "district_id",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District",
+   "reqd": 1
+  },
+  {
+   "fieldname": "block_id",
+   "fieldtype": "Link",
+   "label": "Block",
+   "options": "Block",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gp_id",
+   "fieldtype": "Link",
+   "label": "Gram Panchayat",
+   "options": "Gram Panchayat",
+   "reqd": 1
+  },
+  {
+   "fieldname": "village_id",
+   "fieldtype": "Link",
+   "label": "Village",
+   "options": "Village",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "measurement_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Measurement Date ",
+   "reqd": 1
+  },
+  {
+   "fieldname": "creche_id",
+   "fieldtype": "Link",
+   "label": "Creche",
+   "options": "Creche",
+   "reqd": 1
+  },
+  {
+   "fieldname": "anthropromatic_tab",
+   "fieldtype": "Tab Break",
+   "label": "Anthropromatic Details"
+  },
+  {
+   "fieldname": "anthropromatic_details",
+   "fieldtype": "Table",
+   "label": "Anthropromatic Details",
+   "options": "Anthropromatic Data"
+  },
+  {
+   "fieldname": "view",
+   "fieldtype": "Button",
+   "label": "View"
+  },
+  {
+   "fieldname": "hidden_tab",
+   "fieldtype": "Tab Break",
+   "label": "Hidden Fields"
+  },
+  {
+   "fieldname": "updated_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "App Updated by"
+  },
+  {
+   "fieldname": "updated_on",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "App Updated on"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "App Created by"
+  },
+  {
+   "fieldname": "created_on",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "App Created on"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "cgmguid",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "CGMGUID"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_appi": 1,
+ "links": [],
+ "modified": "2024-07-03 20:14:44.839876",
+ "modified_by": "Administrator",
+ "module": "Core",
+ "name": "Child Growth Monitoring",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

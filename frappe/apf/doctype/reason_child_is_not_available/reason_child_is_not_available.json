@@ -1,0 +1,69 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-08-26 17:29:23.222132",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "reason_child_is_not_a_available",
+  "is_active",
+  "seq_id",
+  "reason_child_is_not_available_hi",
+  "reason_child_is_not_available_od"
+ ],
+ "fields": [
+  {
+   "fieldname": "reason_child_is_not_a_available",
+   "fieldtype": "Data",
+   "label": "Reason child is not a available"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "seq_id",
+   "fieldtype": "Int",
+   "label": "Seq.ID"
+  },
+  {
+   "fieldname": "reason_child_is_not_available_hi",
+   "fieldtype": "Data",
+   "label": "Reason Child is not available HI"
+  },
+  {
+   "fieldname": "reason_child_is_not_available_od",
+   "fieldtype": "Data",
+   "label": "Reason Child is not available OD"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-08-26 17:31:38.220040",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "Reason Child is not available",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "reason_child_is_not_a_available"
+}

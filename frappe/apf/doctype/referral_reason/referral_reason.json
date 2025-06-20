@@ -1,0 +1,59 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-05-24 14:42:07.752318",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "referral_reason",
+  "is_active",
+  "seq_id"
+ ],
+ "fields": [
+  {
+   "fieldname": "referral_reason",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Referral reason"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "is active"
+  },
+  {
+   "fieldname": "seq_id",
+   "fieldtype": "Int",
+   "label": "Seq.ID",
+   "length": 4
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-06-26 14:02:19.525511",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "Referral reason",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "referral_reason"
+}

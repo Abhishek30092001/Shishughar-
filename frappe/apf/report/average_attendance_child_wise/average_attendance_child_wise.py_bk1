@@ -1,0 +1,239 @@
+import frappe
+from frappe.utils import nowdate
+import calendar
+from datetime import date
+
+def execute(filters=None):
+    columns = get_columns()
+    data = get_summary_data(filters)
+    return columns, data
+
+def get_columns():
+    columns = [
+        {"label": "Partner", "fieldname": "partner", "fieldtype": "Data", "width": 120},
+        {"label": "State", "fieldname": "state", "fieldtype": "Data", "width": 120},
+        {"label": "District", "fieldname": "district", "fieldtype": "Data", "width": 120},
+        {"label": "Block", "fieldname": "block", "fieldtype": "Data", "width": 120},
+        {"label": "GP", "fieldname": "gp", "fieldtype": "Data", "width": 120},
+        {"label": "Creche", "fieldname": "creche", "fieldtype": "Data", "width": 120},
+        {"label": "Creche ID", "fieldname": "creche_id", "fieldtype": "Data", "width": 150},
+        {"label": "Child Name", "fieldname": "name", "fieldtype": "Data", "width": 160},
+        {"label": "Child ID", "fieldname": "child_id", "fieldtype": "Data", "width": 150},
+        {"label": "Age (in months)", "fieldname": "age", "fieldtype": "Data", "width": 142},
+        {"label": "Date of Enrollment", "fieldname": "date_of_enrollment", "fieldtype": "Data", "width": 160},
+        {"label": "Gender", "fieldname": "gender", "fieldtype": "Data", "width": 85},
+        {"label": "Eligible Open Days", "fieldname": "eligible_open_days", "fieldtype": "Data", "width": 150},
+        {"label": "Days Attended", "fieldname": "days_attended", "fieldtype": "Data", "width": 130},
+        {"label": "Attendance (%)", "fieldname": "attendance_percentage", "fieldtype": "Data", "width": 130, "align": "right"}
+    ]
+    return columns
+
+@frappe.whitelist()
+def get_summary_data(filters=None):
+    month = int(filters.get("month") if filters else nowdate().split('-')[1])
+    year = int(filters.get("year") if filters else nowdate().split('-')[0])
+    start_date = date(year, month, 1)
+    last_day = calendar.monthrange(year, month)[1]
+    end_date = date(year, month, last_day)
+    
+
+    # filters logic for cr_opening starts here
+    cstart_date, cend_date = None, None
+    range_type = filters.get("cr_opening_range_type") if filters.get("cr_opening_range_type") else None
+
+    if range_type:
+        single_date = filters.get("single_date")
+        date_range = filters.get("c_opening_range")
+
+        if range_type == "between" and date_range and len(date_range) == 2:
+            cstart_date, cend_date = date_range
+
+        elif range_type == "before" and single_date:
+            cstart_date, cend_date = date(2017, 1, 1), single_date
+
+        elif range_type == "after" and single_date:
+            cstart_date, cend_date = single_date, date.today()
+
+        elif range_type == "equal" and single_date:
+            cstart_date = cend_date = single_date
+
+    # filters logic for cr_opening ends here
+
+    current_user_partner = frappe.db.get_value("User", frappe.session.user, "partner")
+    partner = filters.get("partner") or current_user_partner
+
+    state_query = """ 
+        SELECT DISTINCT ts.name AS state_id
+        FROM `tabState` ts 
+        JOIN `tabUser Geography Mapping` ugm ON ugm.state_id = ts.name
+        WHERE ugm.parent = %s 
+        ORDER BY ts.state_name
+    """
+    state_params = (frappe.session.user,)
+    current_user_state = frappe.db.sql(state_query, state_params, as_dict=True)
+
+    state = filters.get("state") or (current_user_state[0]['state_id'] if current_user_state else None)
+
+
+    district = filters.get("district") if filters else None
+    block = filters.get("block") if filters else None
+    gp = filters.get("gp") if filters else None
+    creche = filters.get("creche") if filters else None
+    band = filters.get("band") if filters else None
+    supervisor_id = filters.get("supervisor_id") if filters else None
+    
+    creche_status_id = filters.get("creche_status_id") if filters else None
+    phases_cleaned = ",".join(p.strip() for p in filters["phases"].split(",") if p.strip().isdigit()) if filters.get("phases") else None
+    
+    partner = None if not partner else partner
+    state = None if not state else state
+
+    params = {
+        "start_date": start_date,
+        "end_date": end_date,
+        "partner": partner,
+        "state": state,
+        "district": district,
+        "block": block,
+        "gp": gp,
+        "creche": creche,
+        "band": band,
+        "supervisor_id": supervisor_id,
+        "year": year,
+        "month": month,
+        "cstart_date": cstart_date,
+        "cend_date": cend_date,
+        "phases": phases_cleaned,
+        "creche_status_id": creche_status_id
+    }
+
+    sql_query = """
+        SELECT * FROM (
+            SELECT *,
+                CASE 
+                    WHEN attendance_percentage = 0 THEN 1
+                    WHEN attendance_percentage < 25 THEN 2
+                    WHEN attendance_percentage < 50 THEN 3 
+                    WHEN attendance_percentage < 75 THEN 4
+                    WHEN attendance_percentage < 100 THEN 5
+                    WHEN attendance_percentage = 100 THEN 6
+                    ELSE 0 
+                END AS band
+            FROM (
+                SELECT 
+                    p.partner_name AS partner,
+                    s.state_name AS state,
+                    d.district_name AS district,
+                    b.block_name AS block,
+                    g.gp_name AS gp,
+                    c.creche_name AS creche,
+                    c.creche_id AS creche_id,
+                    c.creche_opening_date AS creche_opening_date,
+                    c.creche_closing_date AS creche_closing_date,
+                    cee.child_name AS name,
+                    cee.child_id AS child_id,
+                    cee.age_at_enrollment_in_months AS age,
+                    DATE_FORMAT(cee.date_of_enrollment, '%%d-%%m-%%Y') AS 'date_of_enrollment',
+                    (CASE 
+                        WHEN cee.gender_id = '1' THEN 'M' 
+                        WHEN cee.gender_id = '2' THEN 'F' 
+                        ELSE cee.gender_id 
+                    END) AS gender,
+                    att.eligible_open_days AS eligible_open_days,
+                    att.days_attended AS days_attended,
+                    ROUND(
+                        CASE 
+                            WHEN att.eligible_open_days > 0 
+                            THEN (att.days_attended * 100.0 / att.eligible_open_days) 
+                            ELSE 0 
+                        END, 2
+                    ) AS attendance_percentage
+                FROM 
+                    `tabChild Enrollment and Exit` AS cee
+                JOIN 
+                    `tabCreche` AS c ON c.name = cee.creche_id
+                JOIN 
+                    `tabPartner` AS p ON p.name = c.partner_id
+                JOIN 
+                    `tabState` AS s ON s.name = c.state_id
+                JOIN 
+                    `tabDistrict` AS d ON d.name = c.district_id
+                JOIN 
+                    `tabBlock` AS b ON b.name = c.block_id
+                JOIN 
+                    `tabGram Panchayat` AS g ON g.name = c.gp_id
+                INNER JOIN (
+                    SELECT 
+                        cal.childenrolledguid,
+                        COUNT(CASE WHEN cal.attendance = 1 THEN 1 END) AS days_attended,
+                        COUNT(ca.date_of_attendance) AS eligible_open_days
+                    FROM `tabChild Attendance` AS ca
+                    INNER JOIN `tabChild Attendance List` AS cal 
+                        ON cal.parent = ca.name
+                    WHERE ca.is_shishu_ghar_is_closed_for_the_day = 0
+                    AND ca.date_of_attendance >= (
+                        SELECT MIN(cee.date_of_enrollment) 
+                        FROM `tabChild Enrollment and Exit` AS cee 
+                        WHERE cee.childenrollguid = cal.childenrolledguid
+                    )
+                    AND YEAR(ca.date_of_attendance) = %(year)s
+                    AND MONTH(ca.date_of_attendance) = %(month)s
+                    GROUP BY cal.childenrolledguid
+                ) AS att ON att.childenrolledguid = cee.childenrollguid
+                WHERE 
+                    (%(partner)s IS NULL OR c.partner_id = %(partner)s) 
+                    AND (%(state)s IS NULL OR c.state_id = %(state)s) 
+                    AND (%(district)s IS NULL OR c.district_id = %(district)s)
+                    AND (%(block)s IS NULL OR c.block_id = %(block)s)
+                    AND (%(gp)s IS NULL OR c.gp_id = %(gp)s) 
+                    AND (%(creche)s IS NULL OR c.name = %(creche)s)
+                    AND (%(supervisor_id)s IS NULL OR c.supervisor_id = %(supervisor_id)s)
+                    AND (%(creche_status_id)s IS NULL OR c.creche_status_id = %(creche_status_id)s)
+                    AND (%(phases)s IS NULL OR FIND_IN_SET(c.phase, %(phases)s))
+                    AND cee.date_of_enrollment <= %(end_date)s and (cee.date_of_exit IS null or cee.date_of_exit >=  %(start_date)s)
+                    AND (%(cstart_date)s IS NULL AND %(cend_date)s IS NULL) OR (c.creche_opening_date BETWEEN %(cstart_date)s AND %(cend_date)s)) AS FDT
+        ) AS FT  
+        WHERE (%(band)s IS NULL OR band = %(band)s)
+    """
+
+    data = frappe.db.sql(sql_query, params, as_dict=True)
+
+    total_eligible_open_days = 0
+    total_days_attended = 0
+    total_attendance_percentage = 0
+
+    for row in data:
+        total_eligible_open_days += row.get("eligible_open_days", 0)
+        total_days_attended += row.get("days_attended", 0)
+
+    total_attendance_percentage = round((total_days_attended * 100.0 / total_eligible_open_days) if total_eligible_open_days > 0 else 0, 2)
+
+    def get_attendance_percentage_style(total_attendance_percentage):
+        if total_attendance_percentage is None:
+            return "background-color: gray; color: black;"
+        elif total_attendance_percentage == 0:
+            return "background-color: #FF474D; color: black;"
+        elif total_attendance_percentage < 25:
+            return "background-color: #FF7074; color: black;"
+        elif total_attendance_percentage < 50:
+            return "background-color: #FFBD54; color: black;"
+        elif total_attendance_percentage < 75:
+            return "background-color: #FFE762; color: black;"
+        elif total_attendance_percentage < 100:
+            return "background-color: #8DFF92; color: black;"
+        elif total_attendance_percentage == 100:
+            return "background-color: #54FF5C; color: black;"
+        return "background-color: gray; color: black;"
+
+    attendance_style = get_attendance_percentage_style(total_attendance_percentage)
+    attendance_html = f"<b style='{attendance_style} padding: 5px; border-radius: 3px;'>{total_attendance_percentage}%</b>"
+    summary_row = {
+        "gender": "<b style='color:black;'>Total</b>",
+        "eligible_open_days": f"<b style='color:black;'>{total_eligible_open_days}</b>",
+        "days_attended": f"<b style='color:black;'>{total_days_attended}</b>",
+        "attendance_percentage": attendance_html
+    }
+
+    data.append(summary_row)
+
+    return data

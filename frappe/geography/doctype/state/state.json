@@ -1,0 +1,88 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "creation": "2024-02-26 09:01:34.885596",
+ "default_view": "List",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "state_code",
+  "state_name",
+  "census_state_code",
+  "state_od",
+  "state_hi",
+  "column_break_bgwa",
+  "is_active"
+ ],
+ "fields": [
+  {
+   "fieldname": "state_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "State Code",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "state_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "State Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_bgwa",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "census_state_code",
+   "fieldtype": "Data",
+   "label": "Census State Code"
+  },
+  {
+   "fieldname": "state_od",
+   "fieldtype": "Data",
+   "label": "State OD"
+  },
+  {
+   "fieldname": "state_hi",
+   "fieldtype": "Data",
+   "label": "State HI"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-07-29 15:32:33.495402",
+ "modified_by": "Administrator",
+ "module": "Geography",
+ "name": "State",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "state_name",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "state_name",
+ "translated_doctype": 1
+}

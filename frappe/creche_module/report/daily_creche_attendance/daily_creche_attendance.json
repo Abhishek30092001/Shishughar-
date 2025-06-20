@@ -1,0 +1,48 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2024-09-27 12:09:30.050204",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 14,
+ "is_standard": "Yes",
+ "letter_head": "SHISHU GHAR",
+ "letterhead": null,
+ "modified": "2024-11-14 09:45:54.789356",
+ "modified_by": "Administrator",
+ "module": "Creche Module",
+ "name": "Daily Creche Attendance",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Child Attendance",
+ "report_name": "Daily Creche Attendance",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "APPI Administrator"
+  },
+  {
+   "role": "All"
+  },
+  {
+   "role": "Partner Administrator"
+  },
+  {
+   "role": "Creche Supervisor"
+  },
+  {
+   "role": "Foundation Central Team"
+  },
+  {
+   "role": "APF State"
+  },
+  {
+   "role": "Cluster Coordinator"
+  }
+ ]
+}

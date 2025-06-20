@@ -1,0 +1,161 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-05-01 16:17:55.390598",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "length",
+  "red",
+  "yellow_min",
+  "yellow_max",
+  "green",
+  "height",
+  "l",
+  "m",
+  "s",
+  "sd4neg",
+  "sd3neg",
+  "sd2neg",
+  "sd1neg",
+  "sd0",
+  "sd1",
+  "sd2",
+  "sd3",
+  "sd4",
+  "age_type"
+ ],
+ "fields": [
+  {
+   "fieldname": "height",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Height (CM)",
+   "precision": "1"
+  },
+  {
+   "fieldname": "red",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Red (severe)",
+   "precision": "1"
+  },
+  {
+   "fieldname": "yellow_min",
+   "fieldtype": "Float",
+   "label": "Yellow (moderate_min) ",
+   "precision": "1"
+  },
+  {
+   "fieldname": "yellow_max",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Yellow (moderate_max)",
+   "precision": "1"
+  },
+  {
+   "fieldname": "green",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Green (normal)",
+   "precision": "1"
+  },
+  {
+   "fieldname": "length",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Length (CM)",
+   "precision": "1"
+  },
+  {
+   "fieldname": "l",
+   "fieldtype": "Data",
+   "label": "L"
+  },
+  {
+   "fieldname": "m",
+   "fieldtype": "Data",
+   "label": "M"
+  },
+  {
+   "fieldname": "s",
+   "fieldtype": "Data",
+   "label": "S"
+  },
+  {
+   "fieldname": "sd4neg",
+   "fieldtype": "Data",
+   "label": "SD4neg"
+  },
+  {
+   "fieldname": "sd3neg",
+   "fieldtype": "Data",
+   "label": "SD3neg"
+  },
+  {
+   "fieldname": "sd2neg",
+   "fieldtype": "Data",
+   "label": "SD2neg"
+  },
+  {
+   "fieldname": "sd1neg",
+   "fieldtype": "Data",
+   "label": "SD1neg"
+  },
+  {
+   "fieldname": "sd0",
+   "fieldtype": "Data",
+   "label": "SD0"
+  },
+  {
+   "fieldname": "sd1",
+   "fieldtype": "Data",
+   "label": "SD1"
+  },
+  {
+   "fieldname": "sd2",
+   "fieldtype": "Data",
+   "label": "SD2"
+  },
+  {
+   "fieldname": "sd3",
+   "fieldtype": "Data",
+   "label": "SD3"
+  },
+  {
+   "fieldname": "sd4",
+   "fieldtype": "Data",
+   "label": "SD4"
+  },
+  {
+   "fieldname": "age_type",
+   "fieldtype": "Int",
+   "label": "Age Type"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-05-07 11:06:01.770269",
+ "modified_by": "Administrator",
+ "module": "Creche Module",
+ "name": "Weight to Height Boys",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

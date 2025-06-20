@@ -1,0 +1,75 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-05-01 14:29:22.282544",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "age_in_months",
+  "red",
+  "yellow_min",
+  "yellow_max",
+  "green"
+ ],
+ "fields": [
+  {
+   "fieldname": "age_in_months",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Age in Months "
+  },
+  {
+   "fieldname": "red",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Red (severe)",
+   "precision": "1"
+  },
+  {
+   "fieldname": "yellow_min",
+   "fieldtype": "Float",
+   "label": "Yellow (moderate_min) ",
+   "precision": "1"
+  },
+  {
+   "fieldname": "yellow_max",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Yellow (moderate_max)",
+   "precision": "1"
+  },
+  {
+   "fieldname": "green",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Green (normal)",
+   "precision": "1"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-07-03 20:16:48.011743",
+ "modified_by": "Administrator",
+ "module": "Core",
+ "name": "Height for age Girls",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

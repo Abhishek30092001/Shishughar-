@@ -1,0 +1,170 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-09 17:24:17.876104",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "measurement_equipment",
+  "child_id",
+  "do_you_have_height_weight",
+  "height",
+  "weight",
+  "age_months",
+  "weight_for_age",
+  "weight_for_height",
+  "height_for_age",
+  "any_medical_major_illness",
+  "illness_other",
+  "awc",
+  "vhsnd",
+  "thr",
+  "illness_multi",
+  "illness_id",
+  "cgmguid",
+  "chhguid",
+  "childenrollguid"
+ ],
+ "fields": [
+  {
+   "fieldname": "measurement_equipment",
+   "fieldtype": "Link",
+   "label": "Measurement Equipment?",
+   "options": "Measurement Equipment"
+  },
+  {
+   "fieldname": "child_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Child",
+   "options": "Child Profile"
+  },
+  {
+   "fieldname": "do_you_have_height_weight",
+   "fieldtype": "Link",
+   "label": "Do you have Height/Weight?",
+   "options": "YesNo",
+   "reqd": 1
+  },
+  {
+   "fieldname": "height",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Height (in cm)",
+   "precision": "1"
+  },
+  {
+   "fieldname": "weight",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Weight in (kg)",
+   "precision": "1"
+  },
+  {
+   "fieldname": "age_months",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Age in months",
+   "length": 3
+  },
+  {
+   "fieldname": "weight_for_age",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Weight for age",
+   "precision": "1",
+   "read_only": 1
+  },
+  {
+   "fieldname": "weight_for_height",
+   "fieldtype": "Float",
+   "label": "Weight for Height",
+   "precision": "1",
+   "read_only": 1
+  },
+  {
+   "fieldname": "height_for_age",
+   "fieldtype": "Float",
+   "label": "Height for Age",
+   "precision": "1",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "any_medical_major_illness",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Any Medical Complication/Major illness "
+  },
+  {
+   "fieldname": "illness_other",
+   "fieldtype": "Data",
+   "label": "Any Other Illness"
+  },
+  {
+   "default": "0",
+   "fieldname": "awc",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "AWC"
+  },
+  {
+   "default": "0",
+   "fieldname": "vhsnd",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "VHSND"
+  },
+  {
+   "default": "0",
+   "fieldname": "thr",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "THR"
+  },
+  {
+   "fieldname": "illness_multi",
+   "fieldtype": "Data",
+   "ismultiselect": 1,
+   "label": "Illness",
+   "multiselectlink": "Illness"
+  },
+  {
+   "fieldname": "illness_id",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Illness ID"
+  },
+  {
+   "fieldname": "cgmguid",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "CGMGUID"
+  },
+  {
+   "fieldname": "chhguid",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "CHHGUID"
+  },
+  {
+   "fieldname": "childenrollguid",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "ChildEnrollGUID"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-07-03 20:14:45.157331",
+ "modified_by": "Administrator",
+ "module": "Core",
+ "name": "Anthropromatic Data",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

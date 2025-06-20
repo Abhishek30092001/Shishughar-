@@ -1,0 +1,31 @@
+{
+ "add_total_row": 1,
+ "columns": [],
+ "creation": "2024-03-19 12:01:19.189788",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 114,
+ "is_standard": "Yes",
+ "letter_head": "SHISHU GHAR",
+ "letterhead": null,
+ "modified": "2025-03-29 16:56:05.072065",
+ "modified_by": "Administrator",
+ "module": "Desk",
+ "name": "Household Details",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "Select \n    P.partner_name as \"Partner Name:Link/Partner:200\",\n    hh.date_of_visit as \"Date of Visit\",\n    state.state_name as 'State:Link/State:200',\n    district.district_name as \"District\",\n    block.block_name as \"Block\",\n    gp.gp_name as \"GP\",\n    village.village_name as \"Village\",\n    hh.hamlet as \"Hamlet\",\n    hh.landmark as \"Landmark\",\n    hh.respondent_name as \"Respondent Name\",\n    hh.respondent_age as \"Respondent Age\",\n    gender.gender as \"Respondent Gender\",\n    hh.hosuehold_head_name as \"Household Head Name\",\n    sc.social_category_name as \"Social Category\",\n    CASE\n        WHEN hh.is_the_family_a_pvtg = 1 THEN 'YES'\n        ELSE 'NO'\n    END AS \"Is the family a PVTG?\",\n    hh.pvtg_name as \"PVTG Name\",\n    po.primary_occupation as \"Primary Occupation\",\n    hh.primary_occupation_other as \"Primary Occupation Other\",\n    vs.verfication_status_name as \"Verification Status\",\n    hh.number_of_family_members as \"Number of Family Members\",\n    hh.children__3_years as \"Children Under 3 years\",\n    hh.children_3_to_6_years as \"Children 3 to 6 years\",\n    hh.children_6_to_18_years as \"Children 6 to 18 years\",\n    hh.adults_above_18_years as \"Adults above 18 years\",\n    hhc.child_name as \"Child Name\",\n    child_gender.gender as \"Child Gender\",\n    relation.relation_name as \"Relation with Child\",\n    hhc.child_dob as \"Child DOB\",\n    hhc.child_age as \"Child Age in Months\",\n    CASE\n        WHEN hhc.is_verified = 1 THEN 'YES'\n        ELSE 'NO'\n    END AS \"Child Is Verified?\",\n    hh.family_members_enganged_as_migrant_workers as \"Family Members Engaged as Migrant Workers\",\n    hh.no_of_months_the_migrants_were_away_last_year as \"Number of Months the migrants were away last year\",\n    CASE\n        WHEN hh.does_anyone_from_your_family_migrate_every_year = 1 THEN 'YES'\n        ELSE 'NO'\n    END AS \"Does anyone from the family migrate every year?\",\n    hh.who_looks_after_them_at_home as \"Who looks after the children at home?\"\nFROM `tabHousehold Form` as hh\nJOIN `tabHousehold Child Form` as hhc ON hh.name = hhc.parent\nJOIN `tabPartner` AS P ON P.name = hh.partner_id \nJOIN `tabState` as state ON state.name = hh.state_id\nJOIN `tabDistrict` as district ON district.name = hh.district_id\nJOIN `tabBlock` as block ON block.name = hh.block_id\nJOIN `tabGram Panchayat` as gp ON gp.name = hh.gp_id\nJOIN `tabVillage` as village ON village.name = hh.village_id\nJOIN `tabGender` as gender ON gender.name = hh.respondent_gender_id\nJOIN `tabSocial Category` as sc ON sc.name = hh.social_category_id\nJOIN `tabPrimary Occupation` as po ON po.name = hh.primary_occupation_id\nJOIN `tabVerfication Status` as vs ON vs.name = hh.verification_status\nJOIN `tabGender` as child_gender ON child_gender.name = hhc.gender_id\nJOIN `tabRelation` as relation ON relation.name = hhc.relationship_with_child\norder by P.partner_name,state.name asc",
+ "ref_doctype": "Household Form",
+ "report_name": "Household Details",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "APPI Administrator"
+  }
+ ]
+}

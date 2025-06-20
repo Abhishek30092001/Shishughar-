@@ -1,0 +1,32 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-05-30 14:06:38.250561",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "illness"
+ ],
+ "fields": [
+  {
+   "fieldname": "illness",
+   "fieldtype": "Link",
+   "label": "Illness",
+   "options": "Illness"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-05-30 14:07:30.673840",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "Illness child table",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,80 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-12-04 17:40:08.095377",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "mobile_no",
+  "old_device_id",
+  "new_device_id",
+  "app_device_version",
+  "created_on"
+ ],
+ "fields": [
+  {
+   "fieldname": "mobile_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Mobile No.",
+   "read_only": 1
+  },
+  {
+   "fieldname": "old_device_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Old Device ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "new_device_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "New Device ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "app_device_version",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "App Device Version",
+   "read_only": 1
+  },
+  {
+   "default": "now",
+   "fieldname": "created_on",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Created On",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-12-05 18:58:49.905737",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "User Device Change Log",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

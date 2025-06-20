@@ -1,0 +1,112 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "autoincrement",
+ "creation": "2024-02-19 10:17:07.893138",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "state_id",
+  "district_id",
+  "block_id",
+  "gp_code",
+  "gp_name",
+  "column_break_nwcf",
+  "is_active",
+  "gram_panchayat_od",
+  "gram_panchayat_hi"
+ ],
+ "fields": [
+  {
+   "depends_on": "district_id",
+   "fieldname": "block_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Block",
+   "options": "Block",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gp_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "GP Code"
+  },
+  {
+   "fieldname": "gp_name",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "GP Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_nwcf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "state_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "State",
+   "options": "State",
+   "reqd": 1
+  },
+  {
+   "depends_on": "state_id",
+   "fieldname": "district_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "District",
+   "options": "District",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gram_panchayat_od",
+   "fieldtype": "Data",
+   "label": "Gram Panchayat OD"
+  },
+  {
+   "fieldname": "gram_panchayat_hi",
+   "fieldtype": "Data",
+   "label": "Gram Panchayat HI"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-09-16 07:23:10.637459",
+ "modified_by": "Administrator",
+ "module": "Geography",
+ "name": "Gram Panchayat",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "gp_name"
+}

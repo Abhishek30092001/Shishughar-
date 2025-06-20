@@ -1,0 +1,362 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-05-24 15:41:21.872501",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "creche_info",
+  "partner_id",
+  "state_id",
+  "district_id",
+  "block_id",
+  "gp_id",
+  "village_id",
+  "creche_id",
+  "child_id",
+  "details_tab",
+  "date_of_referral",
+  "child_status",
+  "age_on_referral",
+  "height_on_referral",
+  "weight_on_referral",
+  "referral_reason",
+  "any_other",
+  "referred_to",
+  "any_other_referred_to",
+  "visit_date",
+  "any_medical_major_illnesss",
+  "diagnosis",
+  "diagnosis_other",
+  "treatment_details",
+  "treatment_details_other",
+  "referred_to_nrc",
+  "treatment_details_nrc",
+  "treatment_details_nrc_other",
+  "admission_date",
+  "discharge_date",
+  "weight_on_discharge",
+  "special_instruction",
+  "remarks",
+  "hidden_tab",
+  "appcreated_by",
+  "appcreated_on",
+  "app_updated_by",
+  "app_updated_on",
+  "childenrolledguid",
+  "child_referral_guid",
+  "cgmguid",
+  "visit_count",
+  "schedule_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "partner_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Partner",
+   "options": "Partner",
+   "reqd": 1
+  },
+  {
+   "fieldname": "state_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "State",
+   "options": "State",
+   "reqd": 1
+  },
+  {
+   "fieldname": "district_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "District",
+   "options": "District",
+   "reqd": 1
+  },
+  {
+   "fieldname": "block_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Block",
+   "options": "Block",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gp_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Gram Panchayat",
+   "options": "Gram Panchayat",
+   "reqd": 1
+  },
+  {
+   "fieldname": "village_id",
+   "fieldtype": "Link",
+   "label": "Village",
+   "options": "Village",
+   "reqd": 1
+  },
+  {
+   "fieldname": "creche_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Creche",
+   "options": "Creche"
+  },
+  {
+   "fieldname": "child_id",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Child",
+   "options": "Child Enrollment and Exit"
+  },
+  {
+   "fieldname": "creche_info",
+   "fieldtype": "Tab Break",
+   "label": "Creche info"
+  },
+  {
+   "fieldname": "details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "date_of_referral",
+   "fieldtype": "Date",
+   "label": "Date of referral",
+   "options": "Today",
+   "reqd": 1
+  },
+  {
+   "fieldname": "age_on_referral",
+   "fieldtype": "Int",
+   "label": "Age on referral",
+   "length": 3
+  },
+  {
+   "fieldname": "weight_on_referral",
+   "fieldtype": "Float",
+   "label": "Weight(in kg)",
+   "precision": "1"
+  },
+  {
+   "fieldname": "height_on_referral",
+   "fieldtype": "Float",
+   "label": "Height(in cm)",
+   "precision": "1"
+  },
+  {
+   "fieldname": "referral_reason",
+   "fieldtype": "Table MultiSelect",
+   "ismultiselect": 1,
+   "label": "Referral Reason",
+   "multiselectlink": "Referral reason",
+   "options": "Referral child table"
+  },
+  {
+   "fieldname": "referred_to",
+   "fieldtype": "Link",
+   "label": "Referred to",
+   "options": "Referral to"
+  },
+  {
+   "fieldname": "visit_date",
+   "fieldtype": "Date",
+   "label": "Visit Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "diagnosis",
+   "fieldtype": "Table MultiSelect",
+   "ismultiselect": 1,
+   "label": "Diagnosis",
+   "multiselectlink": "Diagnosis",
+   "options": "Diagnosis child table"
+  },
+  {
+   "fieldname": "diagnosis_other",
+   "fieldtype": "Data",
+   "label": "Diagnosis other",
+   "length": 128
+  },
+  {
+   "fieldname": "treatment_details",
+   "fieldtype": "Table MultiSelect",
+   "ismultiselect": 1,
+   "label": "Treatment details",
+   "length": 256,
+   "multiselectlink": "Treatment details",
+   "options": "Treatment child table"
+  },
+  {
+   "fieldname": "treatment_details_other",
+   "fieldtype": "Data",
+   "label": "Treatment details other",
+   "length": 256
+  },
+  {
+   "fieldname": "referred_to_nrc",
+   "fieldtype": "Link",
+   "label": "Referred to NRC",
+   "options": "YesNo"
+  },
+  {
+   "fieldname": "treatment_details_nrc",
+   "fieldtype": "Table MultiSelect",
+   "ismultiselect": 1,
+   "label": "Treatment details NRC",
+   "length": 256,
+   "multiselectlink": "Treatment details NRC",
+   "options": "Treatment NRC child table"
+  },
+  {
+   "fieldname": "treatment_details_nrc_other",
+   "fieldtype": "Data",
+   "label": "Treatment details NRC other",
+   "length": 256
+  },
+  {
+   "fieldname": "admission_date",
+   "fieldtype": "Date",
+   "label": "Admission date"
+  },
+  {
+   "fieldname": "discharge_date",
+   "fieldtype": "Date",
+   "label": "Discharge Date"
+  },
+  {
+   "fieldname": "weight_on_discharge",
+   "fieldtype": "Float",
+   "label": "Weight on discharge",
+   "precision": "1"
+  },
+  {
+   "fieldname": "special_instruction",
+   "fieldtype": "Data",
+   "label": "Special Instruction",
+   "length": 256
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Long Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "hidden_tab",
+   "fieldtype": "Tab Break",
+   "label": "Hidden"
+  },
+  {
+   "fieldname": "appcreated_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "App Created by"
+  },
+  {
+   "fieldname": "appcreated_on",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "App Created on"
+  },
+  {
+   "fieldname": "app_updated_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "App Updated by"
+  },
+  {
+   "fieldname": "app_updated_on",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "App updated on"
+  },
+  {
+   "fieldname": "childenrolledguid",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Children Enrolled GUID"
+  },
+  {
+   "fieldname": "child_referral_guid",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Child referral GUID"
+  },
+  {
+   "fieldname": "cgmguid",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "CGM GUID"
+  },
+  {
+   "fieldname": "child_status",
+   "fieldtype": "Link",
+   "label": "Child Status",
+   "options": "Child Status",
+   "reqd": 1
+  },
+  {
+   "fieldname": "any_other",
+   "fieldtype": "Data",
+   "label": "Any Other"
+  },
+  {
+   "fieldname": "any_other_referred_to",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Any Other"
+  },
+  {
+   "default": "0",
+   "fieldname": "any_medical_major_illnesss",
+   "fieldtype": "Check",
+   "label": "Any Medical Complication/Major illness "
+  },
+  {
+   "fieldname": "visit_count",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Visit Count"
+  },
+  {
+   "fieldname": "schedule_date",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "Schedule date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_appi": 1,
+ "links": [],
+ "modified": "2025-02-14 14:57:41.711607",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "Child Referral",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

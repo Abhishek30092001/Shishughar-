@@ -1,0 +1,37 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2024-06-06 12:34:11.825076",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 1,
+ "is_standard": "Yes",
+ "letter_head": "SHISHU GHAR",
+ "letterhead": null,
+ "modified": "2024-11-14 15:01:10.713257",
+ "modified_by": "Administrator",
+ "module": "Creche Module",
+ "name": "Child Growth Monitoring",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "select *\nfrom `tabAnthropromatic Data` as c\n",
+ "ref_doctype": "Child Growth Monitoring",
+ "report_name": "Child Growth Monitoring",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "All"
+  },
+  {
+   "role": "APPI Administrator"
+  },
+  {
+   "role": "Partner Administrator"
+  }
+ ]
+}

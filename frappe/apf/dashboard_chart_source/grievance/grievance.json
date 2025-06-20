@@ -1,0 +1,13 @@
+{
+ "creation": "2024-06-07 08:32:35.301180",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart Source",
+ "idx": 0,
+ "modified": "2024-06-07 08:32:35.301180",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "Grievance",
+ "owner": "Administrator",
+ "source_name": "Grievance",
+ "timeseries": 0
+}

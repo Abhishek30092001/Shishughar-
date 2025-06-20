@@ -1,0 +1,200 @@
+{
+ "_comments": "[{\"comment\": \"Action Failed<br><br><pre><code>Traceback (most recent call last):\\n  File \\\"apps/frappe/frappe/dat...\", \"by\": \"Administrator\", \"name\": \"2b1d4d79be\"}, {\"comment\": \"Action Failed<br><br><pre><code>Traceback (most recent call last):\\n  File \\\"apps/frappe/frappe/dat...\", \"by\": \"Administrator\", \"name\": \"30204b4723\"}]",
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "autoincrement",
+ "creation": "2024-02-19 10:17:21.858970",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "details_section",
+  "state_id",
+  "district_id",
+  "block_id",
+  "gp_id",
+  "village_code",
+  "village_name",
+  "no_of_hamlets_in_the_village",
+  "column_break_ptzi",
+  "is_active",
+  "demographical_profile",
+  "demographical",
+  "socio_economic_profile",
+  "caste",
+  "type_of_sc_st_pvtg",
+  "pvtg_check",
+  "sc",
+  "st",
+  "pvtg",
+  "livelihood_pattern",
+  "languages_spoken"
+ ],
+ "fields": [
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Tab Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "state_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "State",
+   "options": "State",
+   "reqd": 1
+  },
+  {
+   "depends_on": "state_id",
+   "fieldname": "district_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "District",
+   "options": "District",
+   "reqd": 1
+  },
+  {
+   "depends_on": "district_id",
+   "fieldname": "block_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Block",
+   "options": "Block",
+   "reqd": 1
+  },
+  {
+   "depends_on": "block_id",
+   "fieldname": "gp_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Gram Panchayat",
+   "options": "Gram Panchayat",
+   "reqd": 1
+  },
+  {
+   "fieldname": "village_code",
+   "fieldtype": "Data",
+   "label": "Village Code",
+   "reqd": 1
+  },
+  {
+   "fieldname": "village_name",
+   "fieldtype": "Data",
+   "label": "Village Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "no_of_hamlets_in_the_village",
+   "fieldtype": "Int",
+   "label": "No of Hamlets in the village",
+   "length": 8
+  },
+  {
+   "fieldname": "column_break_ptzi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "demographical_profile",
+   "fieldtype": "Tab Break",
+   "label": "Demographic Profile"
+  },
+  {
+   "fieldname": "demographical",
+   "fieldtype": "Table",
+   "label": "Demographical Profile",
+   "options": "Demographic Details"
+  },
+  {
+   "fieldname": "socio_economic_profile",
+   "fieldtype": "Tab Break",
+   "label": "Socio-economic profile"
+  },
+  {
+   "fieldname": "caste",
+   "fieldtype": "Table MultiSelect",
+   "ismultiselect": 1,
+   "label": "Caste:",
+   "multiselectlink": "Caste",
+   "options": "Caste child table"
+  },
+  {
+   "fieldname": "type_of_sc_st_pvtg",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Type of SC/ST PVTG:"
+  },
+  {
+   "default": "0",
+   "fieldname": "pvtg_check",
+   "fieldtype": "Check",
+   "label": "PVTG"
+  },
+  {
+   "fieldname": "sc",
+   "fieldtype": "Data",
+   "label": "Type of SC:",
+   "length": 256
+  },
+  {
+   "fieldname": "st",
+   "fieldtype": "Data",
+   "label": "Type of ST:",
+   "length": 256
+  },
+  {
+   "fieldname": "pvtg",
+   "fieldtype": "Data",
+   "label": "Type of PVTG:",
+   "length": 256
+  },
+  {
+   "fieldname": "livelihood_pattern",
+   "fieldtype": "Data",
+   "label": "Livelihood Pattern",
+   "length": 256
+  },
+  {
+   "fieldname": "languages_spoken",
+   "fieldtype": "Data",
+   "label": "Languages Spoken",
+   "length": 256
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-07-03 20:15:57.537076",
+ "modified_by": "Administrator",
+ "module": "Core",
+ "name": "Village",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "village_name",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "village_name"
+}

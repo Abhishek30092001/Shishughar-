@@ -1,0 +1,216 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2025-04-10 18:01:52.858952",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "partner_id",
+  "partner_name",
+  "state_id",
+  "state_name",
+  "district_id",
+  "district_name",
+  "block_id",
+  "block_name",
+  "gp_id",
+  "gp_name",
+  "supervisor_id",
+  "creche_id",
+  "creche_name",
+  "c_name",
+  "c_idx",
+  "creche_opening_date",
+  "creche_closing_date",
+  "creche_status_id",
+  "phase",
+  "eligible_children",
+  "enrolled_children",
+  "children_attendance_atleast_one_day",
+  "avg_attd_per_day",
+  "min_attd",
+  "mean_attd",
+  "max_attd",
+  "year",
+  "supervisor_name",
+  "creche_status_by_day"
+ ],
+ "fields": [
+  {
+   "fieldname": "partner_id",
+   "fieldtype": "Link",
+   "label": "Partner",
+   "options": "Partner"
+  },
+  {
+   "fieldname": "partner_name",
+   "fieldtype": "Data",
+   "label": "Partner Name"
+  },
+  {
+   "fieldname": "state_id",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State"
+  },
+  {
+   "fieldname": "state_name",
+   "fieldtype": "Data",
+   "label": "State Name"
+  },
+  {
+   "fieldname": "district_id",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District"
+  },
+  {
+   "fieldname": "district_name",
+   "fieldtype": "Data",
+   "label": "District Name"
+  },
+  {
+   "fieldname": "block_id",
+   "fieldtype": "Link",
+   "label": "Block",
+   "options": "Block"
+  },
+  {
+   "fieldname": "block_name",
+   "fieldtype": "Data",
+   "label": "Block Name"
+  },
+  {
+   "fieldname": "gp_id",
+   "fieldtype": "Link",
+   "label": "Gp",
+   "options": "Gram Panchayat"
+  },
+  {
+   "fieldname": "gp_name",
+   "fieldtype": "Data",
+   "label": "GP Name"
+  },
+  {
+   "fieldname": "supervisor_id",
+   "fieldtype": "Data",
+   "label": "Supervisor"
+  },
+  {
+   "fieldname": "creche_id",
+   "fieldtype": "Link",
+   "label": "Creche",
+   "options": "Creche"
+  },
+  {
+   "fieldname": "creche_name",
+   "fieldtype": "Data",
+   "label": "Creche Name"
+  },
+  {
+   "fieldname": "c_name",
+   "fieldtype": "Data",
+   "label": "Creche ID"
+  },
+  {
+   "fieldname": "creche_opening_date",
+   "fieldtype": "Date",
+   "label": "Creche Opening Date"
+  },
+  {
+   "fieldname": "creche_closing_date",
+   "fieldtype": "Date",
+   "label": "Creche Closing Date"
+  },
+  {
+   "fieldname": "creche_status_id",
+   "fieldtype": "Data",
+   "label": "Creche Status"
+  },
+  {
+   "fieldname": "phase",
+   "fieldtype": "Data",
+   "label": "Phase"
+  },
+  {
+   "fieldname": "eligible_children",
+   "fieldtype": "Data",
+   "label": "Eligible Children"
+  },
+  {
+   "fieldname": "enrolled_children",
+   "fieldtype": "Data",
+   "label": "Enrolled Children"
+  },
+  {
+   "fieldname": "children_attendance_atleast_one_day",
+   "fieldtype": "Data",
+   "label": "Children Attendance Atleast One Day"
+  },
+  {
+   "fieldname": "avg_attd_per_day",
+   "fieldtype": "Data",
+   "label": "Average Attendance Per Day"
+  },
+  {
+   "fieldname": "min_attd",
+   "fieldtype": "Data",
+   "label": "Min Attendance"
+  },
+  {
+   "fieldname": "mean_attd",
+   "fieldtype": "Data",
+   "label": "Mean Attendance"
+  },
+  {
+   "fieldname": "max_attd",
+   "fieldtype": "Data",
+   "label": "Max Attendance"
+  },
+  {
+   "fieldname": "year",
+   "fieldtype": "Data",
+   "label": "Year"
+  },
+  {
+   "fieldname": "c_idx",
+   "fieldtype": "Data",
+   "label": "Creche Index"
+  },
+  {
+   "fieldname": "supervisor_name",
+   "fieldtype": "Data",
+   "label": "Supervisor Name"
+  },
+  {
+   "fieldname": "creche_status_by_day",
+   "fieldtype": "Long Text",
+   "label": "Creche Daily Status"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-04-18 10:39:46.830950",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "Creche Summary",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

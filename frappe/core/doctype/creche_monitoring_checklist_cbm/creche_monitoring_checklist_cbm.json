@@ -1,0 +1,596 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-06-03 15:58:37.566869",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "creche_info_section",
+  "creche_info",
+  "partner_id",
+  "state_id",
+  "district_id",
+  "block_id",
+  "gp_id",
+  "village_id",
+  "creche_id",
+  "registerandposter_section",
+  "entry_time",
+  "exit_time",
+  "date_of_visit",
+  "mention_action_taken",
+  "children_present_in_creche",
+  "food",
+  "hygiene",
+  "referral",
+  "creche_register",
+  "line_listing_book",
+  "all_child_cards",
+  "indent_and_receipt_book",
+  "community_growth_chart_poster",
+  "know_your_area_poster",
+  "entitlement_chart_poster",
+  "food_menu_poster",
+  "early_childhood_activity_poster",
+  "grievance_redressal_contact",
+  "the_creche_name_displayed_outside_creche",
+  "is_the_cms_app_uptodate_with_data",
+  "additional_information",
+  "cleanliness_section",
+  "is_the_creche_premises_clean",
+  "are_the_floors_clean",
+  "is_trash_disposed_off_properly",
+  "are_the_food_and_ingredients_kept_covered_and_properly",
+  "are_the_leftovers_discarded_on_the_same_day",
+  "are_the_dishes_washed_after_each_meal",
+  "are_the_children_in_creche_using_toilet",
+  "any_additional_information",
+  "caregiver_hygiene_section",
+  "whether_the_nails_of_creche_caregiver_cut_and_clean",
+  "observation_during_cooking_and_feeding",
+  "observation_during_cooking_and_feeding_children",
+  "do_creche_caregiver_wash_their_hand_with_soap",
+  "caregiver_additional_information",
+  "children_hygiene_section",
+  "are_the_faeces_cleaned",
+  "are_the_faeces_properly_disposed_of",
+  "are_the_children_nail_cut_and_cleaned",
+  "observation_during_feeding_do_creche_caregivers_wash_children",
+  "observation_after_use_toilets",
+  "any_additional_info",
+  "feeding_section",
+  "does_the_menu_in_the_creche_follow_the_meal_plan_as_given",
+  "creche_caregiver_getting_involved_in_feeding",
+  "children_receive_days_egg_per_week_atleast",
+  "on_the_day_of_the_visit_did_you_observe_children",
+  "did_children_get_one_drop_extra_oil",
+  "did_children_get_lemon_drop",
+  "did_any_child_get_special_nutrition_care",
+  "feeding_information",
+  "ecd_activities",
+  "toys_are_available",
+  "any_new_toys_made_in_current_month",
+  "is_the_ecd_activities_happened_on_the_day_of_visit",
+  "ecd_information",
+  "training_need_assessment_section",
+  "need_refresher_training_creche_operational_management",
+  "need_refresher_on_understanding_anthropometric",
+  "need_refresher_training_on_ecd",
+  "need_refresher_training_on_health_and_hygiene",
+  "need_refresher_traning_on_register",
+  "any_other_traning_needed",
+  "training_information",
+  "hidden_section",
+  "appcreated_by",
+  "appcreated_on",
+  "app_updated_by",
+  "app_updated_on",
+  "cbmguid"
+ ],
+ "fields": [
+  {
+   "fieldname": "creche_info_section",
+   "fieldtype": "Tab Break",
+   "label": "Creche Info"
+  },
+  {
+   "fieldname": "creche_info",
+   "fieldtype": "Section Break",
+   "label": "Creche Info"
+  },
+  {
+   "fieldname": "partner_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Partner",
+   "options": "Partner",
+   "reqd": 1
+  },
+  {
+   "fieldname": "state_id",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State",
+   "reqd": 1
+  },
+  {
+   "fieldname": "district_id",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District",
+   "reqd": 1
+  },
+  {
+   "fieldname": "block_id",
+   "fieldtype": "Link",
+   "label": "Block",
+   "options": "Block",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gp_id",
+   "fieldtype": "Link",
+   "label": "Gram Panchayat",
+   "options": "Gram Panchayat",
+   "reqd": 1
+  },
+  {
+   "fieldname": "village_id",
+   "fieldtype": "Link",
+   "label": "Village",
+   "options": "Village",
+   "reqd": 1
+  },
+  {
+   "fieldname": "creche_id",
+   "fieldtype": "Link",
+   "label": "Creche",
+   "options": "Creche",
+   "reqd": 1
+  },
+  {
+   "fieldname": "registerandposter_section",
+   "fieldtype": "Tab Break",
+   "label": "Register and Poster"
+  },
+  {
+   "fieldname": "entry_time",
+   "fieldtype": "Time",
+   "label": "Entry Time"
+  },
+  {
+   "fieldname": "exit_time",
+   "fieldtype": "Time",
+   "label": "Exit Time"
+  },
+  {
+   "fieldname": "date_of_visit",
+   "fieldtype": "Date",
+   "label": "Date of Visit",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "mention_action_taken",
+   "fieldtype": "Check",
+   "label": "If Yes,then mention the action taken"
+  },
+  {
+   "fieldname": "children_present_in_creche",
+   "fieldtype": "Int",
+   "label": "No. of children present in the creche at the time of visit",
+   "length": 4,
+   "reqd": 1
+  },
+  {
+   "fieldname": "food",
+   "fieldtype": "Data",
+   "label": "Food",
+   "length": 256
+  },
+  {
+   "fieldname": "hygiene",
+   "fieldtype": "Data",
+   "label": "Hygiene",
+   "length": 256
+  },
+  {
+   "fieldname": "referral",
+   "fieldtype": "Data",
+   "label": "Referral",
+   "length": 256
+  },
+  {
+   "fieldname": "creche_register",
+   "fieldtype": "Link",
+   "label": "Creche Register",
+   "options": "Register"
+  },
+  {
+   "fieldname": "line_listing_book",
+   "fieldtype": "Link",
+   "label": "Line Listing Book",
+   "options": "Register"
+  },
+  {
+   "fieldname": "all_child_cards",
+   "fieldtype": "Link",
+   "label": "All Child Cards",
+   "options": "Register"
+  },
+  {
+   "fieldname": "indent_and_receipt_book",
+   "fieldtype": "Link",
+   "label": "Indent and Receipt Book",
+   "options": "Register"
+  },
+  {
+   "fieldname": "community_growth_chart_poster",
+   "fieldtype": "Link",
+   "label": "Community Growth chart - Poster",
+   "options": "Register"
+  },
+  {
+   "fieldname": "know_your_area_poster",
+   "fieldtype": "Link",
+   "label": "Know your area - Poster",
+   "options": "Register"
+  },
+  {
+   "fieldname": "entitlement_chart_poster",
+   "fieldtype": "Link",
+   "label": "Entitlement Chart - Poster",
+   "options": "Available Not Available"
+  },
+  {
+   "fieldname": "food_menu_poster",
+   "fieldtype": "Link",
+   "label": "Food menu - Poster",
+   "options": "Available Not Available"
+  },
+  {
+   "fieldname": "early_childhood_activity_poster",
+   "fieldtype": "Link",
+   "label": "Early Childhood Activity - Poster",
+   "options": "Available Not Available"
+  },
+  {
+   "fieldname": "grievance_redressal_contact",
+   "fieldtype": "Link",
+   "label": "Grievance redressal contact",
+   "options": "Available Not Available"
+  },
+  {
+   "fieldname": "the_creche_name_displayed_outside_creche",
+   "fieldtype": "Data",
+   "label": "The Creche name displayed outside the creche"
+  },
+  {
+   "fieldname": "is_the_cms_app_uptodate_with_data",
+   "fieldtype": "Link",
+   "label": "Is the Creche Management System (CMS) app upto date with data (by Supervisor)",
+   "options": "Register cms"
+  },
+  {
+   "fieldname": "additional_information",
+   "fieldtype": "Data",
+   "label": "Additional Information:"
+  },
+  {
+   "fieldname": "cleanliness_section",
+   "fieldtype": "Tab Break",
+   "label": "Cleanliness"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_the_creche_premises_clean",
+   "fieldtype": "Check",
+   "label": "Is the creche premises clean?"
+  },
+  {
+   "default": "0",
+   "fieldname": "are_the_floors_clean",
+   "fieldtype": "Check",
+   "label": "Are the floors clean?"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_trash_disposed_off_properly",
+   "fieldtype": "Check",
+   "label": "Is trash disposed-off properly?"
+  },
+  {
+   "default": "0",
+   "fieldname": "are_the_food_and_ingredients_kept_covered_and_properly",
+   "fieldtype": "Check",
+   "label": "Are the food and ingredients kept covred and properly stored?"
+  },
+  {
+   "default": "0",
+   "fieldname": "are_the_leftovers_discarded_on_the_same_day",
+   "fieldtype": "Check",
+   "label": "Are the leftovers discarded on the same day?"
+  },
+  {
+   "fieldname": "are_the_dishes_washed_after_each_meal",
+   "fieldtype": "Link",
+   "label": "Are the dishes washed after each meal?",
+   "options": "Cleanliness",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "are_the_children_in_creche_using_toilet",
+   "fieldtype": "Check",
+   "label": "Are the children in the creche using the toilet?"
+  },
+  {
+   "fieldname": "any_additional_information",
+   "fieldtype": "Data",
+   "label": "Any Additional Information:"
+  },
+  {
+   "fieldname": "caregiver_hygiene_section",
+   "fieldtype": "Tab Break",
+   "label": "Caregiver's Hygiene"
+  },
+  {
+   "default": "0",
+   "fieldname": "whether_the_nails_of_creche_caregiver_cut_and_clean",
+   "fieldtype": "Check",
+   "label": "Whether the nails of the creche caregivers cut kept clean?"
+  },
+  {
+   "default": "0",
+   "fieldname": "observation_during_cooking_and_feeding",
+   "fieldtype": "Check",
+   "label": "Observation during cooking and feeding:DO creche caregivers wash their hands with soap before cooking the food?"
+  },
+  {
+   "fieldname": "observation_during_cooking_and_feeding_children",
+   "fieldtype": "Link",
+   "label": "Obsevation during cooking and feeding:Do creche caregivers wash their hands with before feeding the children?",
+   "options": "Caregivers Hygiene"
+  },
+  {
+   "default": "0",
+   "fieldname": "do_creche_caregiver_wash_their_hand_with_soap",
+   "fieldtype": "Check",
+   "label": "Do Creche caregiver wash their hands with soap after using toilet?(Ask about the practice)"
+  },
+  {
+   "fieldname": "caregiver_additional_information",
+   "fieldtype": "Data",
+   "label": "Any additional Information:"
+  },
+  {
+   "fieldname": "children_hygiene_section",
+   "fieldtype": "Tab Break",
+   "label": "Children's Hygiene"
+  },
+  {
+   "fieldname": "are_the_faeces_cleaned",
+   "fieldtype": "Link",
+   "label": "Are the faeces cleaned?",
+   "options": "Hygiene YesNo",
+   "reqd": 1
+  },
+  {
+   "fieldname": "are_the_faeces_properly_disposed_of",
+   "fieldtype": "Link",
+   "label": "Are the faeces properly disposed of (in case if non-availability of toilet)",
+   "options": "Childrens Hygiene"
+  },
+  {
+   "fieldname": "are_the_children_nail_cut_and_cleaned",
+   "fieldtype": "Link",
+   "label": "Are the children's nails cut and cleaned?",
+   "options": "Hygiene YesNo"
+  },
+  {
+   "fieldname": "observation_during_feeding_do_creche_caregivers_wash_children",
+   "fieldtype": "Link",
+   "label": "Obsevation during feeding:Do creche caregivers wash children's hands with soap before feeding?",
+   "options": "Hygiene YesNo"
+  },
+  {
+   "fieldname": "observation_after_use_toilets",
+   "fieldtype": "Link",
+   "label": "Observation after use of toilets:Do creche caregivers wash children's hands with soap after using the toilets?(Ask about the pratice)",
+   "options": "Hygiene YesNo"
+  },
+  {
+   "fieldname": "any_additional_info",
+   "fieldtype": "Data",
+   "label": "Any additional Information:"
+  },
+  {
+   "fieldname": "feeding_section",
+   "fieldtype": "Tab Break",
+   "label": "Feeding"
+  },
+  {
+   "fieldname": "does_the_menu_in_the_creche_follow_the_meal_plan_as_given",
+   "fieldtype": "Link",
+   "label": "Does the menu in the creche follow the meal plan as given in the creche manual?",
+   "options": "Hygiene YesNo"
+  },
+  {
+   "fieldname": "creche_caregiver_getting_involved_in_feeding",
+   "fieldtype": "Link",
+   "label": "Creche caregivers getting involved in feeding the smaller children?",
+   "options": "Hygiene YesNo"
+  },
+  {
+   "default": "0",
+   "fieldname": "children_receive_days_egg_per_week_atleast",
+   "fieldtype": "Check",
+   "label": "Did the Children receive 3 days eggs per week atleast"
+  },
+  {
+   "fieldname": "on_the_day_of_the_visit_did_you_observe_children",
+   "fieldtype": "Link",
+   "label": "On the day of the visit did you observe children eating full egg(if that in the menu)",
+   "options": "Hygiene YesNo"
+  },
+  {
+   "fieldname": "did_children_get_one_drop_extra_oil",
+   "fieldtype": "Link",
+   "label": "Did the children get one drop extra oil?",
+   "options": "Hygiene YesNo"
+  },
+  {
+   "fieldname": "did_children_get_lemon_drop",
+   "fieldtype": "Link",
+   "label": "Did the children get lemon drops?",
+   "options": "Hygiene YesNo"
+  },
+  {
+   "fieldname": "did_any_child_get_special_nutrition_care",
+   "fieldtype": "Link",
+   "label": "Did any child get Special nutrition care (SNC)",
+   "options": "Hygiene YesNo"
+  },
+  {
+   "fieldname": "feeding_information",
+   "fieldtype": "Data",
+   "label": "Any additional information"
+  },
+  {
+   "fieldname": "ecd_activities",
+   "fieldtype": "Tab Break",
+   "label": "ECD Activities"
+  },
+  {
+   "fieldname": "toys_are_available",
+   "fieldtype": "Link",
+   "label": "Toys are available ",
+   "options": "Anthropromatric equipment",
+   "reqd": 1
+  },
+  {
+   "fieldname": "any_new_toys_made_in_current_month",
+   "fieldtype": "Link",
+   "label": "Any new toys made in the current month",
+   "options": "YesNo"
+  },
+  {
+   "fieldname": "is_the_ecd_activities_happened_on_the_day_of_visit",
+   "fieldtype": "Link",
+   "label": "Is the ECD activities happened on the day of visit",
+   "options": "Hygiene YesNo"
+  },
+  {
+   "fieldname": "ecd_information",
+   "fieldtype": "Data",
+   "label": "Any Additional Information:"
+  },
+  {
+   "fieldname": "training_need_assessment_section",
+   "fieldtype": "Tab Break",
+   "label": "Training Need Assessment"
+  },
+  {
+   "default": "0",
+   "fieldname": "need_refresher_training_creche_operational_management",
+   "fieldtype": "Check",
+   "label": "need refresher training on Creche Operational Management "
+  },
+  {
+   "default": "0",
+   "fieldname": "need_refresher_on_understanding_anthropometric",
+   "fieldtype": "Check",
+   "label": "Need a refresher on understanding Anthropometric measurement and counselling "
+  },
+  {
+   "default": "0",
+   "fieldname": "need_refresher_training_on_ecd",
+   "fieldtype": "Check",
+   "label": "Need refresher training on ECD"
+  },
+  {
+   "default": "0",
+   "fieldname": "need_refresher_training_on_health_and_hygiene",
+   "fieldtype": "Check",
+   "label": "Need refresher training on Health & Hygiene,Feeding & common diseases"
+  },
+  {
+   "default": "0",
+   "fieldname": "need_refresher_traning_on_register",
+   "fieldtype": "Check",
+   "label": "Need refresher traning on Register / Creche Management and Referral"
+  },
+  {
+   "default": "0",
+   "fieldname": "any_other_traning_needed",
+   "fieldtype": "Check",
+   "label": "Any other training needed (pls Specify)"
+  },
+  {
+   "fieldname": "training_information",
+   "fieldtype": "Data",
+   "label": "Any additional information:"
+  },
+  {
+   "fieldname": "hidden_section",
+   "fieldtype": "Tab Break",
+   "label": "Hidden"
+  },
+  {
+   "fieldname": "appcreated_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "App created by"
+  },
+  {
+   "fieldname": "appcreated_on",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "App created on"
+  },
+  {
+   "fieldname": "app_updated_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "App updated by"
+  },
+  {
+   "fieldname": "app_updated_on",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "App updated on"
+  },
+  {
+   "fieldname": "cbmguid",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "CBMGUID"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_appi": 1,
+ "links": [],
+ "modified": "2024-07-03 20:14:42.071093",
+ "modified_by": "Administrator",
+ "module": "Core",
+ "name": "Creche Monitoring Checklist CBM",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

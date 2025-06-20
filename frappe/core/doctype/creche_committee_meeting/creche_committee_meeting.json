@@ -1,0 +1,201 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-05-27 12:56:34.675108",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "creche_info",
+  "partner_id",
+  "state_id",
+  "district_id",
+  "block_id",
+  "gp_id",
+  "village_id",
+  "creche_id",
+  "details_tab",
+  "meeting_date",
+  "major_topic",
+  "discussion",
+  "attendees_data",
+  "any_other",
+  "attendees_tab",
+  "attendees_table",
+  "hidden_tab",
+  "appcreated_by",
+  "appcreated_on",
+  "app_updated_by",
+  "app_updated_on",
+  "ccguid"
+ ],
+ "fields": [
+  {
+   "fieldname": "creche_info",
+   "fieldtype": "Tab Break",
+   "label": "Creche Info"
+  },
+  {
+   "fieldname": "partner_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Partner",
+   "options": "Partner",
+   "reqd": 1
+  },
+  {
+   "fieldname": "state_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "State",
+   "options": "State",
+   "reqd": 1
+  },
+  {
+   "fieldname": "district_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "District",
+   "options": "District",
+   "reqd": 1
+  },
+  {
+   "fieldname": "block_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Block",
+   "options": "Block",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gp_id",
+   "fieldtype": "Link",
+   "label": "Gram Panchayat",
+   "options": "Gram Panchayat",
+   "reqd": 1
+  },
+  {
+   "fieldname": "village_id",
+   "fieldtype": "Link",
+   "label": "Village",
+   "options": "Village",
+   "reqd": 1
+  },
+  {
+   "fieldname": "creche_id",
+   "fieldtype": "Link",
+   "label": "Creche",
+   "options": "Creche",
+   "reqd": 1
+  },
+  {
+   "fieldname": "details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "meeting_date",
+   "fieldtype": "Date",
+   "label": "Meeting Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "major_topic",
+   "fieldtype": "Long Text",
+   "label": "Major Topic",
+   "length": 256,
+   "reqd": 1
+  },
+  {
+   "fieldname": "discussion",
+   "fieldtype": "Long Text",
+   "label": "Discussion"
+  },
+  {
+   "fieldname": "attendees_data",
+   "fieldtype": "Table MultiSelect",
+   "ismultiselect": 1,
+   "label": "Attendees",
+   "multiselectlink": "Attendees",
+   "options": "Attendees child table"
+  },
+  {
+   "fieldname": "any_other",
+   "fieldtype": "Data",
+   "label": "Any Other"
+  },
+  {
+   "fieldname": "attendees_tab",
+   "fieldtype": "Tab Break",
+   "hidden": 1,
+   "label": "Attendees"
+  },
+  {
+   "allow_bulk_edit": 1,
+   "fieldname": "attendees_table",
+   "fieldtype": "Table",
+   "label": "Attendees",
+   "options": "Attendees Details"
+  },
+  {
+   "fieldname": "hidden_tab",
+   "fieldtype": "Tab Break",
+   "label": "Hidden "
+  },
+  {
+   "fieldname": "appcreated_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "App Created by"
+  },
+  {
+   "fieldname": "appcreated_on",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "App Created on"
+  },
+  {
+   "fieldname": "app_updated_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "App updated by"
+  },
+  {
+   "fieldname": "app_updated_on",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "App updated on"
+  },
+  {
+   "fieldname": "ccguid",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "CCGuid"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_appi": 1,
+ "links": [],
+ "modified": "2024-07-03 20:14:48.565205",
+ "modified_by": "Administrator",
+ "module": "Core",
+ "name": "Creche Committee Meeting",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,132 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2024-02-28 12:16:55.525807",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "caregiver_details_section",
+  "caregiver_code",
+  "caregiver_name",
+  "mobile_no",
+  "is_active",
+  "column_break_show",
+  "date_of_joinning",
+  "date_of_leaving",
+  "hidden_fields_tab",
+  "cgguid",
+  "appcreated_on",
+  "appcreated_by",
+  "app_updated_on",
+  "app_updated_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "caregiver_details_section",
+   "fieldtype": "Section Break",
+   "label": "Caregiver Details"
+  },
+  {
+   "fieldname": "caregiver_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Caregiver Code"
+  },
+  {
+   "fieldname": "caregiver_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Caregiver Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "mobile_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Mobile No",
+   "length": 10,
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "column_break_show",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date_of_joinning",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of joining",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_of_leaving",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of leaving"
+  },
+  {
+   "fieldname": "hidden_fields_tab",
+   "fieldtype": "Tab Break",
+   "hidden": 1,
+   "label": "Hidden Fields"
+  },
+  {
+   "fieldname": "cgguid",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "cgguid",
+   "unique": 1
+  },
+  {
+   "fieldname": "appcreated_on",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "appcreated_on"
+  },
+  {
+   "fieldname": "appcreated_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "appcreated_by"
+  },
+  {
+   "fieldname": "app_updated_on",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "app_updated_on"
+  },
+  {
+   "fieldname": "app_updated_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "app_updated_by"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-07-04 10:43:03.460068",
+ "modified_by": "Administrator",
+ "module": "Core",
+ "name": "Creche Caregiver",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "caregiver_name"
+}

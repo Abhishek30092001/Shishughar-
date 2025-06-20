@@ -1,0 +1,203 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "autoincrement",
+ "creation": "2024-02-19 10:17:21.858970",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "details_section",
+  "state_id",
+  "district_id",
+  "block_id",
+  "gp_id",
+  "village_code",
+  "village_name",
+  "no_of_hamlets_in_the_village",
+  "column_break_ptzi",
+  "is_active",
+  "demographical_profile",
+  "demographical",
+  "socio_economic_profile",
+  "caste",
+  "pvtg_check",
+  "sc",
+  "st",
+  "pvtg",
+  "livelihood_pattern",
+  "languages_spoken",
+  "village_od",
+  "village_hi"
+ ],
+ "fields": [
+  {
+   "fieldname": "village_code",
+   "fieldtype": "Data",
+   "label": "Village Code"
+  },
+  {
+   "fieldname": "village_name",
+   "fieldtype": "Data",
+   "label": "Village Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ptzi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Is Active"
+  },
+  {
+   "depends_on": "block_id",
+   "fieldname": "gp_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Gram Panchayat",
+   "options": "Gram Panchayat",
+   "reqd": 1
+  },
+  {
+   "fieldname": "state_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "State",
+   "options": "State",
+   "reqd": 1
+  },
+  {
+   "depends_on": "state_id",
+   "fieldname": "district_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "District",
+   "options": "District",
+   "reqd": 1
+  },
+  {
+   "depends_on": "district_id",
+   "fieldname": "block_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Block",
+   "options": "Block",
+   "reqd": 1
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Tab Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "demographical_profile",
+   "fieldtype": "Tab Break",
+   "label": "Demographic Profile"
+  },
+  {
+   "fieldname": "demographical",
+   "fieldtype": "Table",
+   "label": "Demographical Profile",
+   "options": "Demographic Details"
+  },
+  {
+   "fieldname": "socio_economic_profile",
+   "fieldtype": "Tab Break",
+   "label": "Socio-economic profile"
+  },
+  {
+   "fieldname": "caste",
+   "fieldtype": "Table MultiSelect",
+   "ismultiselect": 1,
+   "label": "Caste",
+   "multiselectlink": "Caste",
+   "options": "Caste child table"
+  },
+  {
+   "default": "0",
+   "fieldname": "pvtg_check",
+   "fieldtype": "Check",
+   "label": "PVTG"
+  },
+  {
+   "fieldname": "sc",
+   "fieldtype": "Data",
+   "label": "Type of SC:",
+   "length": 256
+  },
+  {
+   "fieldname": "st",
+   "fieldtype": "Data",
+   "label": "Type of ST:",
+   "length": 256
+  },
+  {
+   "fieldname": "pvtg",
+   "fieldtype": "Data",
+   "label": "Type of PVTG:",
+   "length": 256
+  },
+  {
+   "fieldname": "livelihood_pattern",
+   "fieldtype": "Data",
+   "label": "Livelihood Pattern",
+   "length": 256
+  },
+  {
+   "fieldname": "languages_spoken",
+   "fieldtype": "Data",
+   "label": "Languages Spoken"
+  },
+  {
+   "fieldname": "no_of_hamlets_in_the_village",
+   "fieldtype": "Int",
+   "label": "No of Hamlets in the village",
+   "length": 2
+  },
+  {
+   "fieldname": "village_od",
+   "fieldtype": "Data",
+   "label": "Village OD"
+  },
+  {
+   "fieldname": "village_hi",
+   "fieldtype": "Data",
+   "label": "Village HI"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-12-16 10:41:12.809624",
+ "modified_by": "Administrator",
+ "module": "Geography",
+ "name": "Village",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "village_name",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "village_name"
+}

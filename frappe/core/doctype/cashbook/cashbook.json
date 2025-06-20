@@ -1,0 +1,275 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-06-11 12:02:41.233523",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "creche_section",
+  "partner_id",
+  "state_id",
+  "district_id",
+  "block_id",
+  "gp_id",
+  "village_id",
+  "creche_id",
+  "expenses_tab",
+  "date",
+  "item",
+  "any_other",
+  "expense_amount",
+  "comments",
+  "receipt_section",
+  "opening_balance",
+  "money_received_by_creche_caregiver",
+  "receipt_amount",
+  "receipt_date",
+  "hidden_tab",
+  "cashbook_guid",
+  "appcreated_by",
+  "appcreated_on",
+  "app_updated_by",
+  "app_updated_on",
+  "expense_details",
+  "month",
+  "receipt",
+  "expence",
+  "closing_balance_for_month"
+ ],
+ "fields": [
+  {
+   "fieldname": "creche_section",
+   "fieldtype": "Tab Break",
+   "label": "Creche info"
+  },
+  {
+   "fieldname": "partner_id",
+   "fieldtype": "Link",
+   "label": "Partner",
+   "options": "Partner",
+   "reqd": 1
+  },
+  {
+   "fieldname": "state_id",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State",
+   "reqd": 1
+  },
+  {
+   "fieldname": "district_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "District",
+   "options": "District",
+   "reqd": 1
+  },
+  {
+   "fieldname": "block_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Block",
+   "options": "Block",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gp_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Gram Panchayat",
+   "options": "Gram Panchayat",
+   "reqd": 1
+  },
+  {
+   "fieldname": "village_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Village",
+   "options": "Village",
+   "reqd": 1
+  },
+  {
+   "fieldname": "creche_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Creche",
+   "options": "Creche",
+   "reqd": 1
+  },
+  {
+   "fieldname": "expenses_tab",
+   "fieldtype": "Tab Break",
+   "label": "Expenses"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "any_other",
+   "fieldtype": "Data",
+   "label": "Any Other",
+   "length": 48
+  },
+  {
+   "default": "0",
+   "fieldname": "expense_amount",
+   "fieldtype": "Int",
+   "label": "Amount",
+   "length": 6,
+   "reqd": 1
+  },
+  {
+   "fieldname": "comments",
+   "fieldtype": "Data",
+   "label": "Comments",
+   "length": 256
+  },
+  {
+   "fieldname": "receipt_section",
+   "fieldtype": "Tab Break",
+   "hidden": 1,
+   "label": "Receipt"
+  },
+  {
+   "default": "0",
+   "fieldname": "opening_balance",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Balance"
+  },
+  {
+   "fieldname": "money_received_by_creche_caregiver",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Money Received by Creche Caregiver?",
+   "options": "Money Received by Caregiver"
+  },
+  {
+   "default": "0",
+   "fieldname": "receipt_amount",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Amount",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "receipt_date",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "hidden_tab",
+   "fieldtype": "Tab Break",
+   "label": "Hidden "
+  },
+  {
+   "fieldname": "cashbook_guid",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Cashbook GUID"
+  },
+  {
+   "fieldname": "appcreated_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "App Created by"
+  },
+  {
+   "fieldname": "appcreated_on",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "App Created on"
+  },
+  {
+   "fieldname": "app_updated_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "App Updated by"
+  },
+  {
+   "fieldname": "app_updated_on",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "App updated on"
+  },
+  {
+   "fieldname": "expense_details",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Expense Details (In short)",
+   "length": 256
+  },
+  {
+   "fieldname": "month",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Month",
+   "options": "Months"
+  },
+  {
+   "fieldname": "receipt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Receipt(Rs)"
+  },
+  {
+   "fieldname": "expence",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Expense(Rs)"
+  },
+  {
+   "fieldname": "closing_balance_for_month",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Closing Balance for the month"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_appi": 1,
+ "links": [],
+ "modified": "2024-07-03 20:14:45.838401",
+ "modified_by": "Administrator",
+ "module": "Core",
+ "name": "Cashbook",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

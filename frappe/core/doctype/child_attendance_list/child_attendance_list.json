@@ -1,0 +1,67 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-04-19 17:41:59.052393",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "name_of_child",
+  "attendance",
+  "childenrolledguid",
+  "childattenguid",
+  "date_of_attendance",
+  "child_profile_id"
+ ],
+ "fields": [
+  {
+   "fieldname": "name_of_child",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Name of Child"
+  },
+  {
+   "default": "0",
+   "fieldname": "attendance",
+   "fieldtype": "Check",
+   "label": "Attendance"
+  },
+  {
+   "fieldname": "childenrolledguid",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "ChildEnrolledGUID"
+  },
+  {
+   "fieldname": "childattenguid",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "ChildAttenGUID"
+  },
+  {
+   "fieldname": "date_of_attendance",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "date_of_attendance"
+  },
+  {
+   "fieldname": "child_profile_id",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "child_profile_id"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-07-03 20:14:59.487682",
+ "modified_by": "Administrator",
+ "module": "Core",
+ "name": "Child Attendance List",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

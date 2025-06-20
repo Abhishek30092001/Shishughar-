@@ -1,0 +1,231 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-04-20 12:22:28.042274",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "partner_id",
+  "state_id",
+  "district_id",
+  "block_id",
+  "gp_id",
+  "village_id",
+  "column_break_qane",
+  "creche_image",
+  "creche_id",
+  "supervisor_id",
+  "longitude",
+  "latitude",
+  "checkin_location",
+  "date_of_checkin",
+  "visit_purpose",
+  "any_other",
+  "picture",
+  "image_preview",
+  "remarks",
+  "app_created_by",
+  "app_created_on",
+  "ccinguid",
+  "appcreated_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "partner_id",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Partner",
+   "options": "Partner",
+   "reqd": 1
+  },
+  {
+   "fieldname": "state_id",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "State",
+   "options": "State",
+   "reqd": 1
+  },
+  {
+   "fieldname": "district_id",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "District",
+   "options": "District",
+   "reqd": 1
+  },
+  {
+   "fieldname": "block_id",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Block",
+   "options": "Block",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gp_id",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Gram Panchayat",
+   "options": "Gram Panchayat",
+   "reqd": 1
+  },
+  {
+   "fieldname": "village_id",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Village",
+   "options": "Village",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_qane",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "longitude",
+   "fieldtype": "Data",
+   "label": "Longitude",
+   "reqd": 1
+  },
+  {
+   "fieldname": "latitude",
+   "fieldtype": "Data",
+   "label": "Latitude",
+   "reqd": 1
+  },
+  {
+   "fieldname": "picture",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "Picture"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "default": "0",
+   "fieldname": "image_preview",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Image Preview"
+  },
+  {
+   "fieldname": "creche_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Creche",
+   "options": "Creche",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_of_checkin",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Check-in Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "checkin_location",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Location"
+  },
+  {
+   "fieldname": "supervisor_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Supervisor",
+   "options": "User"
+  },
+  {
+   "fieldname": "app_created_on",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "App Created On"
+  },
+  {
+   "fieldname": "app_created_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "App Created By"
+  },
+  {
+   "fieldname": "ccinguid",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "ccinguid"
+  },
+  {
+   "fieldname": "visit_purpose",
+   "fieldtype": "Table MultiSelect",
+   "ismultiselect": 1,
+   "label": "Visit Purpose",
+   "multiselectlink": "Visit Purpose",
+   "options": "Visit Purpose child table"
+  },
+  {
+   "fieldname": "creche_image",
+   "fieldtype": "Attach",
+   "label": "Creche Image"
+  },
+  {
+   "fieldname": "any_other",
+   "fieldtype": "Data",
+   "label": "Any other"
+  },
+  {
+   "fieldname": "appcreated_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Check-in by"
+  }
+ ],
+ "image_field": "picture",
+ "index_web_pages_for_search": 1,
+ "is_appi": 1,
+ "links": [],
+ "modified": "2025-05-23 11:34:58.042044",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "Creche Check In",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Partner Administrator",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,81 @@
+{
+ "cards": [
+  {
+   "card": "No of Partner"
+  },
+  {
+   "card": "Total Household"
+  },
+  {
+   "card": "Total Creches"
+  },
+  {
+   "card": "Total Enrolled Children"
+  },
+  {
+   "card": "Number of Creche Committee Meetings"
+  }
+ ],
+ "charts": [
+  {
+   "chart": "Household Listing",
+   "width": "Full"
+  },
+  {
+   "chart": "State wise distribution",
+   "width": "Half"
+  },
+  {
+   "chart": "Child Enrollment Trend",
+   "width": "Half"
+  },
+  {
+   "chart": "Partner wise HH",
+   "width": "Half"
+  },
+  {
+   "chart": "Enrolled Children Gender",
+   "width": "Half"
+  },
+  {
+   "chart": "Long-term Illness Enrolled Children",
+   "width": "Half"
+  },
+  {
+   "chart": "Creche state distribution",
+   "width": "Half"
+  },
+  {
+   "chart": "Partner and Creche distribution",
+   "width": "Half"
+  },
+  {
+   "chart": "Total Vaccination",
+   "width": "Half"
+  },
+  {
+   "chart": "Trend of Child age on exit",
+   "width": "Half"
+  },
+  {
+   "chart": "Reason for Child Exit",
+   "width": "Half"
+  },
+  {
+   "chart": "Grievance from Creche",
+   "width": "Half"
+  }
+ ],
+ "creation": "2024-03-04 21:00:23.168993",
+ "dashboard_name": "APF Dashboard",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 17,
+ "is_default": 1,
+ "is_standard": 1,
+ "modified": "2024-06-07 08:37:07.186859",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "APF Dashboard",
+ "owner": "Administrator"
+}

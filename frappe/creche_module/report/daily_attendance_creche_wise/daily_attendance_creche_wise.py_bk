@@ -1,0 +1,122 @@
+import frappe
+from frappe.utils import nowdate
+import calendar
+from datetime import datetime
+import calendar
+
+def execute(filters=None):
+    columns = get_columns(filters)
+    data = get_summary_data(filters)
+    return columns, data
+
+def get_columns(filters):
+    columns = [
+        {"label": "Partner", "fieldname": "partner", "fieldtype": "Data", "width": 120},
+        {"label": "State", "fieldname": "state", "fieldtype": "Data", "width": 120},
+        {"label": "District", "fieldname": "district", "fieldtype": "Data", "width": 120},
+        {"label": "Block", "fieldname": "block", "fieldtype": "Data", "width": 120},
+        {"label": "No of Creche", "fieldname": "creche", "fieldtype": "Data", "width": 120},
+    ]
+    
+    # Dynamic columns for each day of the month
+    month = int(filters.get("month") if filters else nowdate().split('-')[1])
+    year = int(filters.get("year") if filters else nowdate().split('-')[0])
+    last_day = calendar.monthrange(year, month)[1]
+    
+    for day in range(1, last_day + 1):
+        day_str = f"{day:02d}-{month:02d}-{year}"
+        columns.append({
+            "label": f"Count ({day_str})",
+            "fieldname": f"day_{day}",
+            "fieldtype": "Int",  # Changed to Int for attendance counts
+            "width": 200
+        })
+        columns.append({
+            "label": f"Percent ({day_str})",
+            "fieldname": f"perday_{day}",
+            "fieldtype": "Data",
+            "width": 200
+        })
+    
+    return columns
+
+@frappe.whitelist()
+def get_summary_data(filters=None):
+    partner = frappe.db.get_value("User", frappe.session.user, "partner")
+    
+    month = int(filters.get("month") if filters else nowdate().split('-')[1])
+    year = int(filters.get("year") if filters else nowdate().split('-')[0])
+
+    # Get the last day of the month
+    last_day = calendar.monthrange(year, month)[1]
+
+    conditions = []
+    if partner or filters.get('partner'):
+        selected_partner = partner if partner else filters.get('partner')
+        conditions.append(f"att.partner_id = '{selected_partner}'")
+
+    if filters.get("state"):
+        conditions.append(f"att.state_id = '{filters.get('state')}'")
+    if filters.get("district"):
+        conditions.append(f"att.district_id = '{filters.get('district')}'")
+    if filters.get("block"):
+        conditions.append(f"att.block_id = '{filters.get('block')}'")
+    if filters.get("gp"):
+        conditions.append(f"att.gp_id = '{filters.get('gp')}'")
+    if filters.get("creche"):
+        conditions.append(f"att.creche_id = '{filters.get('creche')}'")
+
+    condition_str = " AND ".join(conditions) if conditions else '1=1'
+
+    # Generate dynamic columns for each day
+    daily_columns = []
+    for day in range(1, last_day + 1):
+        day_str = f"{year}-{month:02d}-{day:02d}"
+        daily_columns.append(f"""
+            COALESCE((SELECT COUNT(*)
+            FROM `tabChild Attendance` catt
+            WHERE catt.block_id = att.block_id
+            AND DATE(catt.date_of_attendance) = '{day_str}'), 0) AS day_{day}
+        """)
+        daily_columns.append(f"""
+            COALESCE((SELECT COUNT(*)
+            FROM `tabChild Attendance` catt
+            WHERE catt.block_id = att.block_id
+            AND DATE(catt.date_of_attendance) = '{day_str}'), 0) / 
+            NULLIF((SELECT COUNT(*) FROM `tabCreche` cr WHERE cr.block_id = att.block_id and cr.partner_id = att.partner_id), 0) * 100 AS perday_{day}
+        """)
+
+    daily_columns_str = ", ".join(daily_columns)
+
+    sql_query = f"""
+        SELECT
+            p.partner_name AS partner,
+            s.state_name AS state,
+            d.district_name AS district,
+            b.block_name AS block,
+            (SELECT COUNT(*) FROM `tabCreche` cr WHERE cr.block_id = att.block_id and cr.partner_id = att.partner_id) AS creche,
+            {daily_columns_str}
+        FROM
+            `tabChild Attendance` AS att
+        JOIN
+            `tabCreche` AS cr ON att.creche_id = cr.name
+        JOIN
+            `tabState` AS s ON cr.state_id = s.name
+        JOIN
+            `tabDistrict` AS d ON cr.district_id = d.name
+        JOIN
+            `tabBlock` AS b ON cr.block_id = b.name
+        JOIN
+            `tabGram Panchayat` AS g ON cr.gp_id = g.name
+        JOIN
+            `tabPartner` AS p ON cr.partner_id = p.name
+        WHERE
+            {condition_str}
+        GROUP BY
+            att.partner_id, s.state_name, d.district_name, b.block_name
+        ORDER BY
+            p.partner_name, s.state_name, d.district_name, b.block_name
+    """
+    
+    data = frappe.db.sql(sql_query, as_dict=True)
+    return data

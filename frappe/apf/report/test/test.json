@@ -1,0 +1,43 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2024-08-30 06:46:12.977339",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "SHISHU GHAR",
+ "letterhead": null,
+ "modified": "2024-11-22 10:29:11.045333",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "test",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT tf.partner         AS partner,\r\n       tf.state           AS state,\r\n       tf.district        AS district,\r\n       tf.block           AS block,\r\n       tf.gp              AS `gram panchayat`,\r\n       tf.village         AS village,\r\n       tf.creche          AS creche,\r\n       tf.eli             AS eli,\r\n       tf.enr             AS enr\r\nFROM   (\r\n                 SELECT    p.partner_name                 AS partner,\r\n                           s.state_name                   AS state,\r\n                           d.district_name                AS district,\r\n                           b.block_name                   AS block,\r\n                           g.gp_name                      AS gp,\r\n                           v.village_name                 AS village,\r\n                           c.creche_name                  AS creche,\r\n                           COALESCE(eli.eli, 0)           AS eli,\r\n                           COALESCE(enr.enr, 0)           AS enr\r\n                           \r\n                 FROM      tabCreche                      AS c\r\n                 LEFT JOIN (\r\n                    SELECT hh.creche_id, COUNT(DISTINCT hcf.hhcguid) AS eli\r\n                    FROM `tabHousehold Form` AS hh\r\n                    LEFT JOIN `tabHousehold Child Form` AS hcf \r\n                    ON hcf.parent = hh.name\r\n                    GROUP BY hh.creche_id\r\n                ) AS eli ON c.name = eli.creche_id\r\n                LEFT JOIN (\r\n                    SELECT cee.creche_id, COUNT(DISTINCT cee.hhcguid) AS enr\r\n                    FROM `tabChild Enrollment and Exit` AS cee\r\n                    GROUP BY cee.creche_id\r\n                ) AS enr ON c.name = enr.creche_id\r\n                 \r\n                 JOIN      tabState                       AS s\r\n                 ON        c.state_id = s.NAME\r\n                 JOIN      tabDistrict AS d\r\n                 ON        c.district_id = d.NAME\r\n                 JOIN      tabBlock AS b\r\n                 ON        c.block_id = b.NAME\r\n                 JOIN      `tabGram Panchayat` AS g\r\n                 ON        c.gp_id = g.NAME\r\n                 JOIN      tabVillage AS v\r\n                 ON        c.village_id = v.NAME\r\n                 JOIN      tabPartner AS p\r\n                 ON        c.partner_id = p.NAME\r\n\r\n                \r\n                 GROUP BY  p.partner_name,\r\n                           s.state_name,\r\n                           d.district_name,\r\n                           b.block_name,\r\n                           g.gp_name,\r\n                           v.village_name,\r\n                           c.creche_name\r\n                 ORDER BY  p.partner_name,\r\n                           s.state_name,\r\n                           d.district_name,\r\n                           b.block_name,\r\n                           g.gp_name,\r\n                           v.village_name,\r\n                           c.creche_name\r\n) AS tf\r\nWHERE tf.eli > 0 OR tf.enr > 0;\r\n",
+ "ref_doctype": "Child Enrollment and Exit",
+ "report_name": "test",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "All"
+  },
+  {
+   "role": "Foundation Central Team"
+  },
+  {
+   "role": "APF State"
+  },
+  {
+   "role": "APF State Admin"
+  },
+  {
+   "role": "Program Manager"
+  }
+ ]
+}

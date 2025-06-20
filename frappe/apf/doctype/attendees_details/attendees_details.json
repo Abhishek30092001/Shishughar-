@@ -1,0 +1,47 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-05-28 12:19:33.674561",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "attendees",
+  "yes_no",
+  "other_specify"
+ ],
+ "fields": [
+  {
+   "fieldname": "attendees",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Attendees",
+   "options": "Attendees",
+   "reqd": 1
+  },
+  {
+   "fieldname": "yes_no",
+   "fieldtype": "Link",
+   "label": "Yes/No",
+   "options": "YesNo"
+  },
+  {
+   "fieldname": "other_specify",
+   "fieldtype": "Data",
+   "label": "Other specify"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-05-29 10:24:00.269454",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "Attendees Details",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

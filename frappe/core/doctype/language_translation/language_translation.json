@@ -1,0 +1,75 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:key_name",
+ "creation": "2024-03-04 12:00:56.861258",
+ "default_view": "List",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "english",
+  "hindi",
+  "odia",
+  "key_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "english",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "English",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "hindi",
+   "fieldtype": "Data",
+   "label": "Hindi"
+  },
+  {
+   "fieldname": "odia",
+   "fieldtype": "Data",
+   "label": "Odia"
+  },
+  {
+   "fieldname": "key_name",
+   "fieldtype": "Data",
+   "label": "Key Name",
+   "unique": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-07-03 20:16:48.722001",
+ "modified_by": "Administrator",
+ "module": "Core",
+ "name": "Language Translation",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "APPI Administrator",
+   "select": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "states": []
+}

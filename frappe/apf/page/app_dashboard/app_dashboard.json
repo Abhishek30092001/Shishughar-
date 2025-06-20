@@ -1,0 +1,19 @@
+{
+ "content": null,
+ "creation": "2025-03-31 18:12:20.547933",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2025-03-31 18:12:20.547933",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "app-dashboard",
+ "owner": "Administrator",
+ "page_name": "app-dashboard",
+ "roles": [],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "App Dashboard"
+}

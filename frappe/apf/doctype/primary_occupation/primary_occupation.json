@@ -1,0 +1,79 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-02-21 22:23:31.448170",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "primary_occupation",
+  "seq_id",
+  "column_break_ktls",
+  "is_active"
+ ],
+ "fields": [
+  {
+   "fieldname": "primary_occupation",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Primary Occupation",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ktls",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "seq_id",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Seq.ID"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-05-30 10:30:32.724557",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "Primary Occupation",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Partner Administrator",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "primary_occupation"
+}

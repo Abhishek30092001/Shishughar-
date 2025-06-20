@@ -1,0 +1,45 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-05-27 12:13:43.374431",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "treatment_detail"
+ ],
+ "fields": [
+  {
+   "fieldname": "treatment_detail",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Add Treatment Detail"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-05-31 17:37:55.601892",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "Treatment details",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "treatment_detail"
+}

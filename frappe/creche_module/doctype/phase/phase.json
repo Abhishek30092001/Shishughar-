@@ -1,0 +1,63 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2025-02-28 17:08:36.986868",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "phases",
+  "phase_hi",
+  "phase_od",
+  "seq_id"
+ ],
+ "fields": [
+  {
+   "fieldname": "phases",
+   "fieldtype": "Data",
+   "label": "Phase"
+  },
+  {
+   "fieldname": "phase_hi",
+   "fieldtype": "Data",
+   "label": "Phase HI"
+  },
+  {
+   "fieldname": "phase_od",
+   "fieldtype": "Data",
+   "label": "Phase OD"
+  },
+  {
+   "fieldname": "seq_id",
+   "fieldtype": "Int",
+   "label": "Seq ID"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_appi": 1,
+ "links": [],
+ "modified": "2025-03-03 12:32:47.503393",
+ "modified_by": "Administrator",
+ "module": "Creche Module",
+ "name": "Phase",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "phases"
+}

@@ -1,0 +1,752 @@
+frappe.pages['creche_report_card'].on_page_load = function (wrapper) {
+	var page = frappe.ui.make_app_page({
+		parent: wrapper,
+		title: 'Creche Report Card',
+		single_column: true
+	});
+
+    let filters = [
+        {
+            "fieldname": "year",
+            "label": __("Year"),
+            "fieldtype": "Select",
+            "options": ["2024", "2025"],
+            "default": new Date().getFullYear().toString(),
+        },
+        {
+            "fieldname": "month",
+            "label": __("Month"),
+            "fieldtype": "Select",
+            "options": [
+                { "value": "1", "label": __("January") },
+                { "value": "2", "label": __("February") },
+                { "value": "3", "label": __("March") },
+                { "value": "4", "label": __("April") },
+                { "value": "5", "label": __("May") },
+                { "value": "6", "label": __("June") },
+                { "value": "7", "label": __("July") },
+                { "value": "8", "label": __("August") },
+                { "value": "9", "label": __("September") },
+                { "value": "10", "label": __("October") },
+                { "value": "11", "label": __("November") },
+                { "value": "12", "label": __("December") }
+            ],
+            "default": (new Date().getMonth() + 1).toString(),
+        },
+        {
+            "fieldname": "partner",
+            "label": __("Partner"),
+            "fieldtype": "Link",
+            "options": "Partner",
+            "default": frappe.defaults.get_user_default("partner"),
+        },
+        {
+			"fieldname": "state",
+			"label": __("State"),
+			"fieldtype": "Link",
+			"options": "State",
+			"get_query": function () {
+				return {
+					filters: {
+						"is_active": 1
+					}
+				};
+			},
+			"on_change": function () {
+				frappe.query_report.refresh();
+			}
+		},
+        {
+			"fieldname": "district",
+			"label": __("District"),
+			"fieldtype": "Link",
+			"options": "District",
+			"get_query": function () {
+				return {
+					filters: {
+						"is_active": 1
+					}
+				};
+			},
+			"on_change": function () {
+				frappe.query_report.refresh();
+			}
+		},
+        {
+            "fieldname": "block",
+            "label": __("Block"),
+            "fieldtype": "Link",
+            "options": "Block",
+            "get_query": function () {
+                let district = page.fields_dict["district"].get_value();
+                if (district) {
+                    return {
+                        filters: {
+                            district_id: district
+                        }
+                    };
+                }
+                return {};
+            }
+        },
+        {
+            "fieldname": "gp",
+            "label": __("Gram Panchayat"),
+            "fieldtype": "Link",
+            "options": "Gram Panchayat",
+            "get_query": function () {
+                let block = page.fields_dict["block"].get_value();
+                if (block) {
+                    return {
+                        filters: {
+                            block_id: block
+                        }
+                    };
+                }
+                return {};
+            }
+        },
+        {
+            "fieldname": "supervisor_id",
+            "label": __("Supervisor"),
+            "fieldtype": "Link",
+            "options": "User",
+            "get_query": function () {
+                let creche = page.fields_dict["creche"].get_value();
+                return creche ? { filters: { creche: creche } } : {};
+            },
+        },
+        {
+            "fieldname": "creche",
+            "label": __("Creche"),
+            "fieldtype": "Link",
+            "options": "Creche",
+            "get_query": function () {
+                let gp = page.fields_dict["gp"].get_value();
+                if (gp) {
+                    return {
+                        filters: {
+                            gp_id: gp
+                        }
+                    };
+                }
+                return {};
+            }
+        },
+        {
+            "fieldname": "phases",
+            "label": __("Phase"),
+            "fieldtype": "MultiSelect",
+            "options": ["1","2","3","4","5","6","7","8","9","10"],
+            "reqd": 0,
+            "default": ""
+        }
+
+    ];
+
+    filters.forEach(filter => {
+        page.add_field(filter);
+    });
+    const creche_status_options = [
+        { id: 1, label: "", value: null },
+        { id: 2, label: "Planned", value: "1" },
+        { id: 3, label: "Plan dropped", value: "2" },
+        { id: 5, label: "Active/Operational", value: "3" },
+        { id: 5, label: "Closed", value: "4" }
+    ];
+
+    const creche_status_labels = creche_status_options.map(option => option.label);
+
+    page.add_field({
+        fieldname: "creche_status",
+        label: __("Creche Status"),
+        fieldtype: "Select",
+        options: [...creche_status_labels],
+        default: "Active/Operational",
+        reqd: 0,
+    });
+
+
+    page.add_field({
+        fieldname: "date_range",
+        label: __("Creche Opening Date"),
+        fieldtype: "DateRange",
+        default: "",
+    });
+
+    function resetForwardFilters(currentFilter) {
+        let currentIndex = filters.findIndex(filter => filter.fieldname === currentFilter);
+        if (currentIndex === -1) return;
+
+        for (let i = currentIndex + 1; i < filters.length; i++) {
+            page.fields_dict[filters[i].fieldname].set_value("");
+        }
+
+    }
+
+    filters.forEach(filter => {
+        if ((filter.fieldtype === "Link" || filter.fieldtype === "Select") && filter.fieldname != "year" && filter.fieldname != "month") {
+            const input = page.fields_dict[filter.fieldname].input;
+            if (input) {
+                input.addEventListener("change", () => {
+                    resetForwardFilters(filter.fieldname);
+                });
+            }
+        }
+    });
+
+
+    let searchBtn = page.add_button(`<b>Search</b>`, async () => { 
+        searchBtn.prop('disabled', true); 
+        let filter_values = {}; 
+        filters.forEach(filter => { 
+            filter_values[filter.fieldname] = page.fields_dict[filter.fieldname].get_value(); 
+        }); 
+        await renderCards(); 
+        searchBtn.prop('disabled', false);
+    });
+    
+    let resetBtn = page.add_button(`<b>Reset</b>`, async () => {
+        filters.forEach(filter => {
+            if (filter.fieldname !== 'year' && filter.fieldname !== 'month' && filter.fieldname !== 'creche_status') {
+                let field = page.fields_dict[filter.fieldname];
+                field.set_value('');
+                if (field.df.on_change) {
+                    field.df.on_change();
+                }
+            }
+            if (filter.fieldname == 'year') {
+                let field = page.fields_dict[filter.fieldname];
+                field.set_value(new Date().getFullYear().toString());
+                if (field.df.on_change) {
+                    field.df.on_change();
+                }
+            }
+            if (filter.fieldname == 'month') {
+                let field = page.fields_dict[filter.fieldname];
+                field.set_value((new Date().getMonth() + 1).toString());
+                if (field.df.on_change) {
+                    field.df.on_change();
+                }
+            }
+            if (filter.fieldname === 'creche_status') {
+                field.set_value("Active/Operational");  
+            } 
+  
+            if (page.fields_dict["date_range"]) {
+                page.fields_dict["date_range"].set_value([]); // Reset DateRange field
+            }
+        });
+        setTimeout(async () => {
+            await renderCards();
+        }, 200);
+    });
+
+
+    searchBtn.css({
+        "background-color": "#5979aa",
+        "color": "white",
+        "border-radius": "8px",
+        "padding": "8px 16px",
+        "font-weight": "bold"
+    });
+    resetBtn.css({
+        "background-color": "#F0F0F0",
+        "color": "black",
+        "border-radius": "8px",
+        "padding": "8px 16px",
+        "font-weight": "bold"
+    });
+    $(document).ready(function () {
+        if ($(window).width() < 450) {
+            $(".page-head.flex").css("padding-bottom", "10px");
+        }
+    });
+
+
+    page.wrapper.find('.custom-actions').removeClass('hidden-xs hidden-md').css({
+        "display": "flex",
+        "gap": "8px"
+    });
+    page.wrapper.find(".menu-btn-group ").removeClass('show"').css({
+        "display": "none"
+    });
+
+
+
+    page.main.append(`
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Creche Report</title>
+			<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+			<style>
+				/* General Styles */
+				
+				body {
+					margin: 0;
+					font-family: 'Arial', sans-serif;
+					background-color: #fff;
+					color: #333;
+				}
+		
+				/* Filters Section */
+				.filters {
+					display: flex;
+					flex-wrap: wrap;
+					gap: 15px;
+					padding: 30px 20px;
+					background-color: white;
+					box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+					border-radius: 10px;
+				}
+				select {
+					width: 160px;
+					padding: 8px;
+					font-size: 1em;
+					border: 1px solid #ddd;
+					border-radius: 4px;
+					background-color: #fff;
+					color: #333;
+				}
+		
+				/* Filter Buttons */
+				.filter-buttons {
+					display: flex;
+					gap: 10px;
+				}
+                .page-form{
+                    border-radius:8px;       
+                }
+				.modern-btn {
+					padding: 0px 20px;
+					font-size: 16px;
+					border: none;
+					border-radius: 5px;
+					cursor: pointer;
+					transition: all 0.3s ease;
+                    min-height: 30px;
+				}
+				.reset-btn {
+					background-color: #5979aa; /* Red */
+					color: white;
+				}
+				.reset-btn:hover {
+					background-color: #5072A7; /* Darker Red */
+				}
+				.search-btn {
+					background-color: #4CAF50; /* Green */
+					color: white;
+				}
+				.search-btn:hover {
+					background-color: #388E3C; /* Darker Green */
+				}
+		
+				.cards-container {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr); /* 4 cards in a row for large screens */
+				gap: 20px;
+				margin-top: 20px;
+				margin-bottom: 20px;
+			}
+		
+			@media (max-width: 1024px) {
+				.cards-container {
+					grid-template-columns: repeat(4, 1fr); /* 3 cards in a row for medium screens */
+				}
+			}
+		
+			@media (max-width: 768px) {
+				.cards-container {
+					grid-template-columns: repeat(1, 1fr); /* 1 card in a row for small screens */
+				}
+			}
+		
+			.card {
+				background-color: #fff;
+				padding:5px 20px;
+				border-radius: 12px;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+				text-align: left;
+				transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+			}
+		
+			.card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+			}
+		
+			.card h3 {
+				font-size: 1.2em;
+				color: #333;
+				margin-bottom: 10px;
+			}
+		
+			.card p {
+				font-size: 2em;
+				font-weight: bold;
+				color: #000;
+			}
+		
+			.card span {
+				font-size: 0.9em;
+				color: #666;
+			}
+		
+			}
+			.spinner-container {
+			  margin:auto !important;
+			  display: flex;
+			  justify-content: center;
+			  align-items: center;
+			  height: 100vh;
+			  width: 100%;
+			}
+			
+			
+			.loader {
+			  margin:auto;
+			  width: 48px;
+			  height: 48px;
+			  border-radius: 50%;
+			  display: inline-block;
+			  position: relative;
+			  border: 3px solid;
+			  border-color: #FFF #FFF transparent transparent;
+			  box-sizing: border-box;
+			  animation: rotation 1s linear infinite;
+			}
+			
+			.loader::after,
+			.loader::before {
+			  content: '';  
+			  box-sizing: border-box;
+			  position: absolute;
+			  left: 0;
+			  right: 0;
+			  top: 0;
+			  bottom: 0;
+			  margin: auto;
+			  border: 3px solid;
+			  border-color: transparent transparent #FF3D00 #FF3D00;
+			  width: 40px;
+			  height: 40px;
+			  border-radius: 50%;
+			  animation: rotationBack 0.5s linear infinite;
+			  transform-origin: center center;
+			}
+			
+			.loader::before {
+			  width: 32px;
+			  height: 32px;
+			  border-color: #FFF #FFF transparent transparent;
+			  animation: rotation 1.5s linear infinite;
+			}
+			
+			@keyframes rotation {
+			  0% {
+				transform: rotate(0deg);
+			  }
+			  100% {
+				transform: rotate(360deg);
+			  }
+			}
+			
+			@keyframes rotationBack {
+			  0% {
+				transform: rotate(0deg);
+			  }
+			  100% {
+				transform: rotate(-360deg);
+			  }
+			}
+			.total-creche-card{
+			   display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				margin-top:20px;
+                gap: 20px;
+			}
+			 @media (max-width: 768px) {
+				.total-creche-card {
+					grid-template-columns: repeat(1, 1fr);
+				}
+			}
+			.filter-desc{
+			margin-top:20px;
+			}
+			</style>
+		</head>
+		<body>
+		
+			<!-- Main Content -->
+			<div style="display: flex; flex-direction: column;">
+				<!--filter-desc-->
+				<div class="filter-desc"></div>
+				<div class="spinner-container" style="margin: auto;">
+					<span class="loader"></span>
+				</div>
+				<div class="total-creche-card"></div>
+		
+				<!-- Card Section -->
+				<div class="cards-container"></div>
+		
+			</div>
+		
+		</body>
+		</html>
+		`);
+
+    const BASE_URL = "https://shishughar.in/";
+
+    function formatResponses(responses) {
+        const formattedResponse = [];
+        const mergedData = {};
+
+        responses.forEach((response) => {
+            const data = response.data;
+            Object.keys(data).forEach((colKey) => {
+                if (!mergedData[colKey]) {
+                    mergedData[colKey] = [];
+                }
+                mergedData[colKey] = mergedData[colKey].concat(data[colKey]);
+            });
+        });
+
+        Object.keys(mergedData).forEach((colKey) => {
+            formattedResponse.push({
+                data: {
+                    [colKey]: mergedData[colKey]
+                }
+            });
+        });
+
+        return formattedResponse;
+    }
+
+    async function fetchDashboardData() {
+        let date_range = page.fields_dict["date_range"]?.get_value();
+        let cstart_date = null, cend_date = null;
+        if (date_range) {
+            cstart_date = date_range[0];
+            cend_date = date_range[1];
+        }
+        let selected_label = page.fields_dict["creche_status"].get_value();
+        let selected_c_status = creche_status_options.find(option => option.label === selected_label);
+
+        const baseUrl = `${BASE_URL}/api/method/frappe.val.dashboard`;
+
+        const apiParams = {
+            partner_id: null,
+            state_id: null,
+            district_id: null,
+            gp_id: null,
+            block_id: null,
+            supervisor_id: null,
+            creche_id: null,
+            year: null,
+            month: null,
+            cstart_date: cstart_date,
+            cend_date: cend_date,
+            c_status: selected_c_status ? selected_c_status.value : null,
+            phases: null
+        };
+
+
+        const filterToApiKeyMap = {
+            partner: "partner_id",
+            state: "state_id",
+            district: "district_id",
+            gp: "gp_id",
+            block: "block_id",
+            supervisor_id: "supervisor_id",
+            creche: "creche_id",
+            year: "year",
+            month: "month",
+            cstart_date: "cstart_date",
+            cend_date: "cend_date",
+            c_status: "c_status",
+            phases: "phases"
+
+        };
+
+        Object.entries(filterToApiKeyMap).forEach(([fieldname, apiKey]) => {
+            const field = page.fields_dict[fieldname];
+            if (field) {
+                apiParams[apiKey] = field.get_value();
+            }
+        });
+
+        const constructApiUrl = (section) => {
+            const apiUrl = new URL(`${baseUrl}.${section}`);
+            Object.entries(apiParams).forEach(([key, value]) => {
+                if (value) {
+                    apiUrl.searchParams.append(key, value);
+                }
+            });
+            return apiUrl.toString();
+        };
+        console.log(apiParams, "apiParams");
+        try {
+            const apiSections = [
+                "dashboard_section_one",
+                "dashboard_section_one2",
+                "dashboard_section_two",
+                "dashboard_section_three",
+                "dashboard_section_four"
+            ];
+
+            const apiEndpoints = apiSections.map(section => constructApiUrl(section));
+            const responses = await Promise.all(
+                apiEndpoints.map(url =>
+                    fetch(url, {
+                        method: "GET",
+                        credentials: "same-origin",
+                    }).then(response => response.json())
+                )
+            );
+            const formattedResponseData = formatResponses(responses); // used to handle the duplicate keys in responses
+            const mergedData = {
+                data: {
+                    Col0: [],
+                    Col1: [],
+                    Col2: [],
+                    Col3: [],
+                    Col4: []
+                }
+            };
+            mergedData.data['Col0'] = responses[0].data.Col0;
+            formattedResponseData.forEach((response, index) => {
+                const colKey = `Col${index}`;
+                if (colKey === 'Col0') {
+                    return;
+                }
+                if (response.data && response.data[colKey]) {
+                    mergedData.data[colKey] = response.data[colKey];
+                }
+            });
+            return mergedData.data;
+
+        } catch (error) {
+            console.error("Error fetching data:", error);
+            return [];
+        }
+    }
+
+
+    function formatNumber(number) {
+        return new Intl.NumberFormat("en-IN").format(number);
+    }
+
+    async function renderCards() {
+        const container = document.querySelector('.cards-container');
+        const totalCreche = document.querySelector('.total-creche-card');
+        const spinnerContainer = document.querySelector(".spinner-container");
+        spinnerContainer.style.display = "flex";
+        totalCreche.innerHTML = ""
+        container.innerHTML = ""
+        const data = await fetchDashboardData();
+
+        totalCreche.innerHTML = ""
+        // data.Col0.forEach(item => {
+        //     const card = document.createElement('div');
+        //     card.classList.add('card');
+        //     card.style.padding = '20px';
+        //     card.style.height = '150px';
+        //     card.style.border = '1px solid #ccc';
+        //     card.style.borderRadius = '8px';
+        //     card.style.backgroundColor = '#E8E8E8';
+        //     card.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+        //     card.style.textAlign = 'center';
+        //     if (item.title === "Current active children") {
+        //         const percentage = ((current_active_children / current_eligible_children) * 100);
+        //         extraLine = `<div style = "font-size: 10px; color: #000; font-style:italic; font-weight:600;" > (${isNaN(percentage) ? 0 : percentage.toFixed(1)} % of current eligible children)</div> `;
+        //     }
+        //     card.innerHTML = `
+        //             <div style = "font-size: 36px; font-weight: bold; color: #333;" > ${formatNumber(item.value)}</div>
+        //     <div style="font-size: 18px; color: #666;">${item.title}</div>
+        // 		`;
+        //     totalCreche.appendChild(card);
+        // })
+        const current_active_children = data.Col0.find(item => item.title === "Current active children").value;
+        const current_eligible_children = data.Col2.find(item => item.title === "Current eligible children").value;
+        const cumulative_enrolled_children = data.Col2.find(item => item.title === "Cumulative enrolled children").value;
+        const cumulative_exit_children = data.Col2.find(item => item.title === "Cumulative exit children").value;
+        const current_exit_children = data.Col2.find(item => item.title === "Children exited this month").value;
+        const columnColors = {
+            Col1: '#cfe5fc', // Light blue
+            Col2: '#ebfced ', // Light green
+            Col3: '#fce9cf', // Light orange
+            Col4: '#fcd9d9'  // Light red
+        };
+        Object.keys(data).filter(colKey => colKey !== 'Col0').forEach((colKey) => {
+            const column = document.createElement('div');
+            column.style.flex = '1';
+            column.style.display = 'flex';
+            column.style.flexDirection = 'column';
+            column.style.gap = '20px';
+
+            data[colKey].forEach(item => {
+                const card = document.createElement('div');
+                card.classList.add('card');
+                card.style.padding = '20px';
+                card.style.minHeight = '150px';
+                card.style.border = '1px solid #ccc';
+                card.style.borderRadius = '8px';
+                card.style.backgroundColor = columnColors[colKey];
+                card.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+                card.style.textAlign = 'center';
+
+                let extraLine = '';
+                if (item.title === "Current active children") {
+                    const percentage = ((current_active_children / current_eligible_children) * 100);
+                    extraLine = `<div style = "font-size: 10px; color: #000; font-style:italic; font-weight:600;" > (${isNaN(percentage) ? 0 : percentage.toFixed(1)} % of current eligible children)</div> `;
+                } else if (item.title === "Cumulative exit children") {
+                    const percentage = ((cumulative_exit_children / cumulative_enrolled_children) * 100);
+                    extraLine = `<div style = "font-size: 10px; color: #000; font-style:italic; font-weight:600;" > (${isNaN(percentage) ? 0 : percentage.toFixed(1)} % of cumulative enrolled children)</div> `;
+                } else if (item.title === "Children exited this month") {
+                    const percentage = ((current_exit_children / current_active_children) * 100);
+                    extraLine = `<div style = "font-size: 10px; color: #000; font-style:italic; font-weight:600;" > (${isNaN(percentage) ? 0 : percentage.toFixed(1)} % of current active children)</div> `;
+                }
+
+                card.innerHTML = `
+                <div style = "font-size: 36px; font-weight: bold; color: #333;" > ${formatNumber(item.value)}</div>
+                    <div style="font-size: 18px; color: #666;">${item.title}</div>
+					${extraLine}
+                    `;
+                column.appendChild(card);
+            });
+
+            container.appendChild(column);
+            spinnerContainer.style.display = "none";
+        });
+        data.Col0.forEach(item => {
+            let extraLine = ""
+            const card = document.createElement('div');
+            card.classList.add('card');
+            card.style.padding = '20px';
+            card.style.height = '150px';
+            card.style.border = '1px solid #ccc';
+            card.style.borderRadius = '8px';
+            card.style.backgroundColor = '#E8E8E8';
+            card.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            card.style.textAlign = 'center';
+            if (item.title === "Current active children") {
+                const percentage = ((current_active_children / current_eligible_children) * 100);
+                extraLine = `<div style = "font-size: 10px; color: #000; font-style:italic; font-weight:600;" > (${isNaN(percentage) ? 0 : percentage.toFixed(1)} % of current eligible children)</div> `;
+            }
+            card.innerHTML = `
+                    <div style = "font-size: 36px; font-weight: bold; color: #333;" > ${formatNumber(item.value)}</div>
+            <div style="font-size: 18px; color: #666;">${item.title}</div>${extraLine}
+				`;
+            totalCreche.appendChild(card);
+        })
+    }
+
+    frappe.after_ajax(() => {
+        renderCards();
+    });
+
+};
+

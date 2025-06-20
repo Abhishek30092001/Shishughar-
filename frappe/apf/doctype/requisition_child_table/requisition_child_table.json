@@ -1,0 +1,94 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-10-25 15:34:30.416800",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "year",
+  "month",
+  "requistion_item",
+  "quantity_required",
+  "quantity_supplied",
+  "supply_date",
+  "received_date",
+  "quantity_received"
+ ],
+ "fields": [
+  {
+   "fieldname": "year",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Year",
+   "options": "Year",
+   "read_only": 1
+  },
+  {
+   "fieldname": "month",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Month",
+   "options": "Months",
+   "read_only": 1
+  },
+  {
+   "fieldname": "requistion_item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item",
+   "options": "Partner Stock",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "quantity_required",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Quantity Required",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "quantity_supplied",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Quantity Supplied",
+   "precision": "1"
+  },
+  {
+   "fieldname": "supply_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Supply Date"
+  },
+  {
+   "fieldname": "received_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Received Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "quantity_received",
+   "fieldtype": "Float",
+   "label": "Quantity Received",
+   "precision": "2",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_appi": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-10-25 16:25:24.132569",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "Requisition Child table",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "updatefield": 1
+}

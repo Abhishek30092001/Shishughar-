@@ -1,0 +1,57 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-06-25 16:51:03.541129",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "caste_id",
+  "is_active",
+  "seq_id"
+ ],
+ "fields": [
+  {
+   "fieldname": "caste_id",
+   "fieldtype": "Data",
+   "label": "Caste"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "seq_id",
+   "fieldtype": "Int",
+   "label": "Seq.ID"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-07-03 15:28:05.396433",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "Caste",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "caste_id"
+}

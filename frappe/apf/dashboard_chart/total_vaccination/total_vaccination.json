@@ -1,0 +1,33 @@
+{
+ "chart_name": "Total Vaccination",
+ "chart_type": "Report",
+ "creation": "2024-06-07 07:51:13.784744",
+ "custom_options": "{\"x_field\": \"vaccine\", \"chart_type\": \"Percentage\", \"y_axis_fields\": [{\"idx\": 1, \"__islocal\": true, \"y_field\": \"count(v.vaccine_id)\", \"color\": \"#CB2929\", \"name\": \"row 1\"}], \"y_fields\": [\"count(v.vaccine_id)\"], \"colors\": [\"#CB2929\"]}",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart",
+ "filters_json": "{}",
+ "group_by_type": "Count",
+ "idx": 0,
+ "is_public": 0,
+ "is_standard": 1,
+ "modified": "2024-06-07 07:51:13.850161",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "Total Vaccination",
+ "number_of_groups": 0,
+ "owner": "Administrator",
+ "report_name": "Vaccination",
+ "roles": [],
+ "time_interval": "Yearly",
+ "timeseries": 0,
+ "timespan": "Last Year",
+ "type": "Percentage",
+ "use_report_chart": 0,
+ "x_field": "vaccine",
+ "y_axis": [
+  {
+   "color": "#CB2929",
+   "y_field": "count(v.vaccine_id)"
+  }
+ ]
+}

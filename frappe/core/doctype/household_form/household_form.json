@@ -1,0 +1,485 @@
+{
+ "actions": [],
+ "allow_copy": 1,
+ "autoname": "autoincrement",
+ "creation": "2024-02-21 18:27:09.807838",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_information_tab",
+  "geography_information_section",
+  "partner_id",
+  "date_of_visit",
+  "state_id",
+  "district_id",
+  "block_id",
+  "gp_id",
+  "village_id",
+  "hamlet",
+  "landmark",
+  "column_break_wmty",
+  "hhid",
+  "respondent_name",
+  "respondent_gender_id",
+  "respondent_age",
+  "hosuehold_head_name",
+  "social_category_id",
+  "is_the_family_a_pvtg",
+  "pvtg_name",
+  "primary_occupation_id",
+  "primary_occupation_other",
+  "verification_status",
+  "remarks",
+  "family_members_detail_tab",
+  "number_of_family_members",
+  "children__3_years",
+  "children_3_to_6_years",
+  "children_6_to_18_years",
+  "adults_above_18_years",
+  "religion",
+  "any_other_religion",
+  "children_information__3_years_tab",
+  "children",
+  "migration_details_tab",
+  "is_anyone_of_your_family_a_migrant_worker",
+  "family_members_enganged_as_migrant_workers",
+  "no_of_months_the_migrants_were_away_last_year",
+  "does_anyone_from_your_family_migrate_every_year",
+  "do_you_take_your_children_along_with_you",
+  "who_looks_after_them_at_home",
+  "hidden_fields_tab",
+  "verification_section",
+  "verified_by",
+  "verified_on",
+  "hhguid",
+  "is_active",
+  "is_deleted",
+  "deleted_on",
+  "deleted_by",
+  "app_created_by",
+  "app_created_on",
+  "app_updated_by",
+  "app_updated_on"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_information_tab",
+   "fieldtype": "Tab Break",
+   "label": "Basic Info"
+  },
+  {
+   "fieldname": "geography_information_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "partner_id",
+   "fieldtype": "Link",
+   "label": "Partner",
+   "options": "Partner",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_of_visit",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of Visit",
+   "reqd": 1
+  },
+  {
+   "fieldname": "state_id",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State",
+   "reqd": 1
+  },
+  {
+   "fieldname": "district_id",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District",
+   "reqd": 1
+  },
+  {
+   "fieldname": "block_id",
+   "fieldtype": "Link",
+   "label": "Block",
+   "options": "Block",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gp_id",
+   "fieldtype": "Link",
+   "label": "Gram Panchayat",
+   "options": "Gram Panchayat",
+   "reqd": 1
+  },
+  {
+   "fieldname": "village_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Village",
+   "options": "Village",
+   "reqd": 1
+  },
+  {
+   "fieldname": "hamlet",
+   "fieldtype": "Data",
+   "label": "Hamlet",
+   "length": 50
+  },
+  {
+   "fieldname": "landmark",
+   "fieldtype": "Data",
+   "label": "Landmark",
+   "length": 100
+  },
+  {
+   "fieldname": "column_break_wmty",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hhid",
+   "fieldtype": "Data",
+   "label": "HH ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "respondent_name",
+   "fieldtype": "Data",
+   "label": "Respondent Name",
+   "length": 50,
+   "reqd": 1,
+   "translatable": 1
+  },
+  {
+   "fieldname": "respondent_gender_id",
+   "fieldtype": "Link",
+   "label": "Respondent Gender",
+   "options": "Gender",
+   "reqd": 1
+  },
+  {
+   "fieldname": "respondent_age",
+   "fieldtype": "Int",
+   "label": "Respondent Age",
+   "length": 2,
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "hosuehold_head_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Hosuehold Head Name",
+   "length": 50,
+   "reqd": 1
+  },
+  {
+   "fieldname": "social_category_id",
+   "fieldtype": "Link",
+   "label": "Social Category",
+   "options": "Social Category",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_the_family_a_pvtg",
+   "fieldtype": "Check",
+   "label": " Is the family a PVTG?"
+  },
+  {
+   "fieldname": "pvtg_name",
+   "fieldtype": "Data",
+   "label": "PVTG Name",
+   "length": 20,
+   "mandatory_depends_on": "is_the_family_a_pvtg"
+  },
+  {
+   "fieldname": "primary_occupation_id",
+   "fieldtype": "Link",
+   "label": "Primary Occupation",
+   "options": "Primary Occupation",
+   "reqd": 1
+  },
+  {
+   "fieldname": "primary_occupation_other",
+   "fieldtype": "Data",
+   "label": "Primary Occupation Other",
+   "length": 50
+  },
+  {
+   "default": "1",
+   "fieldname": "verification_status",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Verfication Status",
+   "options": "Verfication Status",
+   "reqd": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Long Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "family_members_detail_tab",
+   "fieldtype": "Tab Break",
+   "label": "Family"
+  },
+  {
+   "fieldname": "number_of_family_members",
+   "fieldtype": "Int",
+   "label": "Number of family members",
+   "length": 2,
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "children__3_years",
+   "fieldtype": "Int",
+   "label": "Children (under 3 years)",
+   "length": 1,
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "children_3_to_6_years",
+   "fieldtype": "Int",
+   "label": "Children (3 to 6 years)",
+   "length": 1,
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "children_6_to_18_years",
+   "fieldtype": "Int",
+   "label": "Children (6 to 18 years)",
+   "length": 1,
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "adults_above_18_years",
+   "fieldtype": "Int",
+   "label": "Adults (above 18 years)",
+   "length": 2,
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "religion",
+   "fieldtype": "Link",
+   "label": "Religion",
+   "options": "Religion"
+  },
+  {
+   "fieldname": "any_other_religion",
+   "fieldtype": "Data",
+   "label": "Any Other"
+  },
+  {
+   "fieldname": "children_information__3_years_tab",
+   "fieldtype": "Tab Break",
+   "label": "Children"
+  },
+  {
+   "allow_bulk_edit": 1,
+   "fieldname": "children",
+   "fieldtype": "Table",
+   "label": "Children",
+   "options": "Household Child Form"
+  },
+  {
+   "fieldname": "migration_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Migration"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_anyone_of_your_family_a_migrant_worker",
+   "fieldtype": "Check",
+   "label": "Is anyone of your family a migrant worker?"
+  },
+  {
+   "depends_on": "is_anyone_of_your_family_a_migrant_worker",
+   "fieldname": "family_members_enganged_as_migrant_workers",
+   "fieldtype": "Int",
+   "label": "No. of family members enganged as migrant workers?",
+   "length": 2,
+   "mandatory_depends_on": "is_anyone_of_your_family_a_migrant_worker"
+  },
+  {
+   "depends_on": "is_anyone_of_your_family_a_migrant_worker",
+   "fieldname": "no_of_months_the_migrants_were_away_last_year",
+   "fieldtype": "Link",
+   "label": "No of months, the migrants were away last year?",
+   "mandatory_depends_on": "is_anyone_of_your_family_a_migrant_worker",
+   "options": "No of Months"
+  },
+  {
+   "default": "0",
+   "depends_on": "is_anyone_of_your_family_a_migrant_worker",
+   "fieldname": "does_anyone_from_your_family_migrate_every_year",
+   "fieldtype": "Check",
+   "label": "Does anyone from your family migrate every year?",
+   "mandatory_depends_on": "is_anyone_of_your_family_a_migrant_worker"
+  },
+  {
+   "default": "0",
+   "depends_on": "does_anyone_from_your_family_migrate_every_year",
+   "fieldname": "do_you_take_your_children_along_with_you",
+   "fieldtype": "Check",
+   "label": "Do you take your children along with you?",
+   "mandatory_depends_on": "does_anyone_from_your_family_migrate_every_year"
+  },
+  {
+   "depends_on": "does_anyone_from_your_family_migrate_every_year",
+   "fieldname": "who_looks_after_them_at_home",
+   "fieldtype": "Data",
+   "label": "Who looks after them at home?",
+   "length": 50,
+   "mandatory_depends_on": "does_anyone_from_your_family_migrate_every_year"
+  },
+  {
+   "fieldname": "hidden_fields_tab",
+   "fieldtype": "Tab Break",
+   "hidden": 1,
+   "label": "Hidden Fields"
+  },
+  {
+   "fieldname": "verification_section",
+   "fieldtype": "Section Break",
+   "label": "Verification"
+  },
+  {
+   "fieldname": "verified_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Verified By"
+  },
+  {
+   "fieldname": "verified_on",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "Verified On"
+  },
+  {
+   "fieldname": "hhguid",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "HHGUID",
+   "unique": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Is Active"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_deleted",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Is Deleted"
+  },
+  {
+   "fieldname": "deleted_on",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "Deleted On"
+  },
+  {
+   "fieldname": "deleted_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Deleted By"
+  },
+  {
+   "fieldname": "app_created_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "App Created By"
+  },
+  {
+   "default": "Today",
+   "fieldname": "app_created_on",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "App Created On"
+  },
+  {
+   "fieldname": "app_updated_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "App Updated By"
+  },
+  {
+   "fieldname": "app_updated_on",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "App Updated On"
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "is_appi": 1,
+ "links": [],
+ "modified": "2024-07-03 20:17:17.051383",
+ "modified_by": "Administrator",
+ "module": "Core",
+ "name": "Household Form",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "APPI Administrator",
+   "select": 1,
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Partner Administrator",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Cluster Coordinator",
+   "select": 1,
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "translated_doctype": 1
+}

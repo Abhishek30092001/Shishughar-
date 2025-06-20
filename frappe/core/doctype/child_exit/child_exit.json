@@ -1,0 +1,225 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-05-13 12:45:23.424962",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "child_info_tab",
+  "partner_id",
+  "state_id",
+  "district_id",
+  "block_id",
+  "gp_id",
+  "village_id",
+  "creche_id",
+  "child_id",
+  "details_tab",
+  "creche_name",
+  "date_of_enrollment",
+  "age_at_enrollment_in_months",
+  "date_of_exit",
+  "age_of_exit",
+  "reason_for_exit",
+  "other_reason",
+  "is_child_enrolled_awc",
+  "date_of_enrollment_awc",
+  "hidden_tab",
+  "childenrolledguid",
+  "child_exit_guid",
+  "appcreated_by",
+  "appcreated_on",
+  "app_updated_by",
+  "app_updated_on"
+ ],
+ "fields": [
+  {
+   "fieldname": "child_info_tab",
+   "fieldtype": "Tab Break",
+   "label": "Child Info"
+  },
+  {
+   "fieldname": "partner_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Partner",
+   "options": "Partner",
+   "reqd": 1
+  },
+  {
+   "fieldname": "state_id",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State",
+   "reqd": 1
+  },
+  {
+   "fieldname": "district_id",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District",
+   "reqd": 1
+  },
+  {
+   "fieldname": "block_id",
+   "fieldtype": "Link",
+   "label": "Block",
+   "options": "Block",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gp_id",
+   "fieldtype": "Link",
+   "label": "Gram Panchayat",
+   "options": "Gram Panchayat",
+   "reqd": 1
+  },
+  {
+   "fieldname": "village_id",
+   "fieldtype": "Link",
+   "label": "Village",
+   "options": "Village",
+   "reqd": 1
+  },
+  {
+   "fieldname": "creche_id",
+   "fieldtype": "Link",
+   "label": "Creche",
+   "options": "Creche"
+  },
+  {
+   "fieldname": "child_id",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Child Name",
+   "options": "Child Enrollment and Exit"
+  },
+  {
+   "fieldname": "details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "date_of_exit",
+   "fieldtype": "Date",
+   "label": "Date of Exit",
+   "reqd": 1
+  },
+  {
+   "fieldname": "age_of_exit",
+   "fieldtype": "Int",
+   "label": "Age at exit in months",
+   "length": 3
+  },
+  {
+   "fieldname": "reason_for_exit",
+   "fieldtype": "Link",
+   "label": "Reason for Exit",
+   "options": "Reason for child exit",
+   "reqd": 1
+  },
+  {
+   "fieldname": "other_reason",
+   "fieldtype": "Data",
+   "label": "Any other reason",
+   "length": 256
+  },
+  {
+   "default": "0",
+   "fieldname": "is_child_enrolled_awc",
+   "fieldtype": "Check",
+   "label": "Is the child enrolled in AWC after 3 years for preschool?"
+  },
+  {
+   "fieldname": "hidden_tab",
+   "fieldtype": "Tab Break",
+   "hidden": 1,
+   "label": "Hidden"
+  },
+  {
+   "fieldname": "childenrolledguid",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Child Enrolled guid"
+  },
+  {
+   "fieldname": "child_exit_guid",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Child Exit guid"
+  },
+  {
+   "fieldname": "appcreated_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "App created by"
+  },
+  {
+   "fieldname": "appcreated_on",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "App created on"
+  },
+  {
+   "fieldname": "app_updated_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "App updated by"
+  },
+  {
+   "fieldname": "app_updated_on",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "App Updated On"
+  },
+  {
+   "fieldname": "date_of_enrollment_awc",
+   "fieldtype": "Date",
+   "label": "Date of Enrollment in AWC"
+  },
+  {
+   "fieldname": "creche_name",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Creche",
+   "options": "Creche"
+  },
+  {
+   "fieldname": "date_of_enrollment",
+   "fieldtype": "Date",
+   "label": "Date of Enrollment"
+  },
+  {
+   "fieldname": "age_at_enrollment_in_months",
+   "fieldtype": "Int",
+   "label": "Age at enrollment in months",
+   "length": 2
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_appi": 1,
+ "links": [],
+ "modified": "2024-12-04 22:51:56.065841",
+ "modified_by": "Administrator",
+ "module": "Core",
+ "name": "Child Exit",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

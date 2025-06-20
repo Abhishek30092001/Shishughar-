@@ -1,0 +1,32 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-07-14 17:59:25.274257",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "specially_abled"
+ ],
+ "fields": [
+  {
+   "fieldname": "specially_abled",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Child Specially abled",
+   "options": "Disability"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-07-15 14:06:03.627344",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "Specially abled child table",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,132 @@
+import frappe
+from frappe import _
+from datetime import date
+import calendar
+
+def execute(filters=None):
+    selected_level = filters.get("level", "4")
+    variable_columns = []
+
+    if selected_level == "1":
+        variable_columns.append({"label": "Partner", "fieldname": "partner", "fieldtype": "Data", "width": 160})
+    if selected_level == "2":
+        variable_columns.append({"label": "State", "fieldname": "state", "fieldtype": "Data", "width": 160})
+    if selected_level == "3":
+        variable_columns.append({"label": "State", "fieldname": "state", "fieldtype": "Data", "width": 160})
+        variable_columns.append({"label": "District", "fieldname": "district", "fieldtype": "Data", "width": 160})
+    if selected_level == "4":
+        
+        variable_columns.append({"label": "State", "fieldname": "state", "fieldtype": "Data", "width": 160})
+        variable_columns.append({"label": "District", "fieldname": "district", "fieldtype": "Data", "width": 160})
+        variable_columns.append({"label": "Block", "fieldname": "block", "fieldtype": "Data", "width": 160})
+
+    fixed_columns = [
+        {"label": "No. of Creches Planned", "fieldname": "no_creche_planned", "fieldtype": "Int", "width": 230},
+        {"label": "No. of Operational Creches", "fieldname": "no_operational_creches", "fieldtype": "Int", "width": 250},
+        {"label": "No. of Creches Yet to be Operationalised", "fieldname": "yet_to_operationalised", "fieldtype": "Int", "width": 250},
+    ]
+
+    columns = variable_columns + fixed_columns
+    data = get_summary_data(filters)
+    return columns, data
+
+def get_summary_data(filters):
+    current_date = date.today()
+    month = int(filters.get("month")) if filters.get("month") else current_date.month
+    year = int(filters.get("year")) if filters.get("year") else current_date.year
+    start_date = date(year, month, 1)
+    last_day = calendar.monthrange(year, month)[1]
+    end_date = date(year, month, last_day)
+    conditions = ["1=1"]
+    params = {"start_date": start_date, "end_date": end_date, "year": year, "month": month}
+    current_user_partner = frappe.db.get_value("User", frappe.session.user, "partner")
+    partner_id = filters.get("partner") or current_user_partner
+
+    state_query = """ 
+        SELECT DISTINCT ts.name AS state_id
+        FROM `tabState` ts 
+        JOIN `tabUser Geography Mapping` ugm ON ugm.state_id = ts.name
+        WHERE ugm.parent = %s 
+        ORDER BY ts.state_name
+    """
+    state_params = (frappe.session.user,)
+    current_user_state = frappe.db.sql(state_query, state_params, as_dict=True)
+
+    state_id = filters.get("state") or (current_user_state[0]['state_id'] if current_user_state else None)
+
+    date_range = filters.get("date_range") if filters else None
+    cstart_date, cend_date = (date_range if date_range else (None, None))
+
+    if partner_id:
+        conditions.append("cr.partner_id = %(partner)s")
+        params["partner"] = partner_id
+    if state_id:
+        conditions.append("cr.state_id = %(state)s")
+        params["state"] = state_id
+    if filters.get("district"):
+        conditions.append("cr.district_id = %(district)s")
+        params["district"] = filters.get("district")
+    if filters.get("block"):
+        conditions.append("cr.block_id = %(block)s")
+        params["block"] = filters.get("block")
+    if filters.get("creche"):
+        conditions.append("cr.name = %(creche)s")
+        params["creche"] = filters.get("creche")
+    if cstart_date or cend_date:
+        conditions.append("(cr.creche_opening_date BETWEEN %(cstart_date)s AND %(cend_date)s)")
+        params["cstart_date"] = cstart_date if cstart_date else None  
+        params["cend_date"] = cend_date if cend_date else None  
+
+    level_mapping = {
+        "1": ["p.partner_name"],
+        "2": ["s.state_name"],
+        "3": ["s.state_name", "d.district_name"],
+        "4": ["s.state_name", "d.district_name", "b.block_name"],
+    }
+
+    selected_level = filters.get("level", "4")
+    group_by_fields = level_mapping.get(selected_level, level_mapping["4"])
+    group_by_field = ", ".join(group_by_fields)
+
+    select_fields = [
+        "p.partner_name AS partner",
+        "s.state_name AS state",
+        "d.district_name AS district",
+        "b.block_name AS block",
+    ]
+    selected_fields = []
+    for field in select_fields:
+        if any(field.split(" AS ")[0].split(".")[1] in group_by_field for group_by_field in group_by_fields):
+            selected_fields.append(field)
+
+    where_clause = " AND ".join(conditions)
+
+    query = f"""
+        SELECT
+            {", ".join(selected_fields)},
+            COUNT(cr.creche_opening_date) AS no_operational_creches, 
+            (SELECT COUNT(*) FROM `tabCreche Planned` cp WHERE cp.state_id = s.name) AS no_creche_planned,
+            GREATEST(0, 
+                (SELECT COUNT(*) FROM `tabCreche Planned` cp WHERE cp.state_id = s.name) - IFNULL(COUNT(cr.creche_opening_date), 0)
+            ) AS yet_to_operationalised
+        FROM 
+            `tabCreche` AS cr
+        LEFT JOIN 
+            `tabPartner` AS p 
+            ON cr.partner_id = p.name
+        LEFT JOIN 
+            `tabState` AS s 
+            ON cr.state_id = s.name
+        LEFT JOIN 
+            `tabDistrict` AS d 
+            ON cr.district_id = d.name
+        LEFT JOIN 
+            `tabBlock` AS b
+            ON cr.block_id = b.name
+        WHERE 
+            {where_clause} AND cr.creche_opening_date <= %(end_date)s
+        GROUP BY {group_by_field}
+        ORDER BY {group_by_field}
+    """
+    data = frappe.db.sql(query, params, as_dict=True)
+    return data

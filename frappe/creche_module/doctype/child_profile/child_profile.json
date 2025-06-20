@@ -1,0 +1,424 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-02-28 13:06:48.350090",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "child_geography_tab",
+  "state_id",
+  "district_id",
+  "block_id",
+  "gp_id",
+  "village_id",
+  "child_details_tab",
+  "child_name",
+  "father_name",
+  "mother_name",
+  "child_dob",
+  "gender_id",
+  "any_other_gender",
+  "currently_brestfeeding",
+  "does_child_have_any_disability",
+  "child_specially_abled",
+  "specially_abled_option",
+  "does_child_have_any_longterm_illness_more_than_6_months",
+  "if_yes",
+  "any_other_specify_illness",
+  "how_many_siblings_does_the_child_have",
+  "family_information_tab",
+  "name_of_primary_caregiver",
+  "relationship_with_child",
+  "any_other_relation",
+  "birth_order_of_the_child",
+  "mobile",
+  "socioeconomic_background_tab",
+  "family_lives_in",
+  "type_of_house",
+  "source_of_drinking_water_in_the_household",
+  "any_other",
+  "do_they_migrate_for_work",
+  "land_available_for_cultivation",
+  "education_level_of_parentscaregiver",
+  "tab_5_tab",
+  "entitlement_received_by_the_family_at_present",
+  "entitlement_received_id",
+  "entitlement_any_other",
+  "is_the_child_enrolled_for_take_home_ration",
+  "hidden_fields_tab",
+  "created_by",
+  "created_on",
+  "appcreated_by",
+  "appcreated_on",
+  "app_updated_on",
+  "app_updated_by",
+  "updated_by",
+  "updated_on",
+  "is_active",
+  "chhguid",
+  "hhguid"
+ ],
+ "fields": [
+  {
+   "fieldname": "child_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Child Details"
+  },
+  {
+   "default": "0",
+   "fieldname": "currently_brestfeeding",
+   "fieldtype": "Check",
+   "label": "Currently breastfeeding?",
+   "options": "Option"
+  },
+  {
+   "default": "0",
+   "fieldname": "does_child_have_any_disability",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Child have any disability?",
+   "options": "Option"
+  },
+  {
+   "default": "0",
+   "fieldname": "does_child_have_any_longterm_illness_more_than_6_months",
+   "fieldtype": "Check",
+   "label": "Child have any longterm illness (more than 6 months)?",
+   "options": "Option"
+  },
+  {
+   "fieldname": "if_yes",
+   "fieldtype": "Link",
+   "label": "If Yes",
+   "options": "Longterm Illness"
+  },
+  {
+   "fieldname": "how_many_siblings_does_the_child_have",
+   "fieldtype": "Int",
+   "label": "How many siblings does the child have?",
+   "length": 2
+  },
+  {
+   "fieldname": "family_information_tab",
+   "fieldtype": "Tab Break",
+   "label": "Family Info"
+  },
+  {
+   "fieldname": "name_of_primary_caregiver",
+   "fieldtype": "Data",
+   "label": "Name of Primary Caregiver"
+  },
+  {
+   "fieldname": "birth_order_of_the_child",
+   "fieldtype": "Int",
+   "label": "Birth order of the child",
+   "length": 2,
+   "non_negative": 1
+  },
+  {
+   "fieldname": "mobile",
+   "fieldtype": "Data",
+   "label": "Mobile",
+   "length": 10
+  },
+  {
+   "fieldname": "socioeconomic_background_tab",
+   "fieldtype": "Tab Break",
+   "label": "Socioeconomic"
+  },
+  {
+   "fieldname": "family_lives_in",
+   "fieldtype": "Link",
+   "label": "Family lives in",
+   "options": "Lives in"
+  },
+  {
+   "fieldname": "type_of_house",
+   "fieldtype": "Link",
+   "label": "Type of house",
+   "options": "House Type"
+  },
+  {
+   "fieldname": "source_of_drinking_water_in_the_household",
+   "fieldtype": "Link",
+   "label": "Source of drinking water in the household",
+   "options": "Source of Water"
+  },
+  {
+   "default": "0",
+   "fieldname": "do_they_migrate_for_work",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Do they migrate for work?",
+   "options": "Option"
+  },
+  {
+   "default": "0",
+   "fieldname": "land_available_for_cultivation",
+   "fieldtype": "Check",
+   "label": "Land available for cultivation?",
+   "options": "Option"
+  },
+  {
+   "fieldname": "education_level_of_parentscaregiver",
+   "fieldtype": "Link",
+   "label": "Education of Mother/Primary Caregiver",
+   "options": "Education Level"
+  },
+  {
+   "fieldname": "tab_5_tab",
+   "fieldtype": "Tab Break",
+   "label": "Entitlement"
+  },
+  {
+   "fieldname": "entitlement_received_by_the_family_at_present",
+   "fieldtype": "Table MultiSelect",
+   "ismultiselect": 1,
+   "label": "Entitlement received by the family at present",
+   "multiselectlink": "Entitlement",
+   "options": "Entitlement child table"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_the_child_enrolled_for_take_home_ration",
+   "fieldtype": "Check",
+   "label": "Is the child enrolled for Take Home Ration",
+   "options": "Option"
+  },
+  {
+   "fieldname": "gender_id",
+   "fieldtype": "Link",
+   "label": "Gender",
+   "options": "Gender"
+  },
+  {
+   "fieldname": "entitlement_any_other",
+   "fieldtype": "Data",
+   "label": "Entitlement Any Other"
+  },
+  {
+   "fieldname": "any_other_specify_illness",
+   "fieldtype": "Data",
+   "label": "Any other (specify)"
+  },
+  {
+   "fieldname": "hidden_fields_tab",
+   "fieldtype": "Tab Break",
+   "hidden": 1,
+   "label": "Hidden Fields"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Created By"
+  },
+  {
+   "fieldname": "child_name",
+   "fieldtype": "Data",
+   "label": "Child Name",
+   "length": 128
+  },
+  {
+   "fieldname": "created_on",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "Created On"
+  },
+  {
+   "fieldname": "updated_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Updated By"
+  },
+  {
+   "fieldname": "updated_on",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "Updated On"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "child_dob",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "relationship_with_child",
+   "fieldtype": "Link",
+   "label": "Relation with the child",
+   "options": "Relation"
+  },
+  {
+   "fieldname": "chhguid",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "in_standard_filter": 1,
+   "label": "HHCGUID"
+  },
+  {
+   "fieldname": "appcreated_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "appcreated_by"
+  },
+  {
+   "fieldname": "appcreated_on",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "appcreated_on"
+  },
+  {
+   "fieldname": "app_updated_on",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "app_updated_on"
+  },
+  {
+   "fieldname": "app_updated_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "app_updated_by"
+  },
+  {
+   "fieldname": "entitlement_received_id",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Entitlement received ID"
+  },
+  {
+   "fieldname": "father_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Father Name",
+   "length": 128
+  },
+  {
+   "fieldname": "mother_name",
+   "fieldtype": "Data",
+   "label": "Mother Name",
+   "length": 128
+  },
+  {
+   "fieldname": "any_other",
+   "fieldtype": "Data",
+   "label": "Any other"
+  },
+  {
+   "fieldname": "any_other_relation",
+   "fieldtype": "Data",
+   "label": "Any other"
+  },
+  {
+   "fieldname": "any_other_gender",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Any other"
+  },
+  {
+   "default": "0",
+   "fieldname": "child_specially_abled",
+   "fieldtype": "Check",
+   "label": "Child specially abled?"
+  },
+  {
+   "fieldname": "specially_abled_option",
+   "fieldtype": "Table MultiSelect",
+   "ismultiselect": 1,
+   "label": "Please mention the category",
+   "multiselectlink": "Disability",
+   "options": "Specially abled child table"
+  },
+  {
+   "fieldname": "child_geography_tab",
+   "fieldtype": "Tab Break",
+   "label": "Child Geography"
+  },
+  {
+   "fieldname": "state_id",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "State",
+   "options": "State",
+   "reqd": 1
+  },
+  {
+   "fieldname": "district_id",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "District",
+   "options": "District",
+   "reqd": 1
+  },
+  {
+   "fieldname": "block_id",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Block",
+   "options": "Block",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gp_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Gram Panchayat",
+   "options": "Gram Panchayat",
+   "reqd": 1
+  },
+  {
+   "fieldname": "village_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Village",
+   "options": "Village",
+   "reqd": 1
+  },
+  {
+   "fieldname": "hhguid",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "in_standard_filter": 1,
+   "label": "HHGUID"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_appi": 1,
+ "links": [],
+ "modified": "2025-05-07 15:50:09.192073",
+ "modified_by": "Administrator",
+ "module": "Creche Module",
+ "name": "Child Profile",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "child_name"
+}

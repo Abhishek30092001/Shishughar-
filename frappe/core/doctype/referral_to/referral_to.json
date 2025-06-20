@@ -1,0 +1,58 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-05-24 15:16:43.512603",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "referral_to",
+  "is_active",
+  "seq_id"
+ ],
+ "fields": [
+  {
+   "fieldname": "referral_to",
+   "fieldtype": "Data",
+   "label": "Referral to"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "seq_id",
+   "fieldtype": "Int",
+   "label": "Seq.ID",
+   "length": 4
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-07-03 20:14:46.877727",
+ "modified_by": "Administrator",
+ "module": "Core",
+ "name": "Referral to",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "referral_to"
+}

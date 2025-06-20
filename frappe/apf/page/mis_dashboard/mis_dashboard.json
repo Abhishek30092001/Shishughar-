@@ -1,0 +1,47 @@
+{
+ "content": null,
+ "creation": "2025-01-08 17:56:22.897832",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 45,
+ "modified": "2025-02-20 18:04:58.965440",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "mis_dashboard",
+ "owner": "Administrator",
+ "page_name": "mis_dashboard",
+ "roles": [
+  {
+   "role": "Full Admin"
+  },
+  {
+   "role": "Foundation Central Team"
+  },
+  {
+   "role": "APF State Admin"
+  },
+  {
+   "role": "APF State"
+  },
+  {
+   "role": "APF District"
+  },
+  {
+   "role": "APF Block"
+  },
+  {
+   "role": "APPI Administrator"
+  },
+  {
+   "role": "MIS Manager"
+  },
+  {
+   "role": "M&E Manager"
+  }
+ ],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 1,
+ "title": "MIS Dashboard"
+}

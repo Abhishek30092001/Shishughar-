@@ -1,0 +1,249 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-04-16 15:27:37.884520",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "creche_day_details_tab",
+  "creche_day_details_section",
+  "partner_id",
+  "state_id",
+  "district_id",
+  "block_id",
+  "gp_id",
+  "village_id",
+  "creche_id",
+  "column_break_rafi",
+  "date_of_attendance",
+  "is_shishu_ghar_is_closed_for_the_day",
+  "reason_for_closure_id",
+  "reason_other",
+  "open_time",
+  "close_time",
+  "isecd_activities_done_for_the_day",
+  "children_attendance_tab",
+  "childattendancelist",
+  "number_of_childrens_served_tab",
+  "breakfast",
+  "lunch",
+  "egg",
+  "evening_snacks",
+  "hiddenfield_tab",
+  "column_break_eftz",
+  "childattenguid",
+  "app_created_on",
+  "app_created_by"
+ ],
+ "fields": [
+  {
+   "default": "Today",
+   "fieldname": "date_of_attendance",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Date of Attendance",
+   "reqd": 1
+  },
+  {
+   "fieldname": "creche_day_details_section",
+   "fieldtype": "Section Break",
+   "label": "Creche Day Details"
+  },
+  {
+   "fieldname": "partner_id",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Partner",
+   "options": "Partner",
+   "reqd": 1
+  },
+  {
+   "fieldname": "state_id",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "State",
+   "options": "State",
+   "reqd": 1
+  },
+  {
+   "fieldname": "district_id",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "District",
+   "options": "District",
+   "reqd": 1
+  },
+  {
+   "fieldname": "block_id",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Block",
+   "options": "Block",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gp_id",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Gram Panchayat",
+   "options": "Gram Panchayat",
+   "reqd": 1
+  },
+  {
+   "fieldname": "village_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Village",
+   "options": "Village",
+   "reqd": 1
+  },
+  {
+   "fieldname": "creche_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Creche",
+   "options": "Creche",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_rafi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_shishu_ghar_is_closed_for_the_day",
+   "fieldtype": "Check",
+   "label": "Is Shishu Ghar closed for the day?"
+  },
+  {
+   "fieldname": "open_time",
+   "fieldtype": "Time",
+   "label": "Open Time"
+  },
+  {
+   "fieldname": "close_time",
+   "fieldtype": "Time",
+   "label": "Close Time"
+  },
+  {
+   "default": "0",
+   "fieldname": "isecd_activities_done_for_the_day",
+   "fieldtype": "Check",
+   "label": "Is ECD activities done for the day?"
+  },
+  {
+   "fieldname": "children_attendance_tab",
+   "fieldtype": "Tab Break",
+   "label": "Children Attendance"
+  },
+  {
+   "fieldname": "number_of_childrens_served_tab",
+   "fieldtype": "Tab Break",
+   "label": "Number of Childrens Served"
+  },
+  {
+   "fieldname": "breakfast",
+   "fieldtype": "Int",
+   "label": "Breakfast",
+   "length": 2
+  },
+  {
+   "fieldname": "lunch",
+   "fieldtype": "Int",
+   "label": "Lunch",
+   "length": 2
+  },
+  {
+   "fieldname": "egg",
+   "fieldtype": "Int",
+   "label": "Egg",
+   "length": 2
+  },
+  {
+   "fieldname": "evening_snacks",
+   "fieldtype": "Int",
+   "label": "Evening Snacks",
+   "length": 2
+  },
+  {
+   "fieldname": "creche_day_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Creche Day Details"
+  },
+  {
+   "fieldname": "reason_for_closure_id",
+   "fieldtype": "Link",
+   "label": "Reason for closure",
+   "options": "Reason for Closure"
+  },
+  {
+   "fieldname": "hiddenfield_tab",
+   "fieldtype": "Tab Break",
+   "hidden": 1,
+   "label": "Hidden Fields"
+  },
+  {
+   "fieldname": "column_break_eftz",
+   "fieldtype": "Column Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "childattenguid",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "childattenguid",
+   "unique": 1
+  },
+  {
+   "fieldname": "app_created_on",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "App Created On"
+  },
+  {
+   "fieldname": "app_created_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "App Created By"
+  },
+  {
+   "fieldname": "childattendancelist",
+   "fieldtype": "Table",
+   "options": "Child Attendance List"
+  },
+  {
+   "fieldname": "reason_other",
+   "fieldtype": "Data",
+   "label": "Reason Other"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_appi": 1,
+ "links": [],
+ "modified": "2024-09-17 14:55:21.555704",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "Child Attendance",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,53 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-03-15 12:25:38.149967",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "type_of_logic",
+  "is_active"
+ ],
+ "fields": [
+  {
+   "fieldname": "type_of_logic",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Type of Logic",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-03-15 12:28:40.562107",
+ "modified_by": "Administrator",
+ "module": "APF",
+ "name": "TypeOfLogics",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "type_of_logic"
+}

@@ -1,0 +1,407 @@
+@import "./desk/variables";
+
+body {
+	@include media-breakpoint-up(sm) {
+		background-color: var(--bg-light-gray);
+	}
+	.page-content-wrapper {
+		min-height: calc(100vh - 220px);
+	}
+	.web-footer {
+		display: none;
+	}
+}
+
+.for-forgot,
+.for-login-with-email-link,
+.for-signup,
+.for-email-login {
+	display: none;
+}
+
+.for-login,
+.for-forgot,
+.for-login-with-email-link,
+.for-signup,
+.for-email-login {
+	.page-card {
+		padding: 45px 10px;
+		background-color: #fff;
+		max-width: 400px;
+		margin: 0 auto;
+		border-radius: var(--border-radius-md);
+		border: 1px solid var(--border-color);
+
+		form {
+			max-width: 320px;
+			margin: 0 auto;
+
+			.form-group {
+				margin-bottom: var(--margin-sm);
+			}
+		}
+
+		.page-card-actions {
+			margin-top: var(--margin-lg);
+		}
+
+		.page-card-body {
+			::placeholder, /* Chrome, Firefox, Opera, Safari 10.1+ */
+			::-ms-input-placeholder {
+				/* Microsoft Edge */
+				color: var(--text-light);
+				opacity: 1; /* Firefox */
+			}
+
+			input[type="text"],
+			input[type="email"],
+			input[type="password"] {
+				border: none;
+				color: var(--text-color);
+				@include get_textstyle("base", "regular");
+				background-color: var(--control-bg);
+				margin-bottom: 1rem;
+			}
+
+			&.invalid {
+				input[type="text"],
+				input[type="email"],
+				input[type="password"] {
+					border: 1px solid var(--red-500);
+				}
+			}
+
+			.form-label {
+				@include get_textstyle("base", "regular");
+			}
+
+			.forgot-password-message {
+				text-align: right;
+				line-height: 1;
+
+				> * {
+					color: var(--text-light);
+					@include get_textstyle("sm", "regular");
+				}
+			}
+
+			.field-icon {
+				left: 9px;
+				top: 5px;
+				position: absolute;
+				z-index: 2;
+			}
+
+			.email-field,
+			.password-field {
+				position: relative;
+
+				input {
+					padding-left: 35px;
+				}
+
+				.toggle-password {
+					right: 9px;
+					top: 5px;
+					position: absolute;
+					z-index: 2;
+					cursor: pointer;
+					font-size: 12px;
+				}
+			}
+
+			.btn-login-option {
+				@include get_textstyle("base", "medium");
+				color: var(--text-gray-700);
+				background: var(--gray-100);
+				box-shadow: none;
+				border: none;
+				display: flex;
+				place-content: center;
+
+				&.btn-salesforce {
+					i {
+						color: var(--blue-400);
+					}
+				}
+
+				img {
+					margin-right: var(--padding-xs);
+				}
+
+				&:hover {
+					border: none;
+					background: var(--gray-300);
+				}
+			}
+
+			.social-logins {
+				margin-top: var(--margin-md);
+				@include get_textstyle("base", "regular");
+
+				.social-login-buttons {
+					margin-top: var(--margin-md);
+
+					.login-button-wrapper {
+						@include media-breakpoint-up(md) {
+							min-width: 33.33%;
+						}
+						min-width: 50%;
+						padding: 0 4px;
+						margin-bottom: var(--margin-md);
+
+						&:last-child {
+							margin-bottom: 0;
+						}
+					}
+				}
+			}
+
+			.login-divider {
+				margin: var(--margin-md) 0;
+			}
+		}
+	}
+
+	.sign-up-message {
+		margin-top: 1rem;
+		margin-bottom: 0;
+		color: var(--text-light);
+		@include get_textstyle("base", "regular");
+		a {
+			color: var(--primary);
+		}
+	}
+
+	.invalid-login {
+		-webkit-animation: wiggle 0.5s linear;
+	}
+
+	@-webkit-keyframes wiggle {
+		8%,
+		41% {
+			-webkit-transform: translateX(-10px);
+		}
+		25%,
+		58% {
+			-webkit-transform: translateX(10px);
+		}
+		75% {
+			-webkit-transform: translateX(-5px);
+		}
+		92% {
+			-webkit-transform: translateX(5px);
+		}
+		0%,
+		100% {
+			-webkit-transform: translateX(0);
+		}
+	}
+}
+
+.page-card-head {
+	padding: max(5vh, 30px) 0 14px 0px;
+	margin: 0 auto;
+	text-align: center;
+	font-size: var(--text-xl);
+	font-weight: 600;
+
+	img {
+		max-height: 42px;
+	}
+
+	h4 {
+		margin-top: 1rem;
+		font-size: var(--text-xl);
+		font-weight: var(--weight-semibold);
+		letter-spacing: 0.01em;
+		color: var(--text-color);
+	}
+}
+
+
+
+
+
+nav.navbar.navbar-light.navbar-expand-lg {
+    background: #5979aa;
+}
+
+nav.navbar.navbar-light.navbar-expand-lg .container {
+    width: 100%;
+    max-width: 100%;
+}
+
+a.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+nav.navbar.navbar-light.navbar-expand-lg a.navbar-brand {
+    background: #fff;
+}
+
+.navbar-brand img {
+    width: 80px;
+    height: auto;
+    max-height: 170px;
+    max-width: unset;
+}
+
+.logo-name h5 {
+    color: #5979aa;
+    font-weight: 900;
+    margin-bottom: 0;
+	font-size:12px;
+}
+
+.logo-nam p {
+    margin-bottom: 0;
+}
+
+.logo-name p {
+    margin-bottom: 0;
+	font-size:12px;
+}
+
+.logo-name {
+    margin-left: 15px;
+}
+
+section.for-login {
+    width: 400px;
+    background: #fff;
+    box-shadow: 0 0 30px #299cd042;
+    border-radius: 30px;
+    padding: 30px 30px;
+}
+
+.page_content {
+    min-height: unset;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-card-head {
+    padding: 0;
+    padding-bottom: 30px;
+}
+
+.login-content.page-card {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+}
+
+.form-group .form-control {
+    background-color: #F2F7FF !important;
+    height: 44px;
+    color: #506254 !important;
+    border: 1px solid #b8d6bf !important;
+}
+
+.form-group .form-control::placeholder {
+
+    color: #506254 !important;
+}
+
+.page-card-head img {
+    max-height: 90px;
+}
+
+.page-card-head h4 {
+    margin-top: 9px;
+    margin-bottom: 0;
+}
+
+svg.field-icon.email-icon {
+}
+
+.for-login .page-card .page-card-body .field-icon {top: 13px;}
+
+.page-card-actions  .btn-block.btn-login {
+    background: #369A8D;
+    padding: 12px;
+}
+
+button.btn.btn-sm.btn-primary.btn-block.btn-login {}
+
+.page-card-actions .btn-block.btn-login:hover {
+    background: #0a8373;
+}
+
+.login-button-wrapper {}
+
+a.btn.btn-block.btn-default.btn-sm.btn-login-option.btn-login-with-email-link {
+    background: transparent;
+}
+
+.login-with-email-link.social-login-buttons {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+
+footer.web-footer {
+    display: block;
+    padding: 0;
+    min-height: unset;
+    background: transparent;
+    border: 0;
+}
+
+
+
+.text-right.col-md-6 {
+    display: none;
+}
+
+.footer-links, .footer-info {
+    display: none;
+}
+
+footer.web-footer .container {
+    max-width: 100%;
+    padding: 0;
+}
+
+footer.web-footer .container .row {
+    margin: 0;
+    width: 100%;
+}
+
+footer.web-footer .container .row .text-left.col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+
+img.footer-logo {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    object-position: center;
+    object-fit: fill;
+}
+
+nav.navbar.navbar-light.navbar-expand-lg a.navbar-brand {
+    background: #fff;
+    border-radius: 0 5px 5px 0;
+    padding-right: 15px;
+	padding-top: 0;
+    padding-bottom: 0;
+}
+nav.navbar.navbar-light.navbar-expand-lg .container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+
+
+
